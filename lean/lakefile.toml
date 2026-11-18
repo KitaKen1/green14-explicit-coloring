@@ -1,0 +1,16 @@
+name = "green14"
+version = "0.1.0"
+defaultTargets = ["Green14"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+git = "https://github.com/leanprover-community/mathlib4.git"
+rev = "f6090c7095e1e56b3464c1daba5f24631f1290d2"
+
+[[lean_lib]]
+name = "Green14"
+
+[[lean_lib]]
+name = "Comparator"
+globs = ["Comparator.+"]

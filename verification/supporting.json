@@ -1,0 +1,8 @@
+{
+  "challenge_module": "Comparator.Challenge",
+  "solution_module": "Comparator.Solution",
+  "theorem_names": ["Green14.Review.primeModuli", "Green14.Review.fromCover"],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "external_kernels": {"nanoda": ["nanoda_bin"]}
+}

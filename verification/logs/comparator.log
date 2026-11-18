@@ -1,0 +1,25 @@
+WARNING: Sandbox disabled, this run is not trustworthy.
+Resolving dependencies
+Building Comparator.Challenge
+Build completed successfully (3126 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, Green14.Review.primeModuli, Green14.Review.fromCover, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Comparator.Challenge
+Building Comparator.Solution
+ℹ [3136/3137] Replayed Green14
+info: Green14.lean:7:0: 'Green14.q_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Green14.lean:8:0: 'Green14.v_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Green14.lean:9:0: 'Green14.binaryTernary_noTriple' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Green14.lean:10:0: 'Green14.noRedTriple' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Green14.lean:11:0: 'Green14.greedyTerminates' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Green14.lean:12:0: 'Green14.valid_of_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Green14.lean:13:0: 'Green14.Greedy.smallModel' depends on axioms: [propext]
+info: Green14.lean:14:0: 'Green14.Greedy.answer_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+ℹ [3137/3137] Replayed Comparator.Solution
+info: Comparator/Solution.lean:15:0: 'Green14.Review.primeModuli' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: Comparator/Solution.lean:16:0: 'Green14.Review.fromCover' depends on axioms: [propext, Classical.choice, Quot.sound]
+Build completed successfully (3137 jobs).
+Exporting #[Quot, Quot.mk, Quot.lift, Quot.ind, Green14.Review.primeModuli, Green14.Review.fromCover, propext, Classical.choice, Quot.sound, Nat.add, Nat.sub, Nat.mul, Nat.pow, Nat.gcd, Nat.div, Nat.mod, Nat.beq, Nat.ble, Nat.land, Nat.lor, Nat.xor, Nat.shiftLeft, Nat.shiftRight, String.ofList, Char.ofNat, List, eagerReduce, Nat, String, String.mk, Char, optParam, autoParam, semiOutParam, outParam] from Comparator.Solution
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Your solution is okay!

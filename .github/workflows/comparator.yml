@@ -1,0 +1,68 @@
+name: Lean comparator
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - name: Check construction and pinned sources
+        run: |
+          python3 verification/prepare_sources.py --check
+          python3 verification/green14_coloring.py
+      - name: Set up the comparator sandbox
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y apparmor bubblewrap
+          sandbox=$(command -v bwrap)
+          probe=(--ro-bind / / --dev /dev --proc /proc --unshare-all -- /usr/bin/true)
+          if ! "$sandbox" "${probe[@]}"; then
+            # Scope the user-namespace permission to this executable on the runner.
+            sudo install -m 0755 "$sandbox" /usr/local/bin/green14-bwrap
+            sandbox=/usr/local/bin/green14-bwrap
+            sudo apparmor_parser -r <<'APPARMOR'
+          abi <abi/4.0>,
+          include <tunables/global>
+          profile green14-bwrap /usr/local/bin/green14-bwrap flags=(unconfined) {
+            userns,
+          }
+          APPARMOR
+            "$sandbox" "${probe[@]}"
+          fi
+          echo "COMPARATOR_BWRAP=$sandbox" >> "$GITHUB_ENV"
+      - name: Install elan
+        run: |
+          curl --proto '=https' --tlsv1.2 -fsSL https://elan.lean-lang.org/elan-init.sh -o "$RUNNER_TEMP/green14-elan-init.sh"
+          sh "$RUNNER_TEMP/green14-elan-init.sh" -y --default-toolchain none --no-modify-path
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Fetch pinned Lean dependencies
+        working-directory: lean
+        run: |
+          mapfile -t mathlib_modules < <(awk '/^public import Mathlib\./ { print $3 }' Green14Lean4Web.lean)
+          lake exe cache get "${mathlib_modules[@]}"
+      - name: Check the final declaration with comparator and nanoda
+        run: python3 verification/verify.py
+      - name: Replay the candidate in a fresh Lean kernel
+        working-directory: lean
+        run: |
+          lake env leanchecker --fresh --verbose Comparator.Candidate 2>&1 | tee ../verification/results/replay.log
+          printf 'PASS\n' > ../verification/results/replay-status.txt
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: comparator-${{ github.run_id }}-${{ github.run_attempt }}
+          path: verification/results/
+          retention-days: 90
+          if-no-files-found: ignore

@@ -1,0 +1,18 @@
+{
+  "targets": [
+    "Green14.Review.primeModuli",
+    "Green14.Review.fromCover"
+  ],
+  "kernel": "nanoda",
+  "accepted": true,
+  "lake_bubblewrap": false,
+  "negative_controls_rejected": [
+    "type mismatch",
+    "sorryAx"
+  ],
+  "full_fc_target_checked": true,
+  "full_fc_targets": [
+    "Green14.green_14_variant_2r2",
+    "Green14.Review.answer_parameter"
+  ]
+}

@@ -1,0 +1,7 @@
+'Green14.q_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Green14.v_prime' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Green14.binaryTernary_noTriple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Green14.noRedTriple' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Green14.greedyTerminates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Green14.valid_of_cover' depends on axioms: [propext, Classical.choice, Quot.sound]
+'Green14.Greedy.smallModel' depends on axioms: [propext]

@@ -1,0 +1,8 @@
+{
+  "challenge_module": "Comparator.Upstream",
+  "solution_module": "Comparator.Candidate",
+  "theorem_names": ["Green14.green_14_variant_2r2", "Green14.Review.answer_parameter"],
+  "definition_names": ["Green14.green_14_variant_2r2.answer"],
+  "permitted_axioms": ["propext", "Classical.choice", "Quot.sound"],
+  "external_kernels": {"nanoda": ["nanoda_bin"]}
+}

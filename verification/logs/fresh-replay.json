@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-18",
+  "platform": "macOS arm64",
+  "lean_toolchain": "leanprover/lean4:v4.35.0-rc3",
+  "working_directory": "lean",
+  "command": "lake env leanchecker --fresh Comparator.Candidate",
+  "exit_code": 0
+}
