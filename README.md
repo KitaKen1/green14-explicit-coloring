@@ -65,6 +65,8 @@ The workflow retains the `comparator-<run-id>-<attempt>` artifact for 90 days. I
 
 ### Certification after 90 days
 
+The repository preserves the original ZIPs and verification records for CI run `44248902963`, attempt `1`. The Comparator ZIP matches the SHA-256 digest recorded by GitHub. [Archive](verification/logs/ci-44248902963/) · [Workflow logs ZIP](verification/logs/ci-44248902963/workflow-logs.zip) · [Comparator ZIP](verification/logs/ci-44248902963/comparator.zip) · [SHA256SUMS](verification/logs/ci-44248902963/SHA256SUMS)
+
 Before the artifact expires, [archive-run.py](verification/archive-run.py) can preserve a successful attempt using an authenticated GitHub CLI. It checks the tested commit and GitHub's artifact digest, then saves the original ZIPs, run metadata, proof receipts and a SHA-256 checksum file.
 
 ```sh
