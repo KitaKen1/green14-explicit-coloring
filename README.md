@@ -59,7 +59,9 @@ Run the [Lean comparator workflow](.github/workflows/comparator.yml) manually fr
 
 ### Certification within 90 days
 
-The workflow retains the `comparator-<run-id>-<attempt>` artifact for 90 days. It contains the comparator log, the fresh replay result and the verification receipt. The final declaration, fixed parameter and fresh kernel replay passed the local macOS checks on 18 November 2026. The GitHub-hosted run is pending. [Local comparator log](verification/logs/fc-target.log) · [Local receipt](verification/logs/result.json) · [Fresh replay receipt](verification/logs/fresh-replay.json)
+The GitHub-hosted verification passed on 18 November 2026. It checked the final declaration and fixed parameter with Comparator and nanoda, and replayed the complete candidate environment in a fresh Lean kernel. [Tested commit `0584514`](https://github.com/KitaKen1/green14-explicit-coloring/commit/05845144e51d7c10eeda31e64cc1239f534992f6) · [GitHub Actions run](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/44248902963)
+
+The workflow retains the `comparator-<run-id>-<attempt>` artifact for 90 days. It contains the comparator log, the fresh replay result and the verification receipt. The local macOS checks passed on the same day. [CI artifact](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/44248902963/artifacts/14403621363) · [Local comparator log](verification/logs/fc-target.log) · [Local receipt](verification/logs/result.json) · [Fresh replay receipt](verification/logs/fresh-replay.json)
 
 ### Certification after 90 days
 
