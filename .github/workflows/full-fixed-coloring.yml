@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
   push:
     branches: [green14-full-verification]
+    paths:
+      - verification/full-sweep/src/**
 permissions:
   contents: read
 defaults:

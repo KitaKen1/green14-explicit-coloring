@@ -1,0 +1,28 @@
+name: Archive fixed-colouring verification
+on:
+  push:
+    branches: [green14-full-verification]
+    paths:
+      - verification/full-sweep/archive-request.json
+permissions:
+  actions: read
+  contents: write
+jobs:
+  archive:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: green14-full-verification
+      - name: Preserve the original workflow logs and artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 verification/archive-full-sweep.py verification/full-sweep/archive-request.json
+      - name: Push the verified evidence and checksums
+        run: |
+          git add verification/logs/
+          if ! git diff --cached --quiet; then
+            git -c user.name=github-actions[bot] -c user.email=41898282+github-actions[bot]@users.noreply.github.com commit -m 'Archive the public Green 14 proof run with SHA-256'
+            git push origin HEAD:refs/heads/green14-full-verification
+          fi
