@@ -1,0 +1,31 @@
+{
+  "challenge_module": "FullSweepChallenge",
+  "solution_module": "CyclicRedSetFinal",
+  "theorem_names": [
+    "Green14.green_14_variant_2r2_red_set",
+    "Green14.redSet_fixed_board",
+    "Green14Search.Medium.Fixed.Repair.OrbitCover.AllLanes.complete_recorded_runs",
+    "Green14Search.Medium.Fixed.Repair.OrbitCover.AllLanes.maximal_run_bound"
+  ],
+  "definition_names": [
+    "Green14.green_14_variant_2r2_red_set.answer",
+    "Green14Search.Medium.Fixed.R",
+    "Green14Search.Medium.Fixed.redAt",
+    "Green14Search.Medium.Fixed.Repair.Complete",
+    "Green14Search.Medium.Fixed.Repair.recordedRuns",
+    "Green14Search.Medium.Fixed.Repair.baseRed",
+    "Green14Search.Medium.Fixed.Repair.BaseSweep.boardEnd",
+    "Green14Search.Medium.Fixed.Repair.BlueStartCount.LeftEnd",
+    "Green14Search.Medium.Fixed.Repair.BlueStartCount.Starts"
+  ],
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "external_kernels": {
+    "nanoda": [
+      "nanoda_bin"
+    ]
+  }
+}

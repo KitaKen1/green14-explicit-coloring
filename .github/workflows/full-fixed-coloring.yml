@@ -1,0 +1,183 @@
+name: Full fixed-board Lean proof
+on:
+  workflow_dispatch:
+  push:
+    branches: [green14-full-verification]
+permissions:
+  contents: read
+defaults:
+  run:
+    shell: bash
+    working-directory: verification/full-sweep
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    outputs:
+      indices: ${{ steps.plan.outputs.indices }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - id: plan
+        run: echo "indices=$(jq -c '[.cases|keys[]]' full-plan.json)" >> "$GITHUB_OUTPUT"
+      - name: Restore toolchain and mathematical dependencies
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.elan
+            verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
+          key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          curl -fsSL --retry 3 https://elan.lean-lang.org/elan-init.sh -o "$RUNNER_TEMP/elan.sh"
+          sh "$RUNNER_TEMP/elan.sh" -y --default-toolchain none --no-modify-path
+          export PATH="$HOME/.elan/bin:$PATH"
+          mapfile -t deps < <(jq -r '.mathlib[]' full-plan.json)
+          lake exe cache get "${deps[@]}"
+      - run: |
+          set -o pipefail
+          export PATH="$HOME/.elan/bin:$PATH"
+          bash replay-memory.sh
+          sha256sum -c SHA256SUMS > "$RUNNER_TEMP/full-sweep-source-checksums.log"
+          python3 verify.py prepare 2>&1 | tee prepare.log
+          tar -czf support.tar.gz out/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: support
+          path: |
+            verification/full-sweep/support.tar.gz
+            verification/full-sweep/prepare.log
+          compression-level: 0
+  shard:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        id: ${{ fromJSON(needs.prepare.outputs.indices) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.elan
+            verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
+          key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
+          fail-on-cache-miss: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: support
+          path: verification/full-sweep
+      - name: Prove every assigned difference
+        env:
+          ID: ${{ matrix.id }}
+        run: |
+          set -o pipefail
+          export PATH="$HOME/.elan/bin:$PATH"
+          tar -xzf support.tar.gz
+          bash replay-memory.sh
+          python3 verify.py shard "$ID" 2>&1 | tee "shard-$ID.log"
+          mapfile -t files < <(jq -r --argjson i "$ID" '.cases[$i].modules[]' full-plan.json)
+          for m in "${files[@]}"; do test -f "out/$m.olean"; done
+          tar -czf "shard-$ID.tar.gz" out/CyclicGates* out/PeriodicRange*
+          sha256sum "shard-$ID.tar.gz" > "shard-$ID.sha256"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: proof-${{ matrix.id }}
+          path: |
+            verification/full-sweep/shard-*.tar.gz
+            verification/full-sweep/shard-*.sha256
+            verification/full-sweep/shard-*.log
+          compression-level: 0
+          overwrite: true
+  assemble:
+    needs: shard
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.elan
+            verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
+          key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
+          fail-on-cache-miss: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: support
+          path: verification/full-sweep
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: proof-*
+          merge-multiple: true
+          path: verification/full-sweep
+      - name: Build and export the unconditional declaration
+        run: |
+          set -o pipefail
+          export PATH="$HOME/.elan/bin:$PATH"
+          bash replay-memory.sh
+          tar -xzf support.tar.gz
+          for s in shard-*.sha256; do sha256sum -c "$s"; done
+          for f in shard-*.tar.gz; do tar -xzf "$f"; done
+          python3 verify.py assemble 2>&1 | tee assemble.log
+          sha256sum out/{Challenge,Solution}.ndjson > compared.sha256
+          tar -czf inputs.tar.gz out/{Challenge,Solution}.ndjson compared.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unconditional-exports
+          path: |
+            verification/full-sweep/inputs.tar.gz
+            verification/full-sweep/assemble.log
+          compression-level: 0
+  replay:
+    needs: assemble
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/cache/restore@v4
+        with:
+          path: |
+            ~/.elan
+            verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
+          key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
+          fail-on-cache-miss: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: unconditional-exports
+          path: verification/full-sweep
+      - name: Check the exact public target in the Linux sandbox
+        run: |
+          set -o pipefail
+          export PATH="$HOME/.elan/bin:$PATH"
+          tar -xzf inputs.tar.gz
+          sha256sum -c compared.sha256
+          bash replay-memory.sh
+          bash sandbox.sh
+          sudo install -m 0755 nanoda-one.py /usr/local/bin/green14-nanoda-one
+          KERNEL="$(lean --print-prefix)/bin/nanoda_bin"
+          jq --arg bin "$KERNEL" '.external_kernels.nanoda=["/usr/local/bin/green14-nanoda-one",$bin]' comparator.json > comparator.tmp
+          mv comparator.tmp comparator.json
+          python3 verify.py replay 2>&1 | tee comparator.log
+          grep -F 'nanoda kernel accepts the solution' comparator.log
+          grep -F 'Lean default kernel accepts the solution' comparator.log
+          if grep -F 'Sandbox disabled' comparator.log; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: comparator-log
+          path: |
+            verification/full-sweep/comparator.log
+            verification/full-sweep/comparator.json
+            verification/full-sweep/compared.sha256

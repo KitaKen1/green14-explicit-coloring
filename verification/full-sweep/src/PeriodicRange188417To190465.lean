@@ -1,0 +1,21 @@
+import CyclicGates188417To188545
+import CyclicGates188545To188673
+import CyclicGates188673To188801
+import CyclicGates188801To188929
+import CyclicGates188929To189057
+import CyclicGates189057To189185
+import CyclicGates189185To189313
+import CyclicGates189313To189441
+import CyclicGates189441To189569
+import CyclicGates189569To189697
+import CyclicGates189697To189825
+import CyclicGates189825To189953
+import CyclicGates189953To190081
+import CyclicGates190081To190209
+import CyclicGates190209To190337
+import CyclicGates190337To190465
+namespace Green14Search.Medium.Fixed.Repair.OrbitCover.AllLanes.PeriodicRange188417To190465
+open BaseSweep
+theorem complete : OnRange 188417 190465 := (range_join (range_join (range_join (range_join CyclicGates188417To188545.complete CyclicGates188545To188673.complete) (range_join CyclicGates188673To188801.complete CyclicGates188801To188929.complete)) (range_join (range_join CyclicGates188929To189057.complete CyclicGates189057To189185.complete) (range_join CyclicGates189185To189313.complete CyclicGates189313To189441.complete))) (range_join (range_join (range_join CyclicGates189441To189569.complete CyclicGates189569To189697.complete) (range_join CyclicGates189697To189825.complete CyclicGates189825To189953.complete)) (range_join (range_join CyclicGates189953To190081.complete CyclicGates190081To190209.complete) (range_join CyclicGates190209To190337.complete CyclicGates190337To190465.complete))))
+#print axioms complete
+end Green14Search.Medium.Fixed.Repair.OrbitCover.AllLanes.PeriodicRange188417To190465

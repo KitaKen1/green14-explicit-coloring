@@ -39,6 +39,10 @@ Take $L=10^{20}$. The next $L$ positions after the progression contain at most $
 
 There are initially fewer than $Nv<v^3$ progressions. After $T$ steps the remaining count is at most $v^3(1-\gamma)^T\le v^3e^{-T\gamma}$. Exact arithmetic gives $\lfloor T\gamma\rfloor=273$ and $v^3<2^{270}$. The upper bound is below $1$, so the colouring has no all-blue $r$-term progression. The algorithm uses polynomially many arithmetic operations in $N$. At the stated parameters, generating the entire table is impractical. [Greedy coverage](lean/Green14/Covering.lean)
 
+## Fixed colouring at `r = 177147`
+
+This branch runs the full Lean proof for the fixed colouring. The workflow builds 173 consecutive ranges and checks the assembled declaration with Lean Comparator and nanoda. [Proof package](verification/full-sweep/) · [CI runs](https://github.com/KitaKen1/green14-explicit-coloring/actions/workflows/full-fixed-coloring.yml?query=branch%3Agreen14-full-verification)
+
 ## Appendix: Timeline
 
 | Date | Result | Relevance to this question |
