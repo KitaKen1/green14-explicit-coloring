@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9f7">
+  <title>Colour checker · Green 14</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #18231f; --muted: #52605a; --rule: #cfd7d1; --paper: #f8f9f7;
+      --red: #b53536; --blue: #305dba;
+      font: 100%/1.5 "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); }
+    main, .bar { width: min(100% - 2.5rem, 44rem); margin-inline: auto; }
+    header { border-bottom: 1px solid var(--rule); }
+    .bar { min-height: 3.8rem; display: flex; align-items: center; justify-content: space-between; }
+    .brand { display: flex; align-items: center; gap: .65rem; font-weight: 700; }
+    .mark { display: flex; align-items: center; gap: 3px; }
+    .mark i { width: .7rem; height: .7rem; background: var(--blue); }
+    .mark i:last-child { background: var(--red); }
+    a { color: inherit; text-underline-offset: 3px; }
+    .bar a, footer a { font-size: .88rem; }
+    main { padding: clamp(2.4rem, 7vh, 4.2rem) 0 2.1rem; }
+    h1 { font: 500 clamp(2.85rem, 7vw, 4.6rem)/1.04 "STIX Two Text", Georgia, serif;
+      letter-spacing: -.055em; margin: 0 0 .8rem; }
+    .intro { margin: 0 0 2rem; color: var(--muted); }
+    form label, h2 { font-size: 1rem; font-weight: 650; }
+    form label { display: block; margin-bottom: .45rem; }
+    .lookup { display: flex; gap: .6rem; }
+    input, button { font: inherit; }
+    button { cursor: pointer; }
+    input[type=text] { min-width: 0; width: 100%; padding: .6rem .9rem; border: 1px solid #8b9890;
+      border-radius: .35rem; background: white; color: var(--ink); font-variant-numeric: tabular-nums; }
+    #check { flex: none; min-height: 2.9rem; padding: .55rem 1.3rem; color: white;
+      border: 1px solid var(--ink); border-radius: .35rem; background: var(--ink); font-weight: 600; }
+    #check:hover { background: #34483f; }
+    #check:disabled { opacity: .6; cursor: wait; }
+    :focus-visible { outline: 3px solid #1461b7; outline-offset: 3px; }
+    input[aria-invalid=true] { border-color: var(--red); }
+    #range, #message, #file-choice { margin: .5rem 0 0; color: var(--muted); font-size: .91rem; }
+    #message:not(:empty) { color: #8d292a; }
+    #file-choice label { display: block; margin-bottom: .4rem; }
+    #result { margin-top: 1.7rem; border: 1px solid var(--rule); border-radius: .6rem;
+      overflow: hidden; background: white; }
+    .reading { padding: 1.3rem 1.5rem; border-left: .35rem solid var(--colour);
+      background: var(--tint); }
+    [data-colour=red] { --colour: var(--red); --tint: #fcf1ef; }
+    [data-colour=blue] { --colour: var(--blue); --tint: #eff3fb; }
+    #read-position { display: block; font-size: .96rem; font-variant-numeric: tabular-nums; }
+    #read-colour { display: block; font: 500 3.1rem/1.12 "STIX Two Text", Georgia, serif;
+      color: var(--colour); }
+    .neighbours { padding: 1.05rem 1.25rem 1.2rem; border-top: 1px solid var(--rule); }
+    h2 { margin: 0 0 .55rem; }
+    #strip { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 3px; }
+    #strip button { height: 2.5rem; border: 0; border-radius: .2rem; background: var(--colour);
+      color: white; font-weight: 650; }
+    #strip button[aria-pressed=true] { outline: 2px solid var(--ink); outline-offset: 1px; }
+    #strip button:focus-visible { outline: 3px dashed var(--ink); outline-offset: 2px; z-index: 1; }
+    .ends { display: flex; justify-content: space-between; margin-top: .4rem; color: var(--muted);
+      font: .82rem/1.4 ui-monospace, Menlo, monospace; }
+    footer { margin-top: 1.3rem; color: var(--muted); }
+    [hidden] { display: none !important; }
+    @media (max-width: 420px) {
+      main, .bar { width: calc(100% - 2rem); }
+      .neighbours { padding-inline: .75rem; }
+      #check { padding-inline: .85rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <span class="brand"><span class="mark" aria-hidden="true"><i></i><i></i></span>Green 14</span>
+      <a href="https://github.com/KitaKen1/green14-explicit-coloring">GitHub repository</a>
+    </div>
+  </header>
+  <main>
+    <h1>Colour checker</h1>
+    <p class="intro">Look up any position in the fixed colouring for Green’s Problem 14, with <i>r</i> = 177,147.</p>
+    <form id="lookup">
+      <label for="position">Position</label>
+      <div class="lookup">
+        <input type="text" id="position" inputmode="numeric" value="29,487"
+          autocomplete="off" spellcheck="false" aria-describedby="range message">
+        <button type="submit" id="check" disabled>Check colour</button>
+      </div>
+      <p id="range">Whole numbers from 1 to 62,762,119,217.</p>
+    </form>
+    <p id="message" role="status">Loading the colouring…</p>
+    <div id="file-choice" hidden>
+      <label for="archive">Open the colouring data file (<code>colouring.g14</code>).</label>
+      <input type="file" id="archive" accept=".g14">
+    </div>
+    <noscript>Enable JavaScript to check a position.</noscript>
+    <section id="result" aria-label="Colour lookup result" hidden>
+      <div class="reading" role="status" aria-atomic="true">
+        <span id="read-position"></span>
+        <strong id="read-colour"></strong>
+      </div>
+      <div class="neighbours">
+        <h2>Nearby positions</h2>
+        <div id="strip" role="group" aria-label="Select a nearby position"></div>
+        <div class="ends" aria-hidden="true"><span id="first"></span><span id="last"></span></div>
+      </div>
+    </section>
+    <footer><a href="finite/colouring.g14" download>Download the colouring data</a></footer>
+  </main>
+  <script src="finite/colouring.js"></script>
+  <script>
+    "use strict";
+    const archivePath = "finite/colouring.g14";
+    const archiveHash = "a99216489ea332cc0b312fa5aa04a88e67b6db919922d161e3059106bc76351c";
+    const format = new Intl.NumberFormat("en-US");
+    const element = id => document.getElementById(id);
+    const field = element("position");
+    const message = element("message");
+    const strip = element("strip");
+    let board;
+
+    function showPosition(n, focusTile = false) {
+      const colour = board.isRed(n) ? "Red" : "Blue";
+      field.value = format.format(n);
+      field.removeAttribute("aria-invalid");
+      message.textContent = "";
+      element("result").dataset.colour = colour.toLowerCase();
+      element("read-position").textContent = "Position " + format.format(n);
+      element("read-colour").textContent = colour;
+      element("result").hidden = false;
+
+      const first = Math.max(1, Math.min(n - 5, board.limit - 10));
+      const tiles = [];
+      for (let i = first; i < first + 11; i++) {
+        const name = board.isRed(i) ? "Red" : "Blue";
+        const tile = document.createElement("button");
+        tile.type = "button";
+        tile.dataset.colour = name.toLowerCase();
+        tile.title = format.format(i) + " · " + name;
+        tile.setAttribute("aria-label", "Position " + format.format(i) + ", " + name);
+        tile.setAttribute("aria-pressed", String(i === n));
+        tile.textContent = name[0];
+        tile.addEventListener("click", () => showPosition(i, true));
+        tiles.push(tile);
+      }
+      strip.replaceChildren(...tiles);
+      element("first").textContent = format.format(first);
+      element("last").textContent = format.format(first + 10);
+      if (focusTile) tiles[n - first].focus();
+    }
+
+    element("lookup").addEventListener("submit", event => {
+      event.preventDefault();
+      if (!board) return;
+      const input = field.value.trim();
+      const n = Number(input.replaceAll(",", ""));
+      if (!/^(?:\d+|\d{1,3}(?:,\d{3})+)$/.test(input) ||
+          !Number.isSafeInteger(n) || n < 1 || n > board.limit) {
+        element("result").hidden = true;
+        field.setAttribute("aria-invalid", "true");
+        message.textContent = "Enter a whole number between 1 and " + format.format(board.limit) + ".";
+        field.focus();
+        return;
+      }
+      showPosition(n);
+    });
+
+    async function loadBoard(bytes) {
+      const digest = new Uint8Array(await crypto.subtle.digest("SHA-256", bytes));
+      const hex = Array.from(digest, value => value.toString(16).padStart(2, "0")).join("");
+      if (hex !== archiveHash) throw new Error("Unexpected colouring file.");
+      board = decodeColouring(bytes);
+      element("check").disabled = false;
+      element("file-choice").hidden = true;
+      element("lookup").requestSubmit();
+    }
+
+    async function start() {
+      try {
+        if (location.protocol === "file:") throw new Error("Local file selection required.");
+        const response = await fetch(archivePath);
+        if (!response.ok) throw new Error("Download failed.");
+        await loadBoard(await response.arrayBuffer());
+      } catch {
+        message.textContent = location.protocol === "file:"
+          ? "Choose finite/colouring.g14 to use the checker offline."
+          : "Could not load the verified colouring. Reload the page or choose the data file.";
+        element("file-choice").hidden = false;
+      }
+    }
+
+    element("archive").addEventListener("change", async event => {
+      const file = event.target.files[0];
+      if (!file) return;
+      try {
+        await loadBoard(await file.arrayBuffer());
+      } catch {
+        message.textContent = "This file does not match the published colouring. Choose colouring.g14.";
+        event.target.value = "";
+      }
+    });
+    start();
+  </script>
+</body>
+</html>
