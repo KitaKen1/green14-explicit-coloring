@@ -29,6 +29,7 @@
     h1, h2, p { margin: 0; }
     h1 { font: 500 clamp(2.7rem, 7vw, 4.2rem)/1.08 "STIX Two Text", Georgia, serif; letter-spacing: -.05em; }
     .intro { color: var(--muted); margin: .45rem 0 1.5rem; }
+    .intro p + p { margin-top: .45rem; color: var(--ink); }
     label { display: block; font-weight: 650; margin-bottom: .35rem; }
     .lookup { display: flex; gap: .5rem; }
     input, button { font: inherit; }
@@ -90,7 +91,10 @@
   </header>
   <main>
     <h1>Colour checker</h1>
-    <p class="intro">Explore the fixed colouring of positions 1 to 62,762,119,217 for <i>r</i> = 177,147.</p>
+    <div class="intro">
+      <p>In his 2021 update to Problem 14, Ben Green asked for an explicit red–blue colouring of the integers from 1 to 2<i>r</i><sup>2</sup> − 1, for some integer <i>r</i> ≥ 3, with no red three-term arithmetic progression and no blue <i>r</i>-term arithmetic progression.</p>
+      <p>This page gives such a colouring for <strong><i>r</i> = 177,147</strong>, covering all 62,762,119,217 positions.</p>
+    </div>
     <form id="lookup">
       <label for="position">Position or range</label>
       <div class="lookup"><input id="position" type="text" value="29,487" spellcheck="false" autocomplete="off"
