@@ -43,10 +43,12 @@ function decodeColouring(buffer) {
   for (let i = 0; i < rowCount; i++) rows.add(readWord());
 
   const columns = new Map();
+  const eligibleColumns = [];
   for (let i = 0; i < columnCount; i++) {
     const column = readWord();
     const multiplier = readWord();
     const shift = readWord();
+    eligibleColumns.push(column);
     if (multiplier !== 0) columns.set(column, { inverse: inverse(multiplier), shift });
   }
 
@@ -70,5 +72,40 @@ function decodeColouring(buffer) {
     return rows.has((residue + rowPeriod) % rowPeriod);
   }
 
-  return { r, limit, isRed };
+  function nearbyReds(n, count = 4) {
+    const at = isRed(n);
+    if (!Number.isSafeInteger(count) || count < 0) throw new RangeError("Invalid neighbour count.");
+    const column = n % columnModulus;
+    let lo = 0, hi = eligibleColumns.length;
+    while (lo < hi) {
+      const mid = Math.floor((lo + hi) / 2);
+      if (eligibleColumns[mid] < column) lo = mid + 1;
+      else hi = mid;
+    }
+
+    // Every red, including each patch, lies in one of the sorted column records.
+    function collect(index, step) {
+      const found = [];
+      let row = Math.floor(n / columnModulus);
+      while (found.length < count && eligibleColumns.length > 0) {
+        if (index < 0) {
+          index = eligibleColumns.length - 1;
+          row--;
+        } else if (index === eligibleColumns.length) {
+          index = 0;
+          row++;
+        }
+        const point = row * columnModulus + eligibleColumns[index];
+        if (point < 1 || point > limit) break;
+        if (isRed(point)) found.push(point);
+        index += step;
+      }
+      return found;
+    }
+
+    const next = eligibleColumns[lo] === column ? lo + 1 : lo;
+    return { before: collect(lo - 1, -1).reverse(), at, after: collect(next, 1) };
+  }
+
+  return { r, limit, isRed, nearbyReds };
 }

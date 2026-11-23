@@ -60,6 +60,16 @@
     #read-colour[data-colour=red] { color: var(--red); }
     #read-colour[data-colour=blue] { color: var(--blue); }
     .nav { gap: .4rem; }
+    .red-jumps { border-bottom: 1px solid var(--rule); padding-bottom: 1rem; margin-bottom: 1rem; }
+    .red-jump-head, .red-list { display: flex; align-items: center; flex-wrap: wrap; gap: .45rem; }
+    .red-jump-head { justify-content: space-between; gap: .6rem; }
+    .red-jump-head h2 { font-family: inherit; font-size: 1rem; font-weight: 650; line-height: 1.35; }
+    .red-list { margin-top: .65rem; }
+    .red-list button { padding: .3rem .65rem; border: 1px solid #dec7c6; border-radius: .35rem;
+      background: white; color: #84272a; font-size: .9rem; font-variant-numeric: tabular-nums; }
+    .red-list button:hover, .red-list button[aria-current=location] { background: #f9e9e7; border-color: #af5657; }
+    .red-list button[aria-current=location] { font-weight: 700; }
+    #next-red { background: #953032; color: white; border-color: #953032; }
     .instruction { margin-top: .7rem; }
     [hidden] { display: none !important; }
     @media (max-width: 600px) {
@@ -90,6 +100,16 @@
     </form>
     <noscript>Enable JavaScript to display the colouring.</noscript>
     <section id="result" class="panel" aria-label="Colouring of the displayed interval" hidden>
+      <section class="red-jumps" aria-labelledby="red-heading">
+        <div class="red-jump-head">
+          <h2 id="red-heading">Nearby red positions</h2>
+          <div class="nav" role="group" aria-label="Jump to a red position in the full colouring">
+            <button id="prev-red" type="button">Previous red</button>
+            <button id="next-red" type="button">Next red</button>
+          </div>
+        </div>
+        <div id="red-list" class="red-list" role="group" aria-labelledby="red-heading"></div>
+      </section>
       <div class="panel-head">
         <h2 id="interval"></h2>
         <div class="legend">
@@ -101,8 +121,8 @@
       <div class="panel-foot">
         <p class="reading" role="status" aria-atomic="true"><span id="read-position"></span> <strong id="read-colour"></strong></p>
         <div class="nav" aria-label="Page controls">
-          <button id="prev" type="button">Previous</button>
-          <button id="next" type="button">Next</button>
+          <button id="prev" type="button">Previous page</button>
+          <button id="next" type="button">Next page</button>
         </div>
       </div>
     </section>
@@ -1080,10 +1100,12 @@ function decodeColouring(buffer) {
   for (let i = 0; i < rowCount; i++) rows.add(readWord());
 
   const columns = new Map();
+  const eligibleColumns = [];
   for (let i = 0; i < columnCount; i++) {
     const column = readWord();
     const multiplier = readWord();
     const shift = readWord();
+    eligibleColumns.push(column);
     if (multiplier !== 0) columns.set(column, { inverse: inverse(multiplier), shift });
   }
 
@@ -1107,7 +1129,42 @@ function decodeColouring(buffer) {
     return rows.has((residue + rowPeriod) % rowPeriod);
   }
 
-  return { r, limit, isRed };
+  function nearbyReds(n, count = 4) {
+    const at = isRed(n);
+    if (!Number.isSafeInteger(count) || count < 0) throw new RangeError("Invalid neighbour count.");
+    const column = n % columnModulus;
+    let lo = 0, hi = eligibleColumns.length;
+    while (lo < hi) {
+      const mid = Math.floor((lo + hi) / 2);
+      if (eligibleColumns[mid] < column) lo = mid + 1;
+      else hi = mid;
+    }
+
+    // Every red, including each patch, lies in one of the sorted column records.
+    function collect(index, step) {
+      const found = [];
+      let row = Math.floor(n / columnModulus);
+      while (found.length < count && eligibleColumns.length > 0) {
+        if (index < 0) {
+          index = eligibleColumns.length - 1;
+          row--;
+        } else if (index === eligibleColumns.length) {
+          index = 0;
+          row++;
+        }
+        const point = row * columnModulus + eligibleColumns[index];
+        if (point < 1 || point > limit) break;
+        if (isRed(point)) found.push(point);
+        index += step;
+      }
+      return found;
+    }
+
+    const next = eligibleColumns[lo] === column ? lo + 1 : lo;
+    return { before: collect(lo - 1, -1).reverse(), at, after: collect(next, 1) };
+  }
+
+  return { r, limit, isRed, nearbyReds };
 }
   </script>
   <script>
@@ -1117,8 +1174,29 @@ function decodeColouring(buffer) {
     const get = id => document.getElementById(id);
     const field = get("position");
     const cells = get("cells");
+    const redList = get("red-list");
     let board;
     let lower, upper, first, selected;
+
+    function updateRedNavigation(n) {
+      const { before, at, after } = board.nearbyReds(n, 3);
+      const previous = get("prev-red");
+      const next = get("next-red");
+      previous.disabled = before.length === 0;
+      next.disabled = after.length === 0;
+      previous.value = previous.disabled ? "" : String(before[before.length - 1]);
+      next.value = next.disabled ? "" : String(after[0]);
+      const positions = at ? [...before, n, ...after] : [...before, ...after];
+      redList.replaceChildren(...positions.map(position => {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.dataset.position = String(position);
+        button.textContent = fmt.format(position);
+        button.setAttribute("aria-label", "Red position " + button.textContent);
+        if (position === n) button.setAttribute("aria-current", "location");
+        return button;
+      }));
+    }
 
     function select(n, focus = false) {
       const old = cells.querySelector('[aria-pressed="true"]');
@@ -1132,6 +1210,7 @@ function decodeColouring(buffer) {
       get("read-position").textContent = "Position " + fmt.format(n);
       get("read-colour").textContent = red ? "Red" : "Blue";
       get("read-colour").dataset.colour = cell.dataset.colour;
+      updateRedNavigation(n);
     }
 
     function showPage(start, target = start, focus = false) {
@@ -1173,6 +1252,18 @@ function decodeColouring(buffer) {
       return Number.isSafeInteger(n) && n >= 1 && n <= board.limit ? n : NaN;
     }
 
+    function jumpToRed(n) {
+      if (n < lower || n > upper) {
+        lower = 1;
+        upper = board.limit;
+      }
+      field.removeAttribute("aria-invalid");
+      get("message").textContent = "";
+      field.value = lower === 1 && upper === board.limit
+        ? fmt.format(n) : fmt.format(lower) + "–" + fmt.format(upper);
+      showPage(pageStart(n), n);
+    }
+
     function showInput() {
       const ends = field.value.trim().split(/\s*[-–—]\s*/).map(parsePosition);
       if (ends.length > 2 || ends.some(Number.isNaN) || (ends.length === 2 && ends[0] > ends[1])) {
@@ -1194,6 +1285,19 @@ function decodeColouring(buffer) {
     get("lookup").addEventListener("submit", event => { event.preventDefault(); if (board) showInput(); });
     get("prev").addEventListener("click", () => showPage(first - PAGE_SIZE));
     get("next").addEventListener("click", () => showPage(first + PAGE_SIZE));
+    for (const id of ["prev-red", "next-red"]) {
+      const button = get(id);
+      button.addEventListener("click", () => {
+        jumpToRed(Number(button.value));
+        if (button.disabled) redList.querySelector("[aria-current]").focus({ preventScroll: true });
+      });
+    }
+    redList.addEventListener("click", event => {
+      const button = event.target.closest("button[data-position]");
+      if (!button) return;
+      jumpToRed(Number(button.dataset.position));
+      redList.querySelector("[aria-current]").focus({ preventScroll: true });
+    });
     cells.addEventListener("click", event => {
       const cell = event.target.closest(".cell");
       if (cell) select(Number(cell.dataset.position), true);
