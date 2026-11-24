@@ -1,0 +1,5 @@
+/usr/bin/bwrap
+/usr/local/bin/green14-nanoda-one
+/usr/bin/git
+/bin/env
+Running nanoda kernel on solution
