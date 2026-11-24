@@ -1,0 +1,33 @@
+{
+  "sha256": {
+    "out/Challenge.ndjson": "0dfa1b4d3d600810ed5b8481b41245491aa56b2b571d51b4afde10b0ff770602",
+    "out/Solution.ndjson": "d825dafca302268470cabfb41fe080529acd7476410060483196dae628c8dfba"
+  },
+  "comparison": {
+    "challenge_module": "PilotChallenge",
+    "solution_module": "PilotSolution",
+    "theorem_names": [
+      "Green14Search.Medium.Fixed.Repair.ContinuationPilot.every_start"
+    ],
+    "definition_names": [
+      "Green14Search.Medium.Fixed.Repair.BaseSweep.OnRange",
+      "Green14Search.Medium.Fixed.Repair.BaseSweep.AtStride",
+      "Green14Search.Medium.Fixed.Repair.BaseSweep.InRun",
+      "Green14Search.Medium.Fixed.Repair.recordedRuns",
+      "Green14Search.Medium.Fixed.Repair.baseRed",
+      "Green14Search.Medium.Fixed.Repair.BaseSweep.boardEnd"
+    ],
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "external_kernels": {
+      "nanoda": [
+        "/usr/local/bin/green14-nanoda-one",
+        "/opt/lean/bin/nanoda_bin"
+      ]
+    }
+  },
+  "sample": true
+}
