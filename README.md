@@ -43,7 +43,7 @@ There are initially fewer than $Nv<v^3$ progressions. After $T$ steps the remain
 
 The fixed colouring on $[1, 2r^2-1]$ avoids red three-term and blue $r$-term arithmetic progressions. Lean built all 173 ranges, proved `Complete recordedRuns` and the bound of 4,723 maximal long blue runs, and accepted the unconditional `Green14.green_14_variant_2r2_red_set`. The final declarations use only `propext`, `Classical.choice`, and `Quot.sound`. [Proof package](verification/full-sweep/) · [Assembly job](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063) · [Original logs, artifacts, and SHA-256](verification/logs/ci-45292509800-1/)
 
-The first independent replay stopped during Linux sandbox setup. Two runs are checking the same assembled export after that failure. [Stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349777143) · [Resumable stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349503457)
+The first independent replay stopped during Linux sandbox setup. The same assembled export is being checked by stock Comparator and in a separate parallel cross-check. [Stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349777143) · [Resumable stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45356298558) · [Parallel cross-check](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45355093739)
 
 ## Appendix: Timeline
 
@@ -58,6 +58,7 @@ The first independent replay stopped during Linux sandbox setup. Two runs are ch
 | August 2026 | Juan Lopez Marcano reported $W(3,31)\ge954$ and $W(3,33)\ge1072$ in OEIS and linked the colouring data. | The corresponding $2r^2$ targets are $1922$ and $2178$. [OEIS A171081](https://oeis.org/A171081) |
 | September 2026 | Haitao Cao's preprint reports $W(3,r)\ge r^{c\log r}$ for sufficiently large $r$. | An asymptotic improvement using probabilistic choices of centres, rotation, and shell radii. [Preprint](https://arxiv.org/html/2609.31798v1) |
 | November 2026 | This repository gives a deterministic red–blue colouring for $r=520822699705116213452472320$ and a Lean proof of both avoidance conditions. | Solves the explicit-colouring follow-up. The final declaration was accepted by comparator and nanoda. [Lean theorem](lean/Comparator/Candidate.lean#L18) |
+| 24 November 2026 | This repository gives a fixed 69,180-byte colouring for $r=177147$ and a Lean proof of both avoidance conditions. | The final Lean declaration uses the decoded red set on $[1, 2r^2-1]$. [Lean theorem](verification/full-sweep/src/CyclicRedSetFinal.lean) · [Build evidence and SHA-256](verification/logs/ci-45292509800-1/) |
 
 ## Appendix: Verification by Lean Comparator on GitHub CI runner
 
