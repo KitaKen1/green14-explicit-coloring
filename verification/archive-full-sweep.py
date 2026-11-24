@@ -17,6 +17,13 @@ VERDICTS = (
     'Lean default kernel accepts the solution',
     'Your solution is okay!',
 )
+AXIOMS = ['propext', 'Classical.choice', 'Quot.sound']
+NAMESPACE = 'Green14Search.Medium.Fixed.Repair.OrbitCover.AllLanes.'
+FULL_TARGETS = [
+    'Green14.green_14_variant_2r2_red_set', 'Green14.redSet_fixed_board',
+    NAMESPACE + 'complete_recorded_runs', NAMESPACE + 'maximal_run_bound',
+]
+EXPORT_FILES = {'out/Challenge.ndjson', 'out/Solution.ndjson'}
 
 
 def github(path, *, output=None):
@@ -59,9 +66,18 @@ def verified_zip(endpoint, file, expected_digest=None):
 
 
 
+def parse_sha256(sums):
+    pairs = [line.split('  ', 1)[::-1] for line in sums.splitlines()]
+    values = dict(pairs)
+    if (len(values) != len(pairs)
+            or any(len(digest) != 64 or any(c not in '0123456789abcdef' for c in digest)
+                   for digest in values.values())):
+        raise ValueError('Invalid SHA-256 receipt')
+    return values
+
+
 def export_hashes(file):
     """Confirm the preserved solution and challenge are byte-identical to the replay inputs."""
-    expected_names = {'out/Challenge.ndjson', 'out/Solution.ndjson'}
     checksums = None
     measured = {}
     with ZipFile(file) as bundle, bundle.open('inputs.tar.gz') as packed:
@@ -72,16 +88,16 @@ def export_hashes(file):
                 with archive.extractfile(member) as source:
                     if member.name == 'compared.sha256' and checksums is None:
                         checksums = source.read().decode()
-                    elif member.name in expected_names and member.name not in measured:
+                    elif member.name in EXPORT_FILES and member.name not in measured:
                         digest = sha256()
                         for fragment in iter(lambda: source.read(1024 * 1024), b''):
                             digest.update(fragment)
                         measured[member.name] = digest.hexdigest()
                     else:
                         raise ValueError(f'Unexpected export entry {member.name}')
-    if checksums is None or set(measured) != expected_names:
+    if checksums is None or set(measured) != EXPORT_FILES:
         raise ValueError('The final export is missing one of the compared files')
-    supplied = dict(line.split('  ', 1)[::-1] for line in checksums.splitlines())
+    supplied = parse_sha256(checksums)
     if supplied != measured:
         raise ValueError('Final export differs from the files used for replay')
     return checksums
@@ -124,19 +140,18 @@ def check_continuation_receipt(file, dest):
             'accepted every legal start for differences 1 through 16.')
 
 
-def check_staged_receipt(file, dest, sample):
+def check_staged_receipt(file, dest, sample, original_sums=None):
     with ZipFile(file) as archive:
         log = archive.read('comparator.log')
         metadata = archive.read('input-receipt.json')
         status = json.loads(archive.read('status.json'))
     receipt = json.loads(metadata)
-    namespace = 'Green14Search.Medium.Fixed.Repair.OrbitCover.AllLanes.'
     targets = (['Green14Search.Medium.Fixed.Repair.ContinuationPilot.every_start'] if sample else
-               ['Green14.green_14_variant_2r2_red_set', 'Green14.redSet_fixed_board',
-                namespace + 'complete_recorded_runs', namespace + 'maximal_run_bound'])
+               FULL_TARGETS)
     if (status.get('accepted') is not True or status.get('receipt_sha256') != sha256(metadata).hexdigest()
             or receipt.get('sample') is not sample or receipt['comparison']['theorem_names'] != targets
-            or receipt['comparison']['permitted_axioms'] != ['propext','Classical.choice','Quot.sound']
+            or receipt['comparison']['permitted_axioms'] != AXIOMS
+            or (not sample and receipt['sha256'] != original_sums)
             or any(v.encode() not in log for v in VERDICTS) or b'Sandbox disabled' in log):
         raise ValueError('The staged replay differs from the requested scope or lacks a sandboxed verdict')
     if sample and status.get('stages') != 2:
@@ -148,6 +163,24 @@ def check_staged_receipt(file, dest, sample):
             else 'Both stock kernels accepted the unconditional fixed-colouring targets in the resumed run.')
 
 
+def check_replay_receipt(file, dest, original, original_sums):
+    with ZipFile(file) as archive:
+        log = archive.read('comparator.log')
+        config = json.loads(archive.read('comparator.json'))
+        sums = archive.read('compared.sha256')
+        request = archive.read('replay-request.json')
+    if (json.loads(request) != original
+            or parse_sha256(sums.decode()) != original_sums
+            or config['theorem_names'] != FULL_TARGETS
+            or config['permitted_axioms'] != AXIOMS
+            or any(v.encode() not in log for v in VERDICTS)
+            or b'Sandbox disabled' in log):
+        raise ValueError('Replay did not accept the sealed unconditional fixed-colouring exports')
+    (dest / 'compared.sha256').write_bytes(sums)
+    (dest / 'replay-request.json').write_bytes(request)
+    return 'Both stock kernels accepted the sealed unconditional fixed-colouring exports.'
+
+
 def main(request_path):
     request = json.loads(request_path.read_text())
     run = int(request['run'])
@@ -156,7 +189,8 @@ def main(request_path):
     kind = request.get('kind','full-sweep')
     pilot = kind == 'continuation-pilot'
     staged = kind in {'staged-pilot','continued-full'}
-    if kind not in {'full-sweep','continuation-pilot','staged-pilot','continued-full'}:
+    native = kind == 'sealed-replay'
+    if kind not in {'full-sweep','continuation-pilot','staged-pilot','continued-full','sealed-replay'}:
         raise ValueError('Unknown verification run type')
     run_api = f'actions/runs/{run}'
     attempt_api = f'{run_api}/attempts/{attempt}'
@@ -167,6 +201,20 @@ def main(request_path):
             or receipt['run_attempt'] != current['run_attempt']
             or receipt['run_attempt'] != attempt):
         raise ValueError('Expected the current completed attempt on the pinned full-sweep commit')
+    original_sums = None
+    if native or kind == 'continued-full':
+        if receipt['conclusion'] != 'success':
+            raise ValueError('Expected a successful final replay')
+        original = request['original']
+        producer = Path(f'verification/logs/ci-{original["run"]}-1')
+        producer_receipt = json.loads((producer / 'attempt.json').read_text())
+        producer_digests = json.loads((producer / 'original-zip-digests.json').read_text())
+        if (producer_receipt['head_sha'] != original['proof_commit']
+                or producer_digests['unconditional-exports']['original_sha256'] != original['original_zip_sha256']):
+            raise ValueError('The replay is not pinned to the archived assembled export')
+        original_sums = parse_sha256((producer / 'compared.sha256').read_text())
+        if set(original_sums) != EXPORT_FILES:
+            raise ValueError('The producer archive is missing an export digest')
 
     dest = Path(f'verification/logs/ci-{run}-{attempt}')
     if (dest / 'SHA256SUMS').exists():
@@ -190,6 +238,8 @@ def main(request_path):
             expected_name = name == 'green14-comparator-continuation-logs'
         if staged:
             expected_name = name == 'continued-comparator'
+        if native:
+            expected_name = name == 'comparator-log'
         if not expected_name or name in recorded or item['expired'] or not item.get('digest'):
             raise ValueError(f'Unexpected or unavailable artifact {name}')
         file = dest / f'{name}.zip'
@@ -211,7 +261,9 @@ def main(request_path):
         if pilot and receipt['conclusion'] == 'success':
             verdict = check_continuation_receipt(file, dest)
         if staged and receipt['conclusion'] == 'success':
-            verdict = check_staged_receipt(file, dest, sample=kind=='staged-pilot')
+            verdict = check_staged_receipt(file, dest, sample=kind=='staged-pilot', original_sums=original_sums)
+        if native:
+            verdict = check_replay_receipt(file, dest, original, original_sums)
         recorded[name] = {'original_sha256': digest, 'parts': split_large(file)}
 
     if receipt['conclusion'] == 'success' and pilot:
@@ -220,7 +272,9 @@ def main(request_path):
     if receipt['conclusion'] == 'success' and staged:
         if set(recorded) != {'continued-comparator'} or verdict.startswith('The full replay'):
             raise ValueError('The successful resumed run is missing its receipt')
-    if receipt['conclusion'] == 'success' and not (pilot or staged):
+    if native and (set(recorded) != {'comparator-log'} or verdict.startswith('The full replay')):
+        raise ValueError('The successful replay is missing its receipt')
+    if receipt['conclusion'] == 'success' and not (pilot or staged or native):
         required = {'support','unconditional-exports','comparator-log'} | {f'proof-{i}' for i in range(173)}
         if (set(recorded) != required or verdict.startswith('The full replay')
                 or compared is None or compared != replay_hashes):

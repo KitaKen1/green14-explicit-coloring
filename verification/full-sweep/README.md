@@ -1,9 +1,9 @@
-# Fixed Green 14 red set, full proof candidate
+# Fixed Green 14 red set
 
-This package supplies the unconditional Lean declaration for the fixed red set with r = 177147 and the finite kernel computations it depends on. The full calculation and the standalone final Comparator replay are pending. The independent challenge checks the FC statement, the decoded fixed answer at r = 177147, completeness of the recorded runs, and the explicit upper bound of 4723 maximal long blue runs.
+This package proves the unconditional Lean declaration for the fixed red set with (r = 177147). All 173 shards and the assembly passed Lean on GitHub Actions. The independent challenge checks the FC statement, the fixed red set, completeness of the recorded runs, and the upper bound of 4,723 maximal long blue runs. The independent replay of the assembled export is in progress. [Assembly](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063) · [Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349777143)
 
 The 173 shards cover differences 1 through 354296. The accelerated version uses column masks as concrete numbers. An ordinary Lean kernel equality verifies these numbers against the fixed board before they are used in any range proof. The generated files check every difference and inverse with ordinary kernel reduction. Each shard proves its half-open interval. The final module joins adjacent intervals, proves completeness of the 4723 recorded runs, and applies the existing fixed-board proof. A failed or absent shard prevents the final stage from starting.
 
-A push to the `green14-full-verification` branch starts the workflow. It uses up to 20 standard Linux runners for shards, then separate jobs for assembly and the final sandboxed Comparator and nanoda replay. All three stages must succeed before reporting the unconditional result. The final independent kernel replay runs in one job. The numerical duration of that full replay has not been measured.
+A change to the proof sources on the `green14-full-verification` branch starts the workflow. It uses up to 20 standard Linux runners for shards, then separate jobs for assembly and the final sandboxed Comparator and nanoda replay.
 
 [Workflow](../../.github/workflows/full-fixed-coloring.yml) · [Fixed red set and final statement](src/CyclicRedSetFinal.lean) · [All differences](src/FullPeriodicSweep.lean) · [Shard plan](full-plan.json) · [Comparator configuration](comparator.json) · [SHA-256](SHA256SUMS)

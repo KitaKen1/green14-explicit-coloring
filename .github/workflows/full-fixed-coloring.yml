@@ -159,14 +159,17 @@ jobs:
         with:
           name: unconditional-exports
           path: verification/full-sweep
+      - name: Set up the Linux isolation
+        run: bash sandbox.sh
       - name: Check the exact public target in the Linux sandbox
         run: |
           set -o pipefail
+          : "${COMPARATOR_BWRAP:?Expected sandbox path from the setup step}"
+          "$COMPARATOR_BWRAP" --ro-bind / / --dev /dev --proc /proc --unshare-all -- /usr/bin/true
           export PATH="$HOME/.elan/bin:$PATH"
           tar -xzf inputs.tar.gz
           sha256sum -c compared.sha256
           bash replay-memory.sh
-          bash sandbox.sh
           sudo install -m 0755 nanoda-one.py /usr/local/bin/green14-nanoda-one
           KERNEL="$(lean --print-prefix)/bin/nanoda_bin"
           jq --arg bin "$KERNEL" '.external_kernels.nanoda=["/usr/local/bin/green14-nanoda-one",$bin]' comparator.json > comparator.tmp
