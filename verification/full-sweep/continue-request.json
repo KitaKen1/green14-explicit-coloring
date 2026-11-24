@@ -1,7 +1,7 @@
 {
+  "nanoda_workers": 4,
   "run": 45292509800,
   "artifact": 14899071978,
   "proof_commit": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb",
-  "original_zip_sha256": "04aedf93f2216941f7ce11816549a56c3d093f6564228156a0895e3d2804b159",
-  "nanoda_workers": 4
+  "original_zip_sha256": "04aedf93f2216941f7ce11816549a56c3d093f6564228156a0895e3d2804b159"
 }

@@ -98,7 +98,7 @@ def verify_start(stage, version):
 
 def run(stage, budget, sample):
     DATA.mkdir(exist_ok=True)
-    request = {} if sample else json.loads(Path('continue-request.json').read_text())
+    request = {} if sample else json.loads((guest.HERE / 'continue-request.json').read_text())
     workers = request.get('nanoda_workers', 1)
     if workers not in (1, 4):
         raise ValueError('The stock replay supports either one or four nanoda workers')
