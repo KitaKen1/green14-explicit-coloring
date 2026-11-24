@@ -1,0 +1,83 @@
+name: Test continuation of Comparator and nanoda
+on:
+  push:
+    branches: [green14-full-verification]
+    paths:
+      - verification/full-sweep/checkpoint/proof-guest.py
+permissions:
+  actions: read
+  contents: read
+defaults:
+  run:
+    shell: bash
+jobs:
+  save:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/cache/restore@v4
+        with:
+          key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
+          path: |
+            ~/.elan
+            verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
+          fail-on-cache-miss: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: support
+          run-id: 45292509800
+          github-token: ${{ github.token }}
+          path: verification/full-sweep
+      - name: Install QEMU and guest dependencies
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y --no-install-recommends qemu-system-x86 busybox-static cpio bubblewrap zstd
+          sudo chgrp "$(id -gn)" /dev/kvm
+          sudo chmod g+rw /dev/kvm
+      - name: Build and export the exact fixed-board sample
+        run: |
+          export PATH="$HOME/.elan/bin:$PATH"
+          tar -xzf support.tar.gz
+          python3 checkpoint/proof-inputs.py
+        working-directory: verification/full-sweep
+      - name: Save Comparator while nanoda verifies the sample
+        run: |
+          export PATH="$HOME/.elan/bin:$PATH"
+          python3 verification/full-sweep/checkpoint/proof-guest.py save
+      - uses: actions/cache/save@v4
+        with:
+          path: checkpoint-proof-data
+          key: green14-proof-guest-${{ github.run_id }}-${{ github.run_attempt }}
+  resume:
+    needs: save
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/cache/restore@v4
+        with:
+          path: checkpoint-proof-data
+          key: green14-proof-guest-${{ github.run_id }}-${{ github.run_attempt }}
+          fail-on-cache-miss: true
+      - name: Install the same QEMU release
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y --no-install-recommends qemu-system-x86 zstd
+          sudo chgrp "$(id -gn)" /dev/kvm
+          sudo chmod g+rw /dev/kvm
+      - name: Resume the sandboxed proof and verify both verdicts
+        run: python3 verification/full-sweep/checkpoint/proof-guest.py resume
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: green14-comparator-continuation-logs
+          path: |
+            checkpoint-proof-data/before.log
+            checkpoint-proof-data/after.log
+            checkpoint-proof-data/SHA256SUMS
+          retention-days: 7
