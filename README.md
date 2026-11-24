@@ -82,7 +82,7 @@ There are initially fewer than $Nv<v^3$ progressions. After $T$ steps the remain
 
 Lean accepted all 173 ranges and the unconditional assembly. The final declarations use only `propext`, `Classical.choice`, and `Quot.sound`. The archive contains the original workflow logs and all 176 artifacts, including the exact challenge and solution exports. [Assembly job](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063) · [Archive and SHA-256](verification/logs/ci-45292509800-1/)
 
-The first independent replay stopped during Linux sandbox setup. The same assembled export is being checked by stock Comparator and in a separate parallel cross-check. [Stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349777143) · [Resumable stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45365370611) · [Parallel cross-check](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45366078095)
+The single-job replay hit its time limit while nanoda was running. The same assembled export is being checked by a resumable stock Comparator run and a separate parallel cross-check. [Single-job log](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349777143/job/138293028110) · [Resumable stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45365370611) · [Parallel cross-check](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45366078095)
 
 ### Earlier construction
 
