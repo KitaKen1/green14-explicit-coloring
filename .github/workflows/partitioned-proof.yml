@@ -1,0 +1,111 @@
+name: Check the sealed fixed proof by independent partitions
+on:
+  push:
+    branches: [green14-full-verification]
+    paths:
+      - verification/full-sweep/partition-request.json
+permissions:
+  actions: read
+  contents: read
+defaults:
+  run:
+    shell: bash
+    working-directory: verification/full-sweep
+jobs:
+  index:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    outputs:
+      cases: ${{ steps.plan.outputs.cases }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/cache/restore@v4
+        with:
+          key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
+          path: |
+            ~/.elan
+            verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
+          fail-on-cache-miss: true
+      - name: Pin the original assembly and every partition
+        id: plan
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          request=replay-request.json
+          id=$(jq -r '.artifact' "$request")
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id" |
+            jq -e --slurpfile request "$request" '
+              .name == "unconditional-exports" and .expired == false and
+              .workflow_run.id == $request[0].run and
+              .workflow_run.head_sha == $request[0].proof_commit and
+              .digest == ("sha256:" + $request[0].original_zip_sha256)'
+          echo "run_id=$(jq -r .run "$request")" >> "$GITHUB_OUTPUT"
+          echo "cases=$(jq -ce --slurpfile plan full-plan.json '
+            if .full then ["structure"] + [$plan[0].cases | keys[] | tostring]
+            else ["structure", "0", "172"] end' partition-request.json)" >> "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@v4
+        with:
+          name: unconditional-exports
+          run-id: ${{ steps.plan.outputs.run_id }}
+          github-token: ${{ github.token }}
+          path: verification/full-sweep
+      - name: Compare and index the exact original exports
+        run: |
+          set -o pipefail
+          export PATH="$HOME/.elan/bin:$PATH"
+          tar -xzf inputs.tar.gz
+          sha256sum -c compared.sha256
+          lean --run partitioned/ReplayIndex.lean out/Challenge.ndjson out/Solution.ndjson comparator.json full-plan.json dependencies.ndjson | tee compare.log
+          tar -czf partition-inputs.tar.gz out/Solution.ndjson dependencies.ndjson
+          sha256sum partition-inputs.tar.gz > partition-inputs.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: partition-inputs
+          path: |
+            verification/full-sweep/partition-inputs.tar.gz
+            verification/full-sweep/partition-inputs.sha256
+            verification/full-sweep/compared.sha256
+            verification/full-sweep/compare.log
+          compression-level: 0
+  verify:
+    needs: index
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 20
+      matrix:
+        case: ${{ fromJSON(needs.index.outputs.cases) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/cache/restore@v4
+        with:
+          key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
+          path: |
+            ~/.elan
+            verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
+          fail-on-cache-miss: true
+      - uses: actions/download-artifact@v4
+        with:
+          name: partition-inputs
+          path: verification/full-sweep
+      - name: Set up the Linux isolation
+        run: bash sandbox.sh
+      - name: Check the original proof terms in this partition
+        env:
+          PARTITION: ${{ matrix.case }}
+        run: |
+          export PATH="$HOME/.elan/bin:$PATH"
+          sha256sum -c partition-inputs.sha256
+          tar -xzf partition-inputs.tar.gz
+          bash replay-memory.sh
+          python3 partitioned/check.py "$PARTITION"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: partition-${{ matrix.case }}
+          path: verification/full-sweep/partition-receipt/
