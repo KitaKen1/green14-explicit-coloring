@@ -1,0 +1,202 @@
+[
+  {
+    "id": 138135359274,
+    "run_id": 45301640276,
+    "workflow_name": "Test continuation of Comparator and nanoda",
+    "head_branch": "green14-full-verification",
+    "run_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/runs/45301640276",
+    "run_attempt": 1,
+    "node_id": "CR_kwDOVypA6c8AAAAgKYJPKg",
+    "head_sha": "cadc89ee55dacd4d1047d72e7ee4da94953d232f",
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/jobs/138135359274",
+    "html_url": "https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45301640276/job/138135359274",
+    "status": "completed",
+    "conclusion": "success",
+    "created_at": "2026-11-24T01:00:08Z",
+    "started_at": "2026-11-24T01:00:10Z",
+    "completed_at": "2026-11-24T01:02:40Z",
+    "name": "save",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-11-24T01:00:11Z",
+        "completed_at": "2026-11-24T01:00:13Z"
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-11-24T01:00:13Z",
+        "completed_at": "2026-11-24T01:00:14Z"
+      },
+      {
+        "name": "Run actions/cache/restore@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-11-24T01:00:14Z",
+        "completed_at": "2026-11-24T01:00:40Z"
+      },
+      {
+        "name": "Run actions/download-artifact@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-11-24T01:00:40Z",
+        "completed_at": "2026-11-24T01:00:46Z"
+      },
+      {
+        "name": "Install QEMU and guest dependencies",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 5,
+        "started_at": "2026-11-24T01:00:46Z",
+        "completed_at": "2026-11-24T01:01:13Z"
+      },
+      {
+        "name": "Build and export the exact fixed-board sample",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6,
+        "started_at": "2026-11-24T01:01:13Z",
+        "completed_at": "2026-11-24T01:02:13Z"
+      },
+      {
+        "name": "Save Comparator while nanoda verifies the sample",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 7,
+        "started_at": "2026-11-24T01:02:13Z",
+        "completed_at": "2026-11-24T01:02:34Z"
+      },
+      {
+        "name": "Run actions/cache/save@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 8,
+        "started_at": "2026-11-24T01:02:34Z",
+        "completed_at": "2026-11-24T01:02:37Z"
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 16,
+        "started_at": "2026-11-24T01:02:37Z",
+        "completed_at": "2026-11-24T01:02:38Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 17,
+        "started_at": "2026-11-24T01:02:38Z",
+        "completed_at": "2026-11-24T01:02:38Z"
+      }
+    ],
+    "check_run_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/check-runs/138135359274",
+    "labels": [
+      "ubuntu-24.04"
+    ],
+    "runner_id": 1000001426,
+    "runner_name": "GitHub Actions 1000001426",
+    "runner_group_id": 0,
+    "runner_group_name": "GitHub Actions"
+  },
+  {
+    "id": 138136483753,
+    "run_id": 45301640276,
+    "workflow_name": "Test continuation of Comparator and nanoda",
+    "head_branch": "green14-full-verification",
+    "run_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/runs/45301640276",
+    "run_attempt": 1,
+    "node_id": "CR_kwDOVypA6c8AAAAgKZN3qQ",
+    "head_sha": "cadc89ee55dacd4d1047d72e7ee4da94953d232f",
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/jobs/138136483753",
+    "html_url": "https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45301640276/job/138136483753",
+    "status": "completed",
+    "conclusion": "failure",
+    "created_at": "2026-11-24T01:02:40Z",
+    "started_at": "2026-11-24T01:02:42Z",
+    "completed_at": "2026-11-24T01:10:22Z",
+    "name": "resume",
+    "steps": [
+      {
+        "name": "Set up job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 1,
+        "started_at": "2026-11-24T01:02:42Z",
+        "completed_at": "2026-11-24T01:02:43Z"
+      },
+      {
+        "name": "Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 2,
+        "started_at": "2026-11-24T01:02:43Z",
+        "completed_at": "2026-11-24T01:02:44Z"
+      },
+      {
+        "name": "Run actions/cache/restore@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 3,
+        "started_at": "2026-11-24T01:02:44Z",
+        "completed_at": "2026-11-24T01:02:46Z"
+      },
+      {
+        "name": "Install the same QEMU release",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 4,
+        "started_at": "2026-11-24T01:02:46Z",
+        "completed_at": "2026-11-24T01:02:59Z"
+      },
+      {
+        "name": "Resume the sandboxed proof and verify both verdicts",
+        "status": "completed",
+        "conclusion": "failure",
+        "number": 5,
+        "started_at": "2026-11-24T01:02:59Z",
+        "completed_at": "2026-11-24T01:10:19Z"
+      },
+      {
+        "name": "Run actions/upload-artifact@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 6,
+        "started_at": "2026-11-24T01:10:19Z",
+        "completed_at": "2026-11-24T01:10:20Z"
+      },
+      {
+        "name": "Post Run actions/checkout@v4",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 12,
+        "started_at": "2026-11-24T01:10:20Z",
+        "completed_at": "2026-11-24T01:10:20Z"
+      },
+      {
+        "name": "Complete job",
+        "status": "completed",
+        "conclusion": "success",
+        "number": 13,
+        "started_at": "2026-11-24T01:10:20Z",
+        "completed_at": "2026-11-24T01:10:20Z"
+      }
+    ],
+    "check_run_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/check-runs/138136483753",
+    "labels": [
+      "ubuntu-24.04"
+    ],
+    "runner_id": 1000001427,
+    "runner_name": "GitHub Actions 1000001427",
+    "runner_group_id": 0,
+    "runner_group_name": "GitHub Actions"
+  }
+]

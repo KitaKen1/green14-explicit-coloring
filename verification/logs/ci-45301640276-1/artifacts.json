@@ -1,0 +1,22 @@
+[
+  {
+    "id": 14880040559,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDA0MDU1OQ==",
+    "name": "green14-comparator-continuation-logs",
+    "size_in_bytes": 856,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880040559",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880040559/zip",
+    "expired": false,
+    "digest": "sha256:301dd366d5767cd2a67834d041ff488de50f950e106f52955b890aba31620eb4",
+    "created_at": "2026-11-24T01:10:20Z",
+    "updated_at": "2026-11-24T01:10:20Z",
+    "expires_at": "2026-12-01T01:10:20Z",
+    "workflow_run": {
+      "id": 45301640276,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "cadc89ee55dacd4d1047d72e7ee4da94953d232f"
+    }
+  }
+]
