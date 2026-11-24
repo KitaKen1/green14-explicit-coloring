@@ -7,8 +7,9 @@ p = ArgumentParser(description=__doc__)
 p.add_argument('source_run',type=int)
 p.add_argument('count',type=int)
 p.add_argument('workflow',type=Path)
+p.add_argument('--first-budget',type=int,default=45)
 a = p.parse_args()
-if a.source_run<=0 or not 1<=a.count<=108:
+if a.source_run<=0 or not 1<=a.count<=108 or not 1<=a.first_budget<=310:
     raise SystemExit('Expected a run ID and up to 108 checkpoints')
 header = '''name: Continue full fixed-colouring verification
 on:
@@ -31,4 +32,6 @@ for index in range(a.count):
     parts.append('    uses: ./.github/workflows/continue-proof-stage.yml\n')
     parts.append(f'    with:\n      stage: {index}\n      prior: {max(0,index-1)}\n')
     parts.append(f'      proof_run: {a.source_run}\n      last_stage: {a.count-1}\n')
+    if index==0:
+        parts.append(f'      budget: {a.first_budget}\n')
 a.workflow.write_text(''.join(parts))

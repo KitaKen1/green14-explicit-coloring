@@ -104,7 +104,7 @@ def run(stage, budget, sample):
     endpoint = Path(f'/tmp/green14-production-qmp-{os.getpid()}')
     command = [
         'qemu-system-x86_64','-machine','pc-q35-8.2,accel=kvm','-cpu','qemu64',
-        '-smp','2','-m','12G','-nodefaults','-display','none','-no-reboot',
+        '-smp','2','-m','12G' if sample else '20G','-nodefaults','-display','none','-no-reboot',
         '-serial',f'file:{log}','-qmp',f'unix:{endpoint},server=on,wait=off',
         '-kernel',str(DATA/'kernel'),'-initrd',str(DATA/'root.cpio.gz'),
         '-append','console=ttyS0 loglevel=4 rdinit=/init panic=1',

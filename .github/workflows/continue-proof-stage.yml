@@ -46,6 +46,22 @@ jobs:
             ~/.elan
             verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
           fail-on-cache-miss: true
+      - name: Confirm the assembled export identity
+        if: inputs.stage == 0 && !inputs.sample
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SOURCE_RUN: ${{ inputs.proof_run }}
+        run: |
+          request=verification/full-sweep/continue-request.json
+          jq -e --argjson run "$SOURCE_RUN" '.run == $run' "$request"
+          artifact=$(jq -r '.artifact' "$request")
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$artifact" |
+            jq -e --slurpfile request "$request" '
+              .name == "unconditional-exports" and
+              .expired == false and
+              .workflow_run.id == $request[0].run and
+              .workflow_run.head_sha == $request[0].proof_commit and
+              .digest == ("sha256:" + $request[0].original_zip_sha256)'
       - uses: actions/download-artifact@v4
         if: inputs.stage == 0 && !inputs.sample
         with:
@@ -73,6 +89,9 @@ jobs:
           sudo apt-get install -y --no-install-recommends qemu-system-x86 busybox-static cpio bubblewrap zstd
           sudo chgrp "$(id -gn)" /dev/kvm
           sudo chmod g+rw /dev/kvm
+      - name: Reserve swap for the full replay guest
+        if: "!inputs.sample"
+        run: bash verification/full-sweep/replay-memory.sh
       - id: check
         name: Check the exact public declaration or save the running checker
         env:
