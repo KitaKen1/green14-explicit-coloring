@@ -65,7 +65,7 @@ def prepare(sample, workers):
 
 def checkpoint(monitor, proc):
     path = DATA/'next.zst'
-    monitor.command('migrate', {'uri':'exec:zstd -q -T2 -3 -o '+shlex.quote(str(path))})
+    monitor.command('migrate', {'uri':'exec:zstd -q -T2 -5 --long=27 -o '+shlex.quote(str(path))})
     def complete():
         status = monitor.command('query-migrate')['status']
         if status in {'failed','cancelled'}:
@@ -84,8 +84,6 @@ def list_protected():
 
 def capture_sha():
     files = list_protected()
-    if sum(p.stat().st_size for p in files)>3*1024**3:
-        raise ValueError('A single checkpoint would exceed the configured cache partition')
     return {p.name:guest.digest(p) for p in files}
 
 
@@ -122,7 +120,7 @@ def run(stage, budget, sample):
         '-append','console=ttyS0 loglevel=4 rdinit=/init panic=1',
     ]
     if stage:
-        command += ['-incoming', 'exec:zstd -dc '+shlex.quote(str(guest.CAPTURE))]
+        command += ['-incoming', 'exec:zstd -dc -M256M '+shlex.quote(str(guest.CAPTURE))]
     proc = subprocess.Popen(command)
     deadline = time.monotonic()+budget*60
     def log_text():
@@ -149,8 +147,8 @@ def run(stage, budget, sample):
             raise RuntimeError('The Comparator exited without an accepted result')
         else:
             checkpoint(guest.Monitor(endpoint),proc)
-            json_file(METADATA,{'stage':stage,'files':capture_sha()})
             print('Paused stock Comparator at checkpoint', stage, 'bytes', guest.CAPTURE.stat().st_size,flush=True)
+            json_file(METADATA,{'stage':stage,'files':capture_sha()})
             value = 'false'
         with Path(os.environ['GITHUB_OUTPUT']).open('a') as f:
             f.write(f'finished={value}\n')
