@@ -1,0 +1,77 @@
+name: Replay the assembled fixed-colouring proof
+on:
+  push:
+    branches: [green14-full-verification]
+    paths:
+      - verification/full-sweep/replay-request.json
+permissions:
+  actions: read
+  contents: read
+defaults:
+  run:
+    shell: bash
+    working-directory: verification/full-sweep
+jobs:
+  replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/cache/restore@v4
+        with:
+          key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
+          path: |
+            ~/.elan
+            verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
+          fail-on-cache-miss: true
+      - name: Pin the original assembled export
+        id: artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          request=replay-request.json
+          id=$(jq -r '.artifact' "$request")
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/$id" |
+            jq -e --slurpfile request "$request" '
+              .name == "unconditional-exports" and .expired == false and
+              .workflow_run.id == $request[0].run and
+              .workflow_run.head_sha == $request[0].proof_commit and
+              .digest == ("sha256:" + $request[0].original_zip_sha256)'
+          echo "run_id=$(jq -r .run "$request")" >> "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@v4
+        with:
+          name: unconditional-exports
+          run-id: ${{ steps.artifact.outputs.run_id }}
+          github-token: ${{ github.token }}
+          path: verification/full-sweep
+      - name: Set up the Linux isolation
+        run: bash sandbox.sh
+      - name: Check the sealed exports with both stock kernels
+        run: |
+          set -o pipefail
+          : "${COMPARATOR_BWRAP:?Expected sandbox path from the setup step}"
+          "$COMPARATOR_BWRAP" --ro-bind / / --dev /dev --proc /proc --unshare-all -- /usr/bin/true
+          export PATH="$HOME/.elan/bin:$PATH"
+          tar -xzf inputs.tar.gz
+          sha256sum -c compared.sha256
+          bash replay-memory.sh
+          sudo install -m 0755 nanoda-one.py /usr/local/bin/green14-nanoda-one
+          kernel="$(lean --print-prefix)/bin/nanoda_bin"
+          jq --arg bin "$kernel" '.external_kernels.nanoda=["/usr/local/bin/green14-nanoda-one",$bin]' comparator.json > comparator.tmp
+          mv comparator.tmp comparator.json
+          timeout --signal=INT --kill-after=60s 340m /usr/bin/time -v python3 verify.py replay 2>&1 | tee comparator.log
+          grep -F 'nanoda kernel accepts the solution' comparator.log
+          grep -F 'Lean default kernel accepts the solution' comparator.log
+          if grep -F 'Sandbox disabled' comparator.log; then exit 1; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: comparator-log
+          path: |
+            verification/full-sweep/comparator.log
+            verification/full-sweep/comparator.json
+            verification/full-sweep/compared.sha256
+            verification/full-sweep/replay-request.json
+          retention-days: 90
