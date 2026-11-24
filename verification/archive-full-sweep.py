@@ -124,12 +124,40 @@ def check_continuation_receipt(file, dest):
             'accepted every legal start for differences 1 through 16.')
 
 
+def check_staged_receipt(file, dest, sample):
+    with ZipFile(file) as archive:
+        log = archive.read('comparator.log')
+        metadata = archive.read('input-receipt.json')
+        status = json.loads(archive.read('status.json'))
+    receipt = json.loads(metadata)
+    namespace = 'Green14Search.Medium.Fixed.Repair.OrbitCover.AllLanes.'
+    targets = (['Green14Search.Medium.Fixed.Repair.ContinuationPilot.every_start'] if sample else
+               ['Green14.green_14_variant_2r2_red_set', 'Green14.redSet_fixed_board',
+                namespace + 'complete_recorded_runs', namespace + 'maximal_run_bound'])
+    if (status.get('accepted') is not True or status.get('receipt_sha256') != sha256(metadata).hexdigest()
+            or receipt.get('sample') is not sample or receipt['comparison']['theorem_names'] != targets
+            or receipt['comparison']['permitted_axioms'] != ['propext','Classical.choice','Quot.sound']
+            or any(v.encode() not in log for v in VERDICTS) or b'Sandbox disabled' in log):
+        raise ValueError('The staged replay differs from the requested scope or lacks a sandboxed verdict')
+    if sample and status.get('stages') != 2:
+        raise ValueError('The pilot did not finish across the two separate jobs')
+    (dest / 'comparator.log').write_bytes(log)
+    (dest / 'input-receipt.json').write_bytes(metadata)
+    save_json(dest / 'status.json', status)
+    return ('Both stock kernels accepted the 16-difference proof after two time-limited jobs.' if sample
+            else 'Both stock kernels accepted the unconditional fixed-colouring targets in the resumed run.')
+
+
 def main(request_path):
     request = json.loads(request_path.read_text())
     run = int(request['run'])
     attempt = int(request['attempt'])
     expected = request['commit']
-    pilot = request.get('kind') == 'continuation-pilot'
+    kind = request.get('kind','full-sweep')
+    pilot = kind == 'continuation-pilot'
+    staged = kind in {'staged-pilot','continued-full'}
+    if kind not in {'full-sweep','continuation-pilot','staged-pilot','continued-full'}:
+        raise ValueError('Unknown verification run type')
     run_api = f'actions/runs/{run}'
     attempt_api = f'{run_api}/attempts/{attempt}'
     receipt = json.loads(github(attempt_api))
@@ -160,6 +188,8 @@ def main(request_path):
             name.startswith('proof-') and name.removeprefix('proof-').isdecimal())
         if pilot:
             expected_name = name == 'green14-comparator-continuation-logs'
+        if staged:
+            expected_name = name == 'continued-comparator'
         if not expected_name or name in recorded or item['expired'] or not item.get('digest'):
             raise ValueError(f'Unexpected or unavailable artifact {name}')
         file = dest / f'{name}.zip'
@@ -180,12 +210,17 @@ def main(request_path):
                 verdict = 'Both nanoda and Lean accepted the unconditional fixed-colouring targets.'
         if pilot and receipt['conclusion'] == 'success':
             verdict = check_continuation_receipt(file, dest)
+        if staged and receipt['conclusion'] == 'success':
+            verdict = check_staged_receipt(file, dest, sample=kind=='staged-pilot')
         recorded[name] = {'original_sha256': digest, 'parts': split_large(file)}
 
     if receipt['conclusion'] == 'success' and pilot:
         if set(recorded) != {'green14-comparator-continuation-logs'} or verdict.startswith('The full replay'):
             raise ValueError('The successful continuation is missing its receipt')
-    if receipt['conclusion'] == 'success' and not pilot:
+    if receipt['conclusion'] == 'success' and staged:
+        if set(recorded) != {'continued-comparator'} or verdict.startswith('The full replay'):
+            raise ValueError('The successful resumed run is missing its receipt')
+    if receipt['conclusion'] == 'success' and not (pilot or staged):
         required = {'support','unconditional-exports','comparator-log'} | {f'proof-{i}' for i in range(173)}
         if (set(recorded) != required or verdict.startswith('The full replay')
                 or compared is None or compared != replay_hashes):
@@ -195,7 +230,7 @@ def main(request_path):
     logs_digest = verified_zip(f'{attempt_api}/logs', logs)
     recorded['workflow-logs'] = {'original_sha256': logs_digest, 'parts': split_large(logs)}
     save_json(dest / 'original-zip-digests.json', recorded)
-    title = 'Fixed-colouring continuation test' if pilot else 'Full fixed-colouring CI'
+    title = 'Fixed-colouring continuation test' if pilot or kind=='staged-pilot' else 'Full fixed-colouring CI'
     (dest / 'README.md').write_text(
         f'# {title}\n\n'
         f'Attempt {attempt} tested commit `{expected}` and concluded `{receipt["conclusion"]}`. '
