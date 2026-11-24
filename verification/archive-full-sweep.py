@@ -24,6 +24,7 @@ FULL_TARGETS = [
     NAMESPACE + 'complete_recorded_runs', NAMESPACE + 'maximal_run_bound',
 ]
 EXPORT_FILES = {'out/Challenge.ndjson', 'out/Solution.ndjson'}
+PARTITIONS = {'structure'} | {str(i) for i in range(173)}
 
 
 def github(path, *, output=None):
@@ -181,6 +182,24 @@ def check_replay_receipt(file, dest, original, original_sums):
     return 'Both stock kernels accepted the sealed unconditional fixed-colouring exports.'
 
 
+def check_partition_receipt(file, key, solution_digest):
+    with ZipFile(file) as archive:
+        receipt = json.loads(archive.read('partition.json'))
+        if (receipt['partition'] != key or receipt['original_sha256'] != solution_digest
+                or receipt['structural'] != (key == 'structure')):
+            raise ValueError(f'Incorrect source or scope for partition {key}')
+        markers = {
+            'projection': b'Verified original types and proof terms',
+            'nanoda': b' declarations with no typechecker errors',
+            'lean': b'Lean default kernel accepts the solution',
+        }
+        for name, marker in markers.items():
+            log = archive.read(f'{name}.log')
+            if marker not in log or sha256(log).hexdigest() != receipt[f'{name}_log_sha256']:
+                raise ValueError(f'Missing or changed {name} verdict in partition {key}')
+    return receipt['slice_sha256']
+
+
 def save_attempt(request):
     run = int(request['run'])
     attempt = int(request['attempt'])
@@ -189,7 +208,8 @@ def save_attempt(request):
     pilot = kind == 'continuation-pilot'
     staged = kind in {'staged-pilot','continued-full'}
     native = kind == 'sealed-replay'
-    if kind not in {'full-sweep','continuation-pilot','staged-pilot','continued-full','sealed-replay'}:
+    partitions = kind == 'partitioned-full'
+    if not (kind == 'full-sweep' or pilot or staged or native or partitions):
         raise ValueError('Unknown verification run type')
     run_api = f'actions/runs/{run}'
     attempt_api = f'{run_api}/attempts/{attempt}'
@@ -201,7 +221,7 @@ def save_attempt(request):
             or receipt['run_attempt'] != attempt):
         raise ValueError('Expected the current completed attempt on the pinned full-sweep commit')
     original_sums = None
-    if native or kind == 'continued-full':
+    if native or kind == 'continued-full' or partitions:
         if receipt['conclusion'] != 'success':
             raise ValueError('Expected a successful final replay')
         original = request['original']
@@ -232,6 +252,8 @@ def save_attempt(request):
     recorded = {}
     replay_hashes = None
     compared = None
+    slices = {}
+    joined = None
     pending_verdict = 'The full replay did not complete successfully.'
     verdict = pending_verdict
     for item in artifacts:
@@ -244,6 +266,9 @@ def save_attempt(request):
             expected_name = name == 'continued-comparator'
         if native:
             expected_name = name == 'comparator-log'
+        if partitions:
+            expected_name = (name in {'sealed-export-index', 'sealed-partitioned-proof'}
+                             or name in {f'partition-{key}' for key in PARTITIONS})
         if not expected_name or name in recorded or item['expired'] or not item.get('digest'):
             raise ValueError(f'Unexpected or unavailable artifact {name}')
         file = dest / f'{name}.zip'
@@ -268,6 +293,22 @@ def save_attempt(request):
             verdict = check_staged_receipt(file, dest, sample=kind=='staged-pilot', original_sums=original_sums)
         if native:
             verdict = check_replay_receipt(file, dest, original, original_sums)
+        if partitions:
+            if name == 'sealed-export-index':
+                with ZipFile(file) as archive:
+                    comparison = archive.read('compare.log')
+                    compared = archive.read('compared.sha256')
+                if (b'Exact original exports pass Comparator statement matching and axiom check' not in comparison
+                        or parse_sha256(compared.decode()) != original_sums):
+                    raise ValueError('The original challenge and solution were not compared')
+                (dest / 'compare.log').write_bytes(comparison)
+                (dest / 'compared.sha256').write_bytes(compared)
+            elif name == 'sealed-partitioned-proof':
+                with ZipFile(file) as archive:
+                    joined = json.loads(archive.read('partitioned-proof.json'))
+            else:
+                key = name.removeprefix('partition-')
+                slices[key] = check_partition_receipt(file, key, original_sums['out/Solution.ndjson'])
         recorded[name] = {'original_sha256': digest, 'parts': split_large(file)}
 
     if receipt['conclusion'] == 'success' and pilot:
@@ -278,6 +319,15 @@ def save_attempt(request):
             raise ValueError('The successful resumed run is missing its receipt')
     if native and (set(recorded) != {'comparator-log'} or verdict == pending_verdict):
         raise ValueError('The successful replay is missing its receipt')
+    if partitions:
+        if (compared is None or joined is None or set(slices) != PARTITIONS
+                or joined['original_sha256'] != original_sums['out/Solution.ndjson']
+                or joined['all_partitions_accepted'] is not True
+                or joined['leaf_proofs'] != 22144 or joined['slice_sha256'] != slices):
+            raise ValueError('The assembled independent checks are incomplete')
+        save_json(dest / 'partitioned-proof.json', joined)
+        verdict = ('Comparator matched the original targets and checked the axioms. Both stock kernels '
+                   'accepted every proof partition, and the join verified all 22,144 leaf proofs.')
     if kind == 'full-sweep':
         builder_names = {'prepare', 'assemble'} | {f'shard ({i})' for i in range(173)}
         accepted = {job['name'] for job in jobs if job['conclusion'] == 'success'}
