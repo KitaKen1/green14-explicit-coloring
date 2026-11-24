@@ -17,10 +17,12 @@ jobs:
     timeout-minutes: 45
     outputs:
       cases: ${{ steps.plan.outputs.cases }}
+      full: ${{ steps.plan.outputs.full }}
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          sparse-checkout: verification/full-sweep/partitioned
       - uses: actions/cache/restore@v4
         with:
           key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
@@ -42,6 +44,7 @@ jobs:
               .workflow_run.head_sha == $request[0].proof_commit and
               .digest == ("sha256:" + $request[0].original_zip_sha256)'
           echo "run_id=$(jq -r .run "$request")" >> "$GITHUB_OUTPUT"
+          echo "full=$(jq -r .full partition-request.json)" >> "$GITHUB_OUTPUT"
           echo "cases=$(jq -ce --slurpfile plan full-plan.json '
             if .full then ["structure"] + [$plan[0].cases | keys[] | tostring]
             else ["structure", "0", "172"] end' partition-request.json)" >> "$GITHUB_OUTPUT"
@@ -62,7 +65,7 @@ jobs:
           sha256sum partition-inputs.tar.gz > partition-inputs.sha256
       - uses: actions/upload-artifact@v4
         with:
-          name: partition-inputs
+          name: sealed-export-index
           path: |
             verification/full-sweep/partition-inputs.tar.gz
             verification/full-sweep/partition-inputs.sha256
@@ -82,6 +85,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          sparse-checkout: verification/full-sweep/partitioned
       - uses: actions/cache/restore@v4
         with:
           key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
@@ -91,7 +95,7 @@ jobs:
           fail-on-cache-miss: true
       - uses: actions/download-artifact@v4
         with:
-          name: partition-inputs
+          name: sealed-export-index
           path: verification/full-sweep
       - name: Set up the Linux isolation
         run: bash sandbox.sh
@@ -109,3 +113,25 @@ jobs:
         with:
           name: partition-${{ matrix.case }}
           path: verification/full-sweep/partition-receipt/
+  join:
+    needs: [index, verify]
+    if: needs.index.outputs.full == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: verification/full-sweep/partitioned
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: partition-*
+          path: verification/full-sweep/partitions/
+      - name: Check that every structural assumption has a proof
+        run: |
+          set -o pipefail
+          python3 partitioned/join.py partitions | tee partitioned-proof.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sealed-partitioned-proof
+          path: verification/full-sweep/partitioned-proof.json

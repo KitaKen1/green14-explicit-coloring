@@ -24,8 +24,11 @@ def checksum(path):
 
 def check(index):
     plan = json.loads((ROOT / 'full-plan.json').read_text())
+    request = json.loads((ROOT / 'partition-request.json').read_text())
+    workers = 1 if index == 'structure' else request.get('nanoda_workers', 1)
+    if not isinstance(workers, int) or not 1 <= workers <= 4:
+        raise ValueError('The CI runner supports one to four nanoda workers')
     args = ['--structural'] if index == 'structure' else [
-        '--compact',
         '--first', str(plan['cases'][int(index)]['first']),
         '--past', str(plan['cases'][int(index)]['past']),
     ]
@@ -38,6 +41,12 @@ def check(index):
     ], check=True)
     axioms = json.loads(solution.with_suffix('.ndjson.axioms.json').read_text())
     receipt = json.loads(solution.with_suffix('.ndjson.receipt.json').read_text())
+    with (LOGDIR / 'projection.log').open('w') as log:
+        subprocess.run([
+            'lean', '--run', HERE / 'ReplayIndex.lean',
+            '--structure' if index == 'structure' else '--slice',
+            ROOT / 'out/Solution.ndjson', solution,
+        ], stdout=log, stderr=subprocess.STDOUT, check=True)
     (OUT / 'nanoda.json').write_text(json.dumps({
         'use_stdin': False,
         'export_file_path': '/proof/Solution.ndjson',
@@ -45,7 +54,7 @@ def check(index):
         'unpermitted_axiom_hard_error': True,
         'nat_extension': True,
         'string_extension': True,
-        'num_threads': 1,
+        'num_threads': workers,
         'print_success_message': True,
     }))
 
@@ -75,7 +84,9 @@ def check(index):
 
     receipt.update({
         'partition': index,
+        'nanoda_workers': workers,
         'slice_sha256': checksum(solution),
+        'projection_log_sha256': checksum(LOGDIR / 'projection.log'),
         'nanoda_log_sha256': checksum(LOGDIR / 'nanoda.log'),
         'lean_log_sha256': checksum(LOGDIR / 'lean.log'),
     })

@@ -7,7 +7,6 @@ forbids any of the temporary assumptions from appearing in a leaf's closure.
 
 from argparse import ArgumentParser
 from array import array
-from collections import defaultdict
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -56,7 +55,6 @@ class Index:
                 raise ValueError(f'Repeated name in trusted parser output: {name}')
             self.references[name] = set(refs)
         self.leaves = {}
-        self.per_file = defaultdict(list)
         names = {0:''}
         fingerprint = sha256()
         found_axioms = set()
@@ -78,7 +76,6 @@ class Index:
                     if not lo <= first < hi or first in self.leaves:
                         raise ValueError(f'Unexpected gate declaration {group[0]}')
                     self.leaves[first] = group[0]
-                    self.per_file[(lo,hi)].append(first)
         if fingerprint.hexdigest() != FULL_DIGEST or found_axioms != AXIOMS:
             raise ValueError('Incorrect original export or axiom set')
         if set(self.leaves) != set(range(1,354297,16)):
@@ -102,7 +99,7 @@ class Index:
             raise ValueError(f'Numeric leaves depend on other omitted leaves: {sorted(overlap)[:4]}')
         return found
 
-    def write(self, output, *, selected=None, cuts=None):
+    def write_structural(self, output, cuts):
         names = {0:''}
         with self.original.open('rb') as data, output.open('wb') as out:
             for line in data:
@@ -112,9 +109,7 @@ class Index:
                     continue
                 item = json.loads(line)
                 declarations = names_in(item,names)
-                if selected is not None and not selected.intersection(declarations):
-                    continue
-                if cuts is not None and cuts.intersection(declarations):
+                if cuts.intersection(declarations):
                     body = item['thm']
                     out.write((json.dumps({'axiom':{
                         'isUnsafe':False, 'levelParams':body['levelParams'], 'name':body['name'], 'type':body['type'],
@@ -222,7 +217,6 @@ def main():
     cli.add_argument('--first',type=int,default=1)
     cli.add_argument('--past',type=int,default=17)
     cli.add_argument('--structural',action='store_true')
-    cli.add_argument('--compact',action='store_true')
     options=cli.parse_args()
     index=Index(options.solution,options.index)
     plan=json.loads(options.plan.read_text())
@@ -230,7 +224,7 @@ def main():
     selected={n for lower,n in index.leaves.items() if options.first<=lower<options.past}
     if options.structural:
         names=set(index.leaves.values())
-        index.write(options.output,cuts=names)
+        index.write_structural(options.output,names)
         print('Prepared structural replay with',len(names),'temporary assumptions')
     else:
         expected = tuple(range(options.first, options.past, 16))
@@ -243,10 +237,7 @@ def main():
         required = index.closure(selected | set(plan['primitives']) | QUOTIENT | AXIOMS)
         if required - selected - core:
             raise ValueError('Unexpected declaration in the selected proof dependency closure')
-        if options.compact:
-            index.write_compact(options.output, required)
-        else:
-            index.write(options.output, selected=required)
+        index.write_compact(options.output, required)
         names=AXIOMS
         print('Prepared independent replay of',len(selected),'closed numeric leaves; support declarations',len(required)-len(selected))
     Path(str(options.output)+'.axioms.json').write_text(json.dumps(sorted(AXIOMS|names),indent=2)+'\n')
