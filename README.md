@@ -1,15 +1,35 @@
 # Green 14 — An explicit colouring in Lean
 
-The following question from Green's Problem 14 is listed as open in Formal Conjectures (FC) under `green_14_variant_2r2`. [FC statement](https://github.com/google-deepmind/formal-conjectures/blob/2de491f90132d3f3fac934edf5bd72acb3dfd15c/FormalConjectures/GreensOpenProblems/14.lean#L138-L155)
+In the 2021 update to Problem 14, Ben Green asked for the following explicit colouring. Formal Conjectures (FC) lists the question as `green_14_variant_2r2`. [Green's problem list](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf#page=10) · [FC statement](https://github.com/google-deepmind/formal-conjectures/blob/2de491f90132d3f3fac934edf5bd72acb3dfd15c/FormalConjectures/GreensOpenProblems/14.lean#L138-L155)
 
 > [!NOTE]
 > **Problem**
 >
 > Give an explicit colouring witnessing $W(3,r)\ge 2r^2$ for some integer $r\ge3$. Colour $\{1,\ldots,2r^2-1\}$ red and blue so that every three-term arithmetic progression has a blue point and every $r$-term arithmetic progression has a red point.
 
-This repository gives a deterministic colouring for $r=520822699705116213452472320$ and proves its correctness in Lean. Lake's comparator, nanoda, and Lean's kernel accepted the final declaration. [Lean theorem](lean/Comparator/Candidate.lean#L18) · [Verification log](verification/logs/fc-target.log)
+This repository gives a fixed colouring for **$r=177147$** and proves in Lean that it avoids every red three-term and blue $r$-term arithmetic progression on $[1, 2r^2-1]$. [Colouring data (69,180 bytes)](verification/full-sweep/colouring.g14) · [SHA-256](verification/full-sweep/SHA256SUMS)
+
+- Answers the existing FC question with an explicit witness.
+- Proposes an FC statement that asks for the actual finite set of red positions. [Proposed Lean statement](verification/full-sweep/src/Comparator/RedSet/Open.lean)
+- Proves the proposed statement in `Green14.green_14_variant_2r2_red_set`. [Lean proof](verification/full-sweep/src/CyclicRedSetFinal.lean)
 
 ### Proof sketch (AI generated)
+
+1. Write a position as $354301b+c$ with $0\le c<354301$. The recorded column residues avoid nontrivial red three-term progressions modulo $354301$, so any red triple has a single column. The row certificates in each column exclude such a triple there, including in the columns used for repairs. [Red-triple proof](verification/full-sweep/src/Green14/FixedBoard.lean)
+2. A legal $r$-term progression has $1\le d\le 2r+2=354296$. For each $d$, the proof uses its inverse modulo $354301$ to put positions in progression order. It divides the possible starts into 32 bins and uses row masks to show that each start either reaches a red point of the base colouring or belongs to a recorded blue run. Lean joins 173 ranges to prove `Complete recordedRuns`, which covers all legal starts and differences. [Range proof](verification/full-sweep/src/FullPeriodicSweep.lean) · [Row masks](verification/full-sweep/src/PreparedWindows.lean)
+3. Each recorded run has certified repair points. Every window of $r$ terms in a recorded run contains one of those red points in the final colouring. Together with completeness, this proves that every blue $r$-term progression is excluded. The proof also bounds the number of maximal blue runs of length at least $r$ in the base colouring by 4,723. [Repair proof](verification/full-sweep/src/Green14/FixedBoard.lean#L6786) · [Run-count bound](verification/full-sweep/src/ShortRunCount.lean)
+
+## Appendix: Solution comparison
+
+The earlier version specifies a colouring by a deterministic greedy algorithm. The current version supplies the data for one fixed colouring and states the result directly in terms of its red set. [FC discussion](https://github.com/google-deepmind/formal-conjectures/pull/8073)
+
+| Version | $r$ | Witness | Lean declaration |
+| --- | ---: | --- | --- |
+| Fixed colouring | $177147$ | 69,180-byte dataset | [`green_14_variant_2r2_red_set`](verification/full-sweep/src/CyclicRedSetFinal.lean) |
+| Earlier construction | $520822699705116213452472320$ | Deterministic greedy rule | [`green_14_variant_2r2`](lean/Comparator/Candidate.lean#L18) |
+
+<details>
+<summary>Earlier proof sketch (AI generated)</summary>
 
 **1. Choose the eligible columns.** Set $N=2r^2-1$ and write each point as $n=vb+a$ with $0\le a<v$, where
 
@@ -39,11 +59,7 @@ Take $L=10^{20}$. The next $L$ positions after the progression contain at most $
 
 There are initially fewer than $Nv<v^3$ progressions. After $T$ steps the remaining count is at most $v^3(1-\gamma)^T\le v^3e^{-T\gamma}$. Exact arithmetic gives $\lfloor T\gamma\rfloor=273$ and $v^3<2^{270}$. The upper bound is below $1$, so the colouring has no all-blue $r$-term progression. The algorithm uses polynomially many arithmetic operations in $N$. At the stated parameters, generating the entire table is impractical. [Greedy coverage](lean/Green14/Covering.lean)
 
-## Fixed colouring at `r = 177147`
-
-The fixed colouring on $[1, 2r^2-1]$ avoids red three-term and blue $r$-term arithmetic progressions. Lean built all 173 ranges, proved `Complete recordedRuns` and the bound of 4,723 maximal long blue runs, and accepted the unconditional `Green14.green_14_variant_2r2_red_set`. The final declarations use only `propext`, `Classical.choice`, and `Quot.sound`. [Colouring data](verification/full-sweep/colouring.g14) · [Proof package](verification/full-sweep/) · [Assembly job](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063) · [Original logs, artifacts, and SHA-256](verification/logs/ci-45292509800-1/)
-
-The first independent replay stopped during Linux sandbox setup. The same assembled export is being checked by stock Comparator and in a separate parallel cross-check. [Stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349777143) · [Resumable stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45365370611) · [Parallel cross-check](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45366078095)
+</details>
 
 ## Appendix: Timeline
 
@@ -57,20 +73,28 @@ The first independent replay stopped during Linux sandbox setup. The same assemb
 | January 2026 | Formal Conjectures opened a tracking issue for Green's Problem 14. | The explicit-colouring follow-up is recorded as `green_14_variant_2r2`. [Issue #1549](https://github.com/google-deepmind/formal-conjectures/issues/1549) |
 | August 2026 | Juan Lopez Marcano reported $W(3,31)\ge954$ and $W(3,33)\ge1072$ in OEIS and linked the colouring data. | The corresponding $2r^2$ targets are $1922$ and $2178$. [OEIS A171081](https://oeis.org/A171081) |
 | September 2026 | Haitao Cao's preprint reports $W(3,r)\ge r^{c\log r}$ for sufficiently large $r$. | An asymptotic improvement using probabilistic choices of centres, rotation, and shell radii. [Preprint](https://arxiv.org/html/2609.31798v1) |
-| November 2026 | This repository gives a deterministic red–blue colouring for $r=520822699705116213452472320$ and a Lean proof of both avoidance conditions. | Solves the explicit-colouring follow-up. The final declaration was accepted by comparator and nanoda. [Lean theorem](lean/Comparator/Candidate.lean#L18) |
+| November 2026 | This repository gives a deterministic red–blue colouring for $r=520822699705116213452472320$ and a Lean proof of both avoidance conditions. | Proves the pinned FC statement. Comparator and nanoda accepted the final declaration. [Lean theorem](lean/Comparator/Candidate.lean#L18) |
 | 24 November 2026 | This repository gives a fixed 69,180-byte colouring for $r=177147$ and a Lean proof of both avoidance conditions. | The final Lean declaration uses the decoded red set on $[1, 2r^2-1]$. [Lean theorem](verification/full-sweep/src/CyclicRedSetFinal.lean) · [Build evidence and SHA-256](verification/logs/ci-45292509800-1/) |
 
 ## Appendix: Verification by Lean Comparator on GitHub CI runner
 
+### Fixed colouring
+
+Lean accepted all 173 ranges and the unconditional assembly. The final declarations use only `propext`, `Classical.choice`, and `Quot.sound`. The archive contains the original workflow logs and all 176 artifacts, including the exact challenge and solution exports. [Assembly job](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063) · [Archive and SHA-256](verification/logs/ci-45292509800-1/)
+
+The first independent replay stopped during Linux sandbox setup. The same assembled export is being checked by stock Comparator and in a separate parallel cross-check. [Stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349777143) · [Resumable stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45365370611) · [Parallel cross-check](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45366078095)
+
+### Earlier construction
+
 Run the [Lean comparator workflow](.github/workflows/comparator.yml) manually from the Actions tab. It checks `Green14.green_14_variant_2r2` and `Green14.Review.answer_parameter` against the pinned FC challenge on Ubuntu 24.04. Lake's bubblewrap sandbox builds and exports the two modules independently. Comparator checks the types and permits only `propext`, `Classical.choice` and `Quot.sound`. It requires both nanoda and Lean's kernel to accept the candidate export. A fresh Lean kernel also replays the candidate module. [Comparator configuration](lean/comparator.json)
 
-### Certification within 90 days
+#### Certification within 90 days
 
 The GitHub-hosted verification passed on 18 November 2026. It checked the final declaration and fixed parameter with Comparator and nanoda, and replayed the complete candidate environment in a fresh Lean kernel. [Tested commit `0584514`](https://github.com/KitaKen1/green14-explicit-coloring/commit/05845144e51d7c10eeda31e64cc1239f534992f6) · [GitHub Actions run](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/44248902963)
 
 The workflow retains the `comparator-<run-id>-<attempt>` artifact for 90 days. It contains the comparator log, the fresh replay result and the verification receipt. The local macOS checks passed on the same day. [CI artifact](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/44248902963/artifacts/14403621363) · [Local comparator log](verification/logs/fc-target.log) · [Local receipt](verification/logs/result.json) · [Fresh replay receipt](verification/logs/fresh-replay.json)
 
-### Certification after 90 days
+#### Certification after 90 days
 
 The repository preserves the original ZIPs and verification records for CI run `44248902963`, attempt `1`. The Comparator ZIP matches the SHA-256 digest recorded by GitHub. [Archive](verification/logs/ci-44248902963/) · [Workflow logs ZIP](verification/logs/ci-44248902963/workflow-logs.zip) · [Comparator ZIP](verification/logs/ci-44248902963/comparator.zip) · [SHA256SUMS](verification/logs/ci-44248902963/SHA256SUMS)
 
@@ -81,7 +105,7 @@ python3 verification/archive-run.py --repo OWNER/REPO --run RUN_ID \
   --attempt ATTEMPT --expected-commit FULL_SHA --output verification/logs/ci-RUN_ID
 ```
 
-### Reproduce the verification
+#### Reproduce the verification
 
 With elan and `bubblewrap` installed on Linux, run from the repository root.
 
