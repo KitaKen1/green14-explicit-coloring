@@ -1,0 +1,3522 @@
+[
+  {
+    "id": 14899880949,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5OTg4MDk0OQ==",
+    "name": "comparator-log",
+    "size_in_bytes": 1528,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14899880949",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14899880949/zip",
+    "expired": false,
+    "digest": "sha256:8c44a480ea7293a10d086ab61d3c8428333f32147bb5e10259a8a81b61d4de8e",
+    "created_at": "2026-11-24T07:37:33Z",
+    "updated_at": "2026-11-24T07:37:33Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14899071978,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5OTA3MTk3OA==",
+    "name": "unconditional-exports",
+    "size_in_bytes": 103769386,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14899071978",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14899071978/zip",
+    "expired": false,
+    "digest": "sha256:04aedf93f2216941f7ce11816549a56c3d093f6564228156a0895e3d2804b159",
+    "created_at": "2026-11-24T07:29:31Z",
+    "updated_at": "2026-11-24T07:29:31Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14897965605,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5Nzk2NTYwNQ==",
+    "name": "proof-164",
+    "size_in_bytes": 741203,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897965605",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897965605/zip",
+    "expired": false,
+    "digest": "sha256:58ad8442b48dade015e9e12bad5982ac1241f744ee26f63a39253b2272fd1441",
+    "created_at": "2026-11-24T06:59:37Z",
+    "updated_at": "2026-11-24T06:59:37Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14897637018,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NzYzNzAxOA==",
+    "name": "proof-169",
+    "size_in_bytes": 741405,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897637018",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897637018/zip",
+    "expired": false,
+    "digest": "sha256:6cd5c1a3cc314dc2a2aad8fb9a0a85650ebff2077842e7c5a98e48b63660aa0b",
+    "created_at": "2026-11-24T07:02:59Z",
+    "updated_at": "2026-11-24T07:02:59Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14897548172,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NzU0ODE3Mg==",
+    "name": "proof-172",
+    "size_in_bytes": 739839,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897548172",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897548172/zip",
+    "expired": false,
+    "digest": "sha256:c5dfd5def17539710eb7c8c29c54c47bf36b9946d5127d9a8487c5612a8d7992",
+    "created_at": "2026-11-24T07:05:36Z",
+    "updated_at": "2026-11-24T07:05:36Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14897508540,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NzUwODU0MA==",
+    "name": "proof-167",
+    "size_in_bytes": 741203,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897508540",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897508540/zip",
+    "expired": false,
+    "digest": "sha256:1372db27aabb61817dabcf22e6bb417373a1969c79c9c21f152c55d64132cbad",
+    "created_at": "2026-11-24T07:02:19Z",
+    "updated_at": "2026-11-24T07:02:19Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14897452855,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NzQ1Mjg1NQ==",
+    "name": "proof-165",
+    "size_in_bytes": 741051,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897452855",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897452855/zip",
+    "expired": false,
+    "digest": "sha256:cdc58110bb50d809903009784621640f6deb9c5d98b571fa66c6c9d478230f61",
+    "created_at": "2026-11-24T07:00:47Z",
+    "updated_at": "2026-11-24T07:00:47Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14897378650,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NzM3ODY1MA==",
+    "name": "proof-168",
+    "size_in_bytes": 741247,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897378650",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897378650/zip",
+    "expired": false,
+    "digest": "sha256:b73eb1e7b032ac3c4bf7793de1defec3094820b7bd07b15f0545483820795eaa",
+    "created_at": "2026-11-24T07:05:06Z",
+    "updated_at": "2026-11-24T07:05:06Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14897252966,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NzI1Mjk2Ng==",
+    "name": "proof-163",
+    "size_in_bytes": 741223,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897252966",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14897252966/zip",
+    "expired": false,
+    "digest": "sha256:6cd896cb71a4b65f9ed2c689ffbe62faed60d9d586424c5fc494d71811417218",
+    "created_at": "2026-11-24T07:00:22Z",
+    "updated_at": "2026-11-24T07:00:22Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14896897704,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5Njg5NzcwNA==",
+    "name": "proof-162",
+    "size_in_bytes": 741070,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896897704",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896897704/zip",
+    "expired": false,
+    "digest": "sha256:243c4ff974f500ebd06dea7485bebf9291220fa9a65447c0a4b6bb939b0cb523",
+    "created_at": "2026-11-24T06:54:42Z",
+    "updated_at": "2026-11-24T06:54:42Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14896808299,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NjgwODI5OQ==",
+    "name": "proof-161",
+    "size_in_bytes": 741205,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896808299",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896808299/zip",
+    "expired": false,
+    "digest": "sha256:e4a1e105b3888b0193a2a591e8c421bd0812f39f29c3ae27b63e5786bc5fc13c",
+    "created_at": "2026-11-24T06:53:21Z",
+    "updated_at": "2026-11-24T06:53:21Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14896774145,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5Njc3NDE0NQ==",
+    "name": "proof-170",
+    "size_in_bytes": 740802,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896774145",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896774145/zip",
+    "expired": false,
+    "digest": "sha256:a9f0aecfd49e0260bff895e07271da863b5abc7a0fd5f9a08e2280c0abc0a367",
+    "created_at": "2026-11-24T07:03:39Z",
+    "updated_at": "2026-11-24T07:03:39Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14896718591,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NjcxODU5MQ==",
+    "name": "proof-160",
+    "size_in_bytes": 741219,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896718591",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896718591/zip",
+    "expired": false,
+    "digest": "sha256:a8c37f7314868ee3dd1a97c69669ed07b000430604e11695a9e53ff3f293470a",
+    "created_at": "2026-11-24T06:53:11Z",
+    "updated_at": "2026-11-24T06:53:11Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14896599050,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NjU5OTA1MA==",
+    "name": "proof-166",
+    "size_in_bytes": 741180,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896599050",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896599050/zip",
+    "expired": false,
+    "digest": "sha256:d9a7cb0dfd33a203ff0686ad9b090ddac389f394558274f22dd0a006c9d1a361",
+    "created_at": "2026-11-24T07:01:19Z",
+    "updated_at": "2026-11-24T07:01:19Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14896569361,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NjU2OTM2MQ==",
+    "name": "proof-171",
+    "size_in_bytes": 741376,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896569361",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14896569361/zip",
+    "expired": false,
+    "digest": "sha256:f2749f7e90118e82bb1a7ba1d95afe838a66ebf0587a4f2550eddb6da593b714",
+    "created_at": "2026-11-24T07:01:51Z",
+    "updated_at": "2026-11-24T07:01:51Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895920436,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTkyMDQzNg==",
+    "name": "proof-150",
+    "size_in_bytes": 741464,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895920436",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895920436/zip",
+    "expired": false,
+    "digest": "sha256:53ebc4afb7e53780be053ef91c4f27793c7551ed2a248c51b9b81be51e04c7d5",
+    "created_at": "2026-11-24T06:14:17Z",
+    "updated_at": "2026-11-24T06:14:17Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895783182,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTc4MzE4Mg==",
+    "name": "proof-158",
+    "size_in_bytes": 741212,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895783182",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895783182/zip",
+    "expired": false,
+    "digest": "sha256:2fb33decac27c87920a8654d4e62d66e8c9200698ef0f981fd23e8b6108b3672",
+    "created_at": "2026-11-24T06:25:09Z",
+    "updated_at": "2026-11-24T06:25:09Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895782855,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTc4Mjg1NQ==",
+    "name": "proof-155",
+    "size_in_bytes": 741248,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895782855",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895782855/zip",
+    "expired": false,
+    "digest": "sha256:bba6a50bf2b2d5a17bb0a3aa5e61a583558ed9ad424b1341892f45fbb70c7040",
+    "created_at": "2026-11-24T06:23:26Z",
+    "updated_at": "2026-11-24T06:23:26Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895770407,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTc3MDQwNw==",
+    "name": "proof-142",
+    "size_in_bytes": 741297,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895770407",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895770407/zip",
+    "expired": false,
+    "digest": "sha256:59c253698115233de04f0acef532c998a81890b2ba120bf2269cb60b125f175b",
+    "created_at": "2026-11-24T06:10:43Z",
+    "updated_at": "2026-11-24T06:10:43Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895750644,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTc1MDY0NA==",
+    "name": "proof-143",
+    "size_in_bytes": 741287,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895750644",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895750644/zip",
+    "expired": false,
+    "digest": "sha256:358828a608d375efcf7386a8b230aca3080af3b968c2859c9734b84646265cfc",
+    "created_at": "2026-11-24T06:11:26Z",
+    "updated_at": "2026-11-24T06:11:26Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895721393,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTcyMTM5Mw==",
+    "name": "proof-149",
+    "size_in_bytes": 741045,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895721393",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895721393/zip",
+    "expired": false,
+    "digest": "sha256:62e654924380222c1549fa9f94971c5d2ecec37352f4fcedcb833deea7f605e4",
+    "created_at": "2026-11-24T06:16:28Z",
+    "updated_at": "2026-11-24T06:16:28Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895706304,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTcwNjMwNA==",
+    "name": "proof-145",
+    "size_in_bytes": 741419,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895706304",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895706304/zip",
+    "expired": false,
+    "digest": "sha256:00a21554b1e2cd85a2e90808921b204b23581c09397dcfaf62d3b98b7c220017",
+    "created_at": "2026-11-24T06:15:55Z",
+    "updated_at": "2026-11-24T06:15:55Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895548423,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTU0ODQyMw==",
+    "name": "proof-159",
+    "size_in_bytes": 741417,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895548423",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895548423/zip",
+    "expired": false,
+    "digest": "sha256:ff94470f648dcb17533fdfea9694a2adc60fa6e4397363639a6587d07de41020",
+    "created_at": "2026-11-24T06:31:18Z",
+    "updated_at": "2026-11-24T06:31:18Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895530359,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTUzMDM1OQ==",
+    "name": "proof-141",
+    "size_in_bytes": 741379,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895530359",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895530359/zip",
+    "expired": false,
+    "digest": "sha256:079c7d817a911014961c1653201ea8e48b56ec9500853ec15c7c47f129ca665e",
+    "created_at": "2026-11-24T06:07:28Z",
+    "updated_at": "2026-11-24T06:07:28Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895457253,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTQ1NzI1Mw==",
+    "name": "proof-146",
+    "size_in_bytes": 741257,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895457253",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895457253/zip",
+    "expired": false,
+    "digest": "sha256:e9cd4fa167d3da549a42ce511df3effac038592f39f9e5fabe6503e25248b473",
+    "created_at": "2026-11-24T06:15:58Z",
+    "updated_at": "2026-11-24T06:15:58Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895336894,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTMzNjg5NA==",
+    "name": "proof-151",
+    "size_in_bytes": 741038,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895336894",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895336894/zip",
+    "expired": false,
+    "digest": "sha256:d520cbf7ee9f5ff2e67c2db49abd398dba88ad5d11c8f837dda28d9203f1d1e7",
+    "created_at": "2026-11-24T06:17:10Z",
+    "updated_at": "2026-11-24T06:17:10Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895313468,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTMxMzQ2OA==",
+    "name": "proof-153",
+    "size_in_bytes": 741345,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895313468",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895313468/zip",
+    "expired": false,
+    "digest": "sha256:00eaacdebd91feda29c2f161e0fc20b4ad71ddb6f62e3f6b61410205e58a3155",
+    "created_at": "2026-11-24T06:20:07Z",
+    "updated_at": "2026-11-24T06:20:07Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895222968,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTIyMjk2OA==",
+    "name": "proof-156",
+    "size_in_bytes": 741055,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895222968",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895222968/zip",
+    "expired": false,
+    "digest": "sha256:1754141ac6b28e6e7bc9764ffa959d018cd950df6d7908b1397d737674b45bfa",
+    "created_at": "2026-11-24T06:23:33Z",
+    "updated_at": "2026-11-24T06:23:33Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895117500,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTExNzUwMA==",
+    "name": "proof-147",
+    "size_in_bytes": 741646,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895117500",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895117500/zip",
+    "expired": false,
+    "digest": "sha256:b2d2ad55e1f4cc18e308dc8016478a5fed1ce445c98c5687e2a883a624b68c8f",
+    "created_at": "2026-11-24T06:20:01Z",
+    "updated_at": "2026-11-24T06:20:01Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895093864,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTA5Mzg2NA==",
+    "name": "proof-154",
+    "size_in_bytes": 740957,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895093864",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895093864/zip",
+    "expired": false,
+    "digest": "sha256:17d706d339124da247fcdf478a931e9809e4df536ad69e101ca3568820effd7d",
+    "created_at": "2026-11-24T06:21:06Z",
+    "updated_at": "2026-11-24T06:21:06Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895045613,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTA0NTYxMw==",
+    "name": "proof-140",
+    "size_in_bytes": 741043,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895045613",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895045613/zip",
+    "expired": false,
+    "digest": "sha256:d326e6c8acaa6eaeb67384b2fbfcd1c329c70eaaa787af038b9a09c415f2db40",
+    "created_at": "2026-11-24T06:05:39Z",
+    "updated_at": "2026-11-24T06:05:39Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14895009534,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NTAwOTUzNA==",
+    "name": "proof-157",
+    "size_in_bytes": 741102,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895009534",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14895009534/zip",
+    "expired": false,
+    "digest": "sha256:d6bdbcd5db85794ec133f21240af4176bcfcd2403546b455b42de2e170a723bf",
+    "created_at": "2026-11-24T06:24:44Z",
+    "updated_at": "2026-11-24T06:24:44Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14894972904,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NDk3MjkwNA==",
+    "name": "proof-148",
+    "size_in_bytes": 741451,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14894972904",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14894972904/zip",
+    "expired": false,
+    "digest": "sha256:c346b9b8bb296a8fadcc56e240ac531e5a27aaf36f6557a7940926610d8c2548",
+    "created_at": "2026-11-24T06:15:48Z",
+    "updated_at": "2026-11-24T06:15:48Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14894587971,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NDU4Nzk3MQ==",
+    "name": "proof-144",
+    "size_in_bytes": 741585,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14894587971",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14894587971/zip",
+    "expired": false,
+    "digest": "sha256:0619806c6ee8e69a9b161d664055527a91205b89d9196a7fad227310ac3dd7cb",
+    "created_at": "2026-11-24T06:13:58Z",
+    "updated_at": "2026-11-24T06:13:58Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14894473691,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NDQ3MzY5MQ==",
+    "name": "proof-152",
+    "size_in_bytes": 741016,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14894473691",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14894473691/zip",
+    "expired": false,
+    "digest": "sha256:694fcd01177ce058759d6140d279b08fc36b02c6b5645d1909d2b9f833baf970",
+    "created_at": "2026-11-24T06:18:54Z",
+    "updated_at": "2026-11-24T06:18:54Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14894075148,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5NDA3NTE0OA==",
+    "name": "proof-135",
+    "size_in_bytes": 741023,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14894075148",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14894075148/zip",
+    "expired": false,
+    "digest": "sha256:c13b908247b53133d0631ed8aa2bf61dbc762ecd02eea4546dc5e63ed3fc92ad",
+    "created_at": "2026-11-24T05:37:49Z",
+    "updated_at": "2026-11-24T05:37:49Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14893980677,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5Mzk4MDY3Nw==",
+    "name": "proof-137",
+    "size_in_bytes": 741051,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893980677",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893980677/zip",
+    "expired": false,
+    "digest": "sha256:118d79657b2003e74e744f07500689d10e4805ab2414e8a15ef6d6fe20ca82b3",
+    "created_at": "2026-11-24T05:38:06Z",
+    "updated_at": "2026-11-24T05:38:06Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14893931201,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MzkzMTIwMQ==",
+    "name": "proof-138",
+    "size_in_bytes": 741081,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893931201",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893931201/zip",
+    "expired": false,
+    "digest": "sha256:d0fac7f222f751b10ae4b2ad6b3c3a30f22bf3d16c75d3c6e472c5ce89bcc194",
+    "created_at": "2026-11-24T05:39:13Z",
+    "updated_at": "2026-11-24T05:39:13Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14893786354,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5Mzc4NjM1NA==",
+    "name": "proof-136",
+    "size_in_bytes": 741327,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893786354",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893786354/zip",
+    "expired": false,
+    "digest": "sha256:5884bb9f554092e3e4cca35d511a6f869c73e5685dc9f53501817609cf38e57f",
+    "created_at": "2026-11-24T05:37:12Z",
+    "updated_at": "2026-11-24T05:37:12Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14893750044,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5Mzc1MDA0NA==",
+    "name": "proof-128",
+    "size_in_bytes": 741410,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893750044",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893750044/zip",
+    "expired": false,
+    "digest": "sha256:9787e8705dc8fe09b31173fc6b0fbc54327890e6040cbc78c168311343628c63",
+    "created_at": "2026-11-24T05:29:49Z",
+    "updated_at": "2026-11-24T05:29:49Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14893581002,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MzU4MTAwMg==",
+    "name": "proof-126",
+    "size_in_bytes": 741133,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893581002",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893581002/zip",
+    "expired": false,
+    "digest": "sha256:b0d01b841d411ad7d242156fa5493e3621a896d6d629a6a57f520fc71d7118bd",
+    "created_at": "2026-11-24T05:34:28Z",
+    "updated_at": "2026-11-24T05:34:28Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14893570459,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MzU3MDQ1OQ==",
+    "name": "proof-131",
+    "size_in_bytes": 741184,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893570459",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893570459/zip",
+    "expired": false,
+    "digest": "sha256:fbba56ea93851204704dc1c21583850bb1acd4b7d59e28d066600e42fb9e9b15",
+    "created_at": "2026-11-24T05:31:11Z",
+    "updated_at": "2026-11-24T05:31:11Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14893010975,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MzAxMDk3NQ==",
+    "name": "proof-125",
+    "size_in_bytes": 740917,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893010975",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893010975/zip",
+    "expired": false,
+    "digest": "sha256:ccf043566d898b75e3cf1dd21a6318917fb59f26ee50751e4e235ad1656fd6f7",
+    "created_at": "2026-11-24T05:29:39Z",
+    "updated_at": "2026-11-24T05:29:39Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14893003235,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MzAwMzIzNQ==",
+    "name": "proof-139",
+    "size_in_bytes": 741552,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893003235",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14893003235/zip",
+    "expired": false,
+    "digest": "sha256:fcda5f7e90bfb4bfe6fa6a2000d7c31ce1f12b3691654bb7b0fe73d556ed7a91",
+    "created_at": "2026-11-24T05:45:31Z",
+    "updated_at": "2026-11-24T05:45:31Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892990330,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5Mjk5MDMzMA==",
+    "name": "proof-123",
+    "size_in_bytes": 741232,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892990330",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892990330/zip",
+    "expired": false,
+    "digest": "sha256:d3a6aac40ef6ad1f3e5ecc490e00dcbf2b0d4cf6d5a68c9a62345d343cc2aa16",
+    "created_at": "2026-11-24T05:24:33Z",
+    "updated_at": "2026-11-24T05:24:33Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892955501,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5Mjk1NTUwMQ==",
+    "name": "proof-122",
+    "size_in_bytes": 741631,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892955501",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892955501/zip",
+    "expired": false,
+    "digest": "sha256:467913a899890554d684b0dea3a774c32f2f67f05c1f6b830529330517434022",
+    "created_at": "2026-11-24T05:23:58Z",
+    "updated_at": "2026-11-24T05:23:58Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892872879,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5Mjg3Mjg3OQ==",
+    "name": "proof-130",
+    "size_in_bytes": 740833,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892872879",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892872879/zip",
+    "expired": false,
+    "digest": "sha256:33472ad178271b075a0f3e659883502535c7e2c909c78d6c5d9f82e17b917709",
+    "created_at": "2026-11-24T05:30:43Z",
+    "updated_at": "2026-11-24T05:30:43Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892819145,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MjgxOTE0NQ==",
+    "name": "proof-134",
+    "size_in_bytes": 741099,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892819145",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892819145/zip",
+    "expired": false,
+    "digest": "sha256:dd37567aa2fcbb8ae052e14c068e07fb3ab22440097a65b3b863e6e0f1e88386",
+    "created_at": "2026-11-24T05:35:05Z",
+    "updated_at": "2026-11-24T05:35:05Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892757888,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5Mjc1Nzg4OA==",
+    "name": "proof-124",
+    "size_in_bytes": 740907,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892757888",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892757888/zip",
+    "expired": false,
+    "digest": "sha256:86d1aa84258e065fff6fde88381a1679700a26b41f5b77e64d8e2af0e4cae67c",
+    "created_at": "2026-11-24T05:27:49Z",
+    "updated_at": "2026-11-24T05:27:49Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892668296,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MjY2ODI5Ng==",
+    "name": "proof-133",
+    "size_in_bytes": 741741,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892668296",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892668296/zip",
+    "expired": false,
+    "digest": "sha256:b6f7f6425c7bcd91b63b60f5c1183b685eae5557c419ed982da7151a94398f8a",
+    "created_at": "2026-11-24T05:30:28Z",
+    "updated_at": "2026-11-24T05:30:28Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892663627,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MjY2MzYyNw==",
+    "name": "proof-132",
+    "size_in_bytes": 741206,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892663627",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892663627/zip",
+    "expired": false,
+    "digest": "sha256:b13dc2948717b5b9dbdc6f0a18a6cbc0440033eac193bbe7aa6427fb4151dc3a",
+    "created_at": "2026-11-24T05:32:46Z",
+    "updated_at": "2026-11-24T05:32:46Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892631604,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MjYzMTYwNA==",
+    "name": "proof-121",
+    "size_in_bytes": 741399,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892631604",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892631604/zip",
+    "expired": false,
+    "digest": "sha256:45503946fa9b290395eda3a48e9b807b45925b11f5ca22cc65d1601bdac5544c",
+    "created_at": "2026-11-24T05:19:30Z",
+    "updated_at": "2026-11-24T05:19:30Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892573537,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MjU3MzUzNw==",
+    "name": "proof-129",
+    "size_in_bytes": 740991,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892573537",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892573537/zip",
+    "expired": false,
+    "digest": "sha256:54dc47e89e3b72b6f023a8e14b7c99c482906e15738f7ab90cbeb7987629f524",
+    "created_at": "2026-11-24T05:30:04Z",
+    "updated_at": "2026-11-24T05:30:04Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892502380,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MjUwMjM4MA==",
+    "name": "proof-120",
+    "size_in_bytes": 741181,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892502380",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892502380/zip",
+    "expired": false,
+    "digest": "sha256:6c26e1fb2fefd5cde8c9b8a067c2464092c104e63a8e1957419176e64b493d66",
+    "created_at": "2026-11-24T05:21:16Z",
+    "updated_at": "2026-11-24T05:21:16Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14892299609,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MjI5OTYwOQ==",
+    "name": "proof-127",
+    "size_in_bytes": 741064,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892299609",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14892299609/zip",
+    "expired": false,
+    "digest": "sha256:6c52a0cf934b24dc52abab55771d3754c63ffd69fcb3496645d364c44455d989",
+    "created_at": "2026-11-24T05:27:26Z",
+    "updated_at": "2026-11-24T05:27:26Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14891450216,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MTQ1MDIxNg==",
+    "name": "proof-116",
+    "size_in_bytes": 741497,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14891450216",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14891450216/zip",
+    "expired": false,
+    "digest": "sha256:1d101644eaf5a92c19d9591e12a605a2ce7946cd58caf701df277bfcc7d784b9",
+    "created_at": "2026-11-24T04:48:45Z",
+    "updated_at": "2026-11-24T04:48:45Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14891055156,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MTA1NTE1Ng==",
+    "name": "proof-101",
+    "size_in_bytes": 741306,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14891055156",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14891055156/zip",
+    "expired": false,
+    "digest": "sha256:278f586cd1c2400e3150ce3bde0995db66b508ef74035bce0d76d0053b967161",
+    "created_at": "2026-11-24T04:39:18Z",
+    "updated_at": "2026-11-24T04:39:18Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890970219,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDk3MDIxOQ==",
+    "name": "proof-102",
+    "size_in_bytes": 741408,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890970219",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890970219/zip",
+    "expired": false,
+    "digest": "sha256:6afa5b2a7b476d62bf2d7f296718975a5c0227a607499ed93dac7639f8f26e8d",
+    "created_at": "2026-11-24T04:37:34Z",
+    "updated_at": "2026-11-24T04:37:34Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890950728,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDk1MDcyOA==",
+    "name": "proof-107",
+    "size_in_bytes": 740959,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890950728",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890950728/zip",
+    "expired": false,
+    "digest": "sha256:92eee5702e2968386c0a273f4b7c07c533717f4ba1fb33894282a22b6e0fcb77",
+    "created_at": "2026-11-24T04:40:05Z",
+    "updated_at": "2026-11-24T04:40:05Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890807245,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDgwNzI0NQ==",
+    "name": "proof-115",
+    "size_in_bytes": 741148,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890807245",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890807245/zip",
+    "expired": false,
+    "digest": "sha256:4ce1730bb069a4f536d54c8458f91e758554f4050a6f4b43cab50dc468edf20c",
+    "created_at": "2026-11-24T04:46:17Z",
+    "updated_at": "2026-11-24T04:46:17Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890778976,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDc3ODk3Ng==",
+    "name": "proof-113",
+    "size_in_bytes": 741339,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890778976",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890778976/zip",
+    "expired": false,
+    "digest": "sha256:1e0fb1be494854f8bca040f359a0001c1fb6e98f9f09e36a2617d727522aba24",
+    "created_at": "2026-11-24T04:55:06Z",
+    "updated_at": "2026-11-24T04:55:06Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890728261,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDcyODI2MQ==",
+    "name": "proof-119",
+    "size_in_bytes": 741008,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890728261",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890728261/zip",
+    "expired": false,
+    "digest": "sha256:ce68c9ea76d495bea5c3dbf7c65ea0f2ab9fe8ab479b59bc1425e26996ecdc7e",
+    "created_at": "2026-11-24T04:50:54Z",
+    "updated_at": "2026-11-24T04:50:54Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890637351,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDYzNzM1MQ==",
+    "name": "proof-109",
+    "size_in_bytes": 741199,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890637351",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890637351/zip",
+    "expired": false,
+    "digest": "sha256:87f787401786b182fbce990a8bb252d13c57d06bcca3394a46a5ead84591bfe2",
+    "created_at": "2026-11-24T04:43:42Z",
+    "updated_at": "2026-11-24T04:43:42Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890588112,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDU4ODExMg==",
+    "name": "proof-117",
+    "size_in_bytes": 741130,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890588112",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890588112/zip",
+    "expired": false,
+    "digest": "sha256:55b4a6c56965dfb8eee44174e8adf72b1cb7aa037a770d4ff05bf8e64a6b0fa9",
+    "created_at": "2026-11-24T04:48:30Z",
+    "updated_at": "2026-11-24T04:48:30Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890581537,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDU4MTUzNw==",
+    "name": "proof-106",
+    "size_in_bytes": 741257,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890581537",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890581537/zip",
+    "expired": false,
+    "digest": "sha256:5e0cb765cd26e3346e8bfb8fdc53b61ebd7740b914a2a65e2ce4aab1fd3d6ed5",
+    "created_at": "2026-11-24T04:38:42Z",
+    "updated_at": "2026-11-24T04:38:42Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890533887,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDUzMzg4Nw==",
+    "name": "proof-112",
+    "size_in_bytes": 741190,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890533887",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890533887/zip",
+    "expired": false,
+    "digest": "sha256:8801fa634db57b9b22aa0932f6fb8675fdc8f78f493459e489b2766a7c8359c2",
+    "created_at": "2026-11-24T04:52:01Z",
+    "updated_at": "2026-11-24T04:52:01Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890439375,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDQzOTM3NQ==",
+    "name": "proof-118",
+    "size_in_bytes": 740982,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890439375",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890439375/zip",
+    "expired": false,
+    "digest": "sha256:9e0d470fe5f66d56930f6f6dd10c1eec72a9c6554416173e387bd22aa2c72970",
+    "created_at": "2026-11-24T04:52:21Z",
+    "updated_at": "2026-11-24T04:52:21Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890433296,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDQzMzI5Ng==",
+    "name": "proof-114",
+    "size_in_bytes": 741545,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890433296",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890433296/zip",
+    "expired": false,
+    "digest": "sha256:9307f79e05cb432918b0d733f4e546880e397e0f72abdbea9621a9e606eba6ce",
+    "created_at": "2026-11-24T04:45:42Z",
+    "updated_at": "2026-11-24T04:45:42Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890422780,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDQyMjc4MA==",
+    "name": "proof-103",
+    "size_in_bytes": 741298,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890422780",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890422780/zip",
+    "expired": false,
+    "digest": "sha256:009928ad6daeab81a10472d0a2860f8cb051917a6f7f12d0e240e1ab3abfd9c7",
+    "created_at": "2026-11-24T04:41:46Z",
+    "updated_at": "2026-11-24T04:41:46Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890418157,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDQxODE1Nw==",
+    "name": "proof-105",
+    "size_in_bytes": 740771,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890418157",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890418157/zip",
+    "expired": false,
+    "digest": "sha256:a227093197d4503d31218c9bde70c53b093137cc754d76042fe3ce205117b859",
+    "created_at": "2026-11-24T04:42:47Z",
+    "updated_at": "2026-11-24T04:42:47Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890253713,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDI1MzcxMw==",
+    "name": "proof-104",
+    "size_in_bytes": 741113,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890253713",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890253713/zip",
+    "expired": false,
+    "digest": "sha256:8800cefa2ce8065933e49f5f7ed8d017ab496c8dce4c52f082b3466ac2d44ab8",
+    "created_at": "2026-11-24T04:38:10Z",
+    "updated_at": "2026-11-24T04:38:10Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14890154832,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg5MDE1NDgzMg==",
+    "name": "proof-110",
+    "size_in_bytes": 741544,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890154832",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14890154832/zip",
+    "expired": false,
+    "digest": "sha256:cc30ce4c3ceb19d2158e490ff13b40e40e03cb3f63054c739f0d3fe763ca9c20",
+    "created_at": "2026-11-24T04:42:38Z",
+    "updated_at": "2026-11-24T04:42:38Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14889909289,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4OTkwOTI4OQ==",
+    "name": "proof-108",
+    "size_in_bytes": 741166,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14889909289",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14889909289/zip",
+    "expired": false,
+    "digest": "sha256:89d5889802f0ea7c6f5e7bf797292df5b588e4e2eb97e9b318da09012ceae454",
+    "created_at": "2026-11-24T04:43:58Z",
+    "updated_at": "2026-11-24T04:43:58Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14889749639,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4OTc0OTYzOQ==",
+    "name": "proof-111",
+    "size_in_bytes": 741437,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14889749639",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14889749639/zip",
+    "expired": false,
+    "digest": "sha256:3ccf7265db5aaa80bbafb46485f36407222f1714b9f505c462132389499c3e0d",
+    "created_at": "2026-11-24T04:44:28Z",
+    "updated_at": "2026-11-24T04:44:28Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14889579284,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4OTU3OTI4NA==",
+    "name": "proof-100",
+    "size_in_bytes": 741358,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14889579284",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14889579284/zip",
+    "expired": false,
+    "digest": "sha256:68c6c7751a4e9f044e569ae52a501b81f6ce53acedda097f5d75116d82107f5c",
+    "created_at": "2026-11-24T04:34:54Z",
+    "updated_at": "2026-11-24T04:34:54Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888747395,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODc0NzM5NQ==",
+    "name": "proof-98",
+    "size_in_bytes": 740604,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888747395",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888747395/zip",
+    "expired": false,
+    "digest": "sha256:c8a9af65b6756eb7992ebc9a549cc52ac19fd8f2e26b68926a895c021dae602b",
+    "created_at": "2026-11-24T04:03:27Z",
+    "updated_at": "2026-11-24T04:03:27Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888736591,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODczNjU5MQ==",
+    "name": "proof-93",
+    "size_in_bytes": 741090,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888736591",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888736591/zip",
+    "expired": false,
+    "digest": "sha256:ae2d2fd3f09fa92d69c9e7eb636f2dbb4195fd0f7783566a00fc5d887154f058",
+    "created_at": "2026-11-24T03:57:50Z",
+    "updated_at": "2026-11-24T03:57:50Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888602985,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODYwMjk4NQ==",
+    "name": "proof-95",
+    "size_in_bytes": 742055,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888602985",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888602985/zip",
+    "expired": false,
+    "digest": "sha256:879803db9fa9e58deffd26ea5409fd85d328c2b2a979ba47e11ba84e4f9c1350",
+    "created_at": "2026-11-24T04:02:35Z",
+    "updated_at": "2026-11-24T04:02:35Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888571324,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODU3MTMyNA==",
+    "name": "proof-85",
+    "size_in_bytes": 741209,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888571324",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888571324/zip",
+    "expired": false,
+    "digest": "sha256:052f8d23ca72bf0017ad61a1f2e46d74cd9a9e570a96664ebcc9e8760b1d7c10",
+    "created_at": "2026-11-24T03:51:20Z",
+    "updated_at": "2026-11-24T03:51:20Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888467175,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODQ2NzE3NQ==",
+    "name": "proof-87",
+    "size_in_bytes": 741178,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888467175",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888467175/zip",
+    "expired": false,
+    "digest": "sha256:bf4bb16332cc9e8548469b8b0f11275bc8b642befd64644c04a94d97aea641dc",
+    "created_at": "2026-11-24T03:55:57Z",
+    "updated_at": "2026-11-24T03:55:57Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888441028,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODQ0MTAyOA==",
+    "name": "proof-80",
+    "size_in_bytes": 741121,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888441028",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888441028/zip",
+    "expired": false,
+    "digest": "sha256:dd3f3c949978eea95b74b4800d8b3748955ea685090d572becc6eaa766b6ffc4",
+    "created_at": "2026-11-24T03:45:36Z",
+    "updated_at": "2026-11-24T03:45:36Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888431979,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODQzMTk3OQ==",
+    "name": "proof-90",
+    "size_in_bytes": 741349,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888431979",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888431979/zip",
+    "expired": false,
+    "digest": "sha256:96a8c5ec5e379fd5962fb4f9d48b920d28b51be3bb9dbfaf11bbde8d3049aef8",
+    "created_at": "2026-11-24T03:54:46Z",
+    "updated_at": "2026-11-24T03:54:46Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888403416,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODQwMzQxNg==",
+    "name": "proof-99",
+    "size_in_bytes": 741303,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888403416",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888403416/zip",
+    "expired": false,
+    "digest": "sha256:897c0a48ee763d0678c165e546255fb387de002fe39dc467e05c7b841a24b033",
+    "created_at": "2026-11-24T04:04:47Z",
+    "updated_at": "2026-11-24T04:04:47Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888327315,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODMyNzMxNQ==",
+    "name": "proof-82",
+    "size_in_bytes": 741498,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888327315",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888327315/zip",
+    "expired": false,
+    "digest": "sha256:0123e0ee1a5709a94a42afd6f793067d085694f7522d2880d4bb41b62965b54d",
+    "created_at": "2026-11-24T03:51:43Z",
+    "updated_at": "2026-11-24T03:51:43Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888192668,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODE5MjY2OA==",
+    "name": "proof-88",
+    "size_in_bytes": 740965,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888192668",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888192668/zip",
+    "expired": false,
+    "digest": "sha256:f8c82fecfeef9162b48fbaebe88c332bb1a84d2662f13f5bfc96fcfd5054dfc5",
+    "created_at": "2026-11-24T03:52:24Z",
+    "updated_at": "2026-11-24T03:52:24Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888141587,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODE0MTU4Nw==",
+    "name": "proof-81",
+    "size_in_bytes": 741386,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888141587",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888141587/zip",
+    "expired": false,
+    "digest": "sha256:f4713c917080862e58b1b65b4c9e1c021d1e2a5846e3d6c2c10ccb4278c55941",
+    "created_at": "2026-11-24T03:48:44Z",
+    "updated_at": "2026-11-24T03:48:44Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888007960,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODAwNzk2MA==",
+    "name": "proof-89",
+    "size_in_bytes": 741062,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888007960",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888007960/zip",
+    "expired": false,
+    "digest": "sha256:23caadf6c2312b219c6d612098a7e9f932df3aedc8af42ad509d0e6901c989cd",
+    "created_at": "2026-11-24T03:53:38Z",
+    "updated_at": "2026-11-24T03:53:38Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888007570,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODAwNzU3MA==",
+    "name": "proof-83",
+    "size_in_bytes": 741237,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888007570",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888007570/zip",
+    "expired": false,
+    "digest": "sha256:ce126f325042450dbd60d00f5dbf49fe2239ea0d799e6d41b11f160db5ff3d7a",
+    "created_at": "2026-11-24T03:51:08Z",
+    "updated_at": "2026-11-24T03:51:08Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14888003879,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4ODAwMzg3OQ==",
+    "name": "proof-94",
+    "size_in_bytes": 741287,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888003879",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14888003879/zip",
+    "expired": false,
+    "digest": "sha256:cb083c24404484d45039aaa1db7c3dd226fc5c13fcdfc5792383fff61e2661fa",
+    "created_at": "2026-11-24T03:59:04Z",
+    "updated_at": "2026-11-24T03:59:04Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14887892850,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4Nzg5Mjg1MA==",
+    "name": "proof-84",
+    "size_in_bytes": 741227,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887892850",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887892850/zip",
+    "expired": false,
+    "digest": "sha256:4c383bedc526192c65015475239648c0b965537327092b9b8659e81b2f740fe8",
+    "created_at": "2026-11-24T03:52:26Z",
+    "updated_at": "2026-11-24T03:52:26Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14887819000,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NzgxOTAwMA==",
+    "name": "proof-91",
+    "size_in_bytes": 741711,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887819000",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887819000/zip",
+    "expired": false,
+    "digest": "sha256:235d3dffbabdc6e20cd55414f4dc93d9ecedd2c2374f4539cac1e88a2df7fcdc",
+    "created_at": "2026-11-24T03:57:20Z",
+    "updated_at": "2026-11-24T03:57:20Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14887808566,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NzgwODU2Ng==",
+    "name": "proof-86",
+    "size_in_bytes": 741288,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887808566",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887808566/zip",
+    "expired": false,
+    "digest": "sha256:859d7170be3a30b1d9d9c83ab1b12210bd5d069833b75828cbb889f4379b4722",
+    "created_at": "2026-11-24T03:55:14Z",
+    "updated_at": "2026-11-24T03:55:14Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14887694640,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NzY5NDY0MA==",
+    "name": "proof-97",
+    "size_in_bytes": 741068,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887694640",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887694640/zip",
+    "expired": false,
+    "digest": "sha256:d763dbd5b9178aee07992a1c0f10743d395008add8330384eb8e2442631bab3e",
+    "created_at": "2026-11-24T04:00:18Z",
+    "updated_at": "2026-11-24T04:00:18Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14887539501,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NzUzOTUwMQ==",
+    "name": "proof-96",
+    "size_in_bytes": 741287,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887539501",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887539501/zip",
+    "expired": false,
+    "digest": "sha256:34225f34f4a15b9fc052ef355d8176ffa417194f5bdb999a3a22f703f43ffc57",
+    "created_at": "2026-11-24T03:58:55Z",
+    "updated_at": "2026-11-24T03:58:55Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14887433800,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NzQzMzgwMA==",
+    "name": "proof-92",
+    "size_in_bytes": 741193,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887433800",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14887433800/zip",
+    "expired": false,
+    "digest": "sha256:a7799c04db88d65ad6cf6561f0634910e7911fbf6f0830235c16b23aa17a129b",
+    "created_at": "2026-11-24T04:00:27Z",
+    "updated_at": "2026-11-24T04:00:27Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886966845,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4Njk2Njg0NQ==",
+    "name": "proof-73",
+    "size_in_bytes": 741164,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886966845",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886966845/zip",
+    "expired": false,
+    "digest": "sha256:25124d6cedcf14609347c8b232ab6a5d4cd50ce5b48fcfc2eecc8c6309e3c35a",
+    "created_at": "2026-11-24T03:18:42Z",
+    "updated_at": "2026-11-24T03:18:42Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886891473,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4Njg5MTQ3Mw==",
+    "name": "proof-76",
+    "size_in_bytes": 741344,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886891473",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886891473/zip",
+    "expired": false,
+    "digest": "sha256:89311167ed41a3598528b1fa81403af346d18e28808ede946d803a826b78b038",
+    "created_at": "2026-11-24T03:18:10Z",
+    "updated_at": "2026-11-24T03:18:10Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886855029,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4Njg1NTAyOQ==",
+    "name": "proof-71",
+    "size_in_bytes": 741157,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886855029",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886855029/zip",
+    "expired": false,
+    "digest": "sha256:51312c1589a7f81c22aa533cbfd09aed1dc7538adce1b3d534dd4973a9034d77",
+    "created_at": "2026-11-24T03:07:26Z",
+    "updated_at": "2026-11-24T03:07:26Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886750224,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4Njc1MDIyNA==",
+    "name": "proof-70",
+    "size_in_bytes": 741353,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886750224",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886750224/zip",
+    "expired": false,
+    "digest": "sha256:049bed5bbb9987d895f9c575b99bb4026a444eff4e2088ddb9cb93a36a7c0506",
+    "created_at": "2026-11-24T03:07:09Z",
+    "updated_at": "2026-11-24T03:07:09Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886726117,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NjcyNjExNw==",
+    "name": "proof-78",
+    "size_in_bytes": 740997,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886726117",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886726117/zip",
+    "expired": false,
+    "digest": "sha256:8f8419251742f8fe26ae40c213c389d00e8017d2586df287f7b8408ebbe08f17",
+    "created_at": "2026-11-24T03:12:07Z",
+    "updated_at": "2026-11-24T03:12:07Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886685523,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NjY4NTUyMw==",
+    "name": "proof-72",
+    "size_in_bytes": 741180,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886685523",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886685523/zip",
+    "expired": false,
+    "digest": "sha256:06ccedf3ab23cfd5c8399e37da898abc33329e45bed06d8c389baecf62026004",
+    "created_at": "2026-11-24T03:08:27Z",
+    "updated_at": "2026-11-24T03:08:27Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886465372,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NjQ2NTM3Mg==",
+    "name": "proof-67",
+    "size_in_bytes": 741272,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886465372",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886465372/zip",
+    "expired": false,
+    "digest": "sha256:73431c87786a51d117425078cd92ba270ed468f2a8c61502a2a719faf30cd4c6",
+    "created_at": "2026-11-24T03:06:26Z",
+    "updated_at": "2026-11-24T03:06:26Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886426166,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NjQyNjE2Ng==",
+    "name": "proof-66",
+    "size_in_bytes": 741280,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886426166",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886426166/zip",
+    "expired": false,
+    "digest": "sha256:5452653d3af745ce365f4c0226e96fcfcf3237250e1e2eabbeb59897d76210bf",
+    "created_at": "2026-11-24T03:10:58Z",
+    "updated_at": "2026-11-24T03:10:58Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886260824,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NjI2MDgyNA==",
+    "name": "proof-65",
+    "size_in_bytes": 741443,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886260824",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886260824/zip",
+    "expired": false,
+    "digest": "sha256:301614d038de2d162800416f362bc94053e5568718fcb9dea149848ee0b892f3",
+    "created_at": "2026-11-24T03:06:45Z",
+    "updated_at": "2026-11-24T03:06:45Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886165265,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NjE2NTI2NQ==",
+    "name": "proof-64",
+    "size_in_bytes": 741369,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886165265",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886165265/zip",
+    "expired": false,
+    "digest": "sha256:0c577a6c4261c9cb44567bfa4d2c6188d38cd3aaf7a56a989f8e3bb65732f314",
+    "created_at": "2026-11-24T03:05:18Z",
+    "updated_at": "2026-11-24T03:05:18Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886135491,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NjEzNTQ5MQ==",
+    "name": "proof-63",
+    "size_in_bytes": 741215,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886135491",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886135491/zip",
+    "expired": false,
+    "digest": "sha256:314fed8106911e35b7f089ab9b2367a08f783dc1bfbeb03126dde316def2b93c",
+    "created_at": "2026-11-24T03:04:34Z",
+    "updated_at": "2026-11-24T03:04:34Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14886121777,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NjEyMTc3Nw==",
+    "name": "proof-79",
+    "size_in_bytes": 741195,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886121777",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14886121777/zip",
+    "expired": false,
+    "digest": "sha256:437f71b540deb1445f70768ce6cd638c11a5cdfcec675ee43b003c2734d1679b",
+    "created_at": "2026-11-24T03:12:17Z",
+    "updated_at": "2026-11-24T03:12:17Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14885881781,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NTg4MTc4MQ==",
+    "name": "proof-69",
+    "size_in_bytes": 741512,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885881781",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885881781/zip",
+    "expired": false,
+    "digest": "sha256:63314416e5e881483d5d51bc5da07b2a144cee70271be382eb353b26f47df7dc",
+    "created_at": "2026-11-24T03:13:27Z",
+    "updated_at": "2026-11-24T03:13:27Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14885812173,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NTgxMjE3Mw==",
+    "name": "proof-74",
+    "size_in_bytes": 741752,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885812173",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885812173/zip",
+    "expired": false,
+    "digest": "sha256:35695ffbe57080a2b3dc9107e5595408506fa7b413b4db2b9c39ae70ee334ed3",
+    "created_at": "2026-11-24T03:14:08Z",
+    "updated_at": "2026-11-24T03:14:08Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14885591501,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NTU5MTUwMQ==",
+    "name": "proof-62",
+    "size_in_bytes": 740675,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885591501",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885591501/zip",
+    "expired": false,
+    "digest": "sha256:93b4f315fedae6c8cb8fa4d421e5f6fcb6a143e9003a0b9eadeee57d1ec0d210",
+    "created_at": "2026-11-24T03:05:27Z",
+    "updated_at": "2026-11-24T03:05:27Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14885558850,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NTU1ODg1MA==",
+    "name": "proof-77",
+    "size_in_bytes": 741286,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885558850",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885558850/zip",
+    "expired": false,
+    "digest": "sha256:dfed6b8b0b81f8cb4eebe1b9d82484ad63fa05a8af8193f7d8d2d65fe15c2b7d",
+    "created_at": "2026-11-24T03:14:03Z",
+    "updated_at": "2026-11-24T03:14:03Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14885487620,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NTQ4NzYyMA==",
+    "name": "proof-61",
+    "size_in_bytes": 741404,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885487620",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885487620/zip",
+    "expired": false,
+    "digest": "sha256:700b1c0e2806dcef2048cf74f147d651fd5f7716c679292789b8fe114e6c1251",
+    "created_at": "2026-11-24T03:05:18Z",
+    "updated_at": "2026-11-24T03:05:18Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14885478223,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NTQ3ODIyMw==",
+    "name": "proof-68",
+    "size_in_bytes": 741234,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885478223",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885478223/zip",
+    "expired": false,
+    "digest": "sha256:ee70ad6e7a9265ace377ed2e5b915f974712672f49d033598e2ef822d312a839",
+    "created_at": "2026-11-24T03:08:32Z",
+    "updated_at": "2026-11-24T03:08:32Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14885468828,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NTQ2ODgyOA==",
+    "name": "proof-75",
+    "size_in_bytes": 741723,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885468828",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885468828/zip",
+    "expired": false,
+    "digest": "sha256:41c46d2e560a523d000d950f219d083cd382cc5ee3fb1875b07ac5fc3e8b137d",
+    "created_at": "2026-11-24T03:12:04Z",
+    "updated_at": "2026-11-24T03:12:04Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14885344138,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NTM0NDEzOA==",
+    "name": "proof-60",
+    "size_in_bytes": 741146,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885344138",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14885344138/zip",
+    "expired": false,
+    "digest": "sha256:c7ad5cc57af8097c8a710168ac7283f3e79f7c288caef57313b6cb4a03e0c8d1",
+    "created_at": "2026-11-24T03:02:57Z",
+    "updated_at": "2026-11-24T03:02:57Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14884185035,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NDE4NTAzNQ==",
+    "name": "proof-56",
+    "size_in_bytes": 741272,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14884185035",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14884185035/zip",
+    "expired": false,
+    "digest": "sha256:bfea89e69933e04a851d6f3a70a5e60a9f2680e29a78d1ffb27896adb81a9112",
+    "created_at": "2026-11-24T02:24:09Z",
+    "updated_at": "2026-11-24T02:24:09Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14884160084,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4NDE2MDA4NA==",
+    "name": "proof-48",
+    "size_in_bytes": 741005,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14884160084",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14884160084/zip",
+    "expired": false,
+    "digest": "sha256:a0c230851721d12d9a8b1426e1c7a10aad4883997e9128208b0f37e417aa3c18",
+    "created_at": "2026-11-24T02:24:27Z",
+    "updated_at": "2026-11-24T02:24:27Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883945728,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4Mzk0NTcyOA==",
+    "name": "proof-50",
+    "size_in_bytes": 741203,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883945728",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883945728/zip",
+    "expired": false,
+    "digest": "sha256:0dfab9d8965bdf94365dfd35bdd85629762d8edc5df2bee4ee7af918954a8b93",
+    "created_at": "2026-11-24T02:25:55Z",
+    "updated_at": "2026-11-24T02:25:55Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883915051,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MzkxNTA1MQ==",
+    "name": "proof-42",
+    "size_in_bytes": 741049,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883915051",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883915051/zip",
+    "expired": false,
+    "digest": "sha256:105b0150acb1d4be1e34c0a00abd39e3c3b4ad1b7a921a8177d2af8e01e6a9da",
+    "created_at": "2026-11-24T02:21:26Z",
+    "updated_at": "2026-11-24T02:21:26Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883780216,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4Mzc4MDIxNg==",
+    "name": "proof-54",
+    "size_in_bytes": 741239,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883780216",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883780216/zip",
+    "expired": false,
+    "digest": "sha256:ed03bfa6cc6bab80b94512c248d439e5754394e2cb66cd7197f8bac16246c66a",
+    "created_at": "2026-11-24T02:20:36Z",
+    "updated_at": "2026-11-24T02:20:36Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883697829,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MzY5NzgyOQ==",
+    "name": "proof-40",
+    "size_in_bytes": 741267,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883697829",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883697829/zip",
+    "expired": false,
+    "digest": "sha256:c4bf0b5c49a8d5b44f674e92cc33f5feaa2609431b2ea402491e62cda448cbd2",
+    "created_at": "2026-11-24T02:26:52Z",
+    "updated_at": "2026-11-24T02:26:52Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883681818,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MzY4MTgxOA==",
+    "name": "proof-49",
+    "size_in_bytes": 740953,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883681818",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883681818/zip",
+    "expired": false,
+    "digest": "sha256:d48f685184e4cbd0e82b6e4b55ad58d95ea6290935e9129ffcf406427f864f17",
+    "created_at": "2026-11-24T02:20:00Z",
+    "updated_at": "2026-11-24T02:20:00Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883588435,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MzU4ODQzNQ==",
+    "name": "proof-58",
+    "size_in_bytes": 741276,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883588435",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883588435/zip",
+    "expired": false,
+    "digest": "sha256:236f90948fc744b60f556c12d8a5018bd7270d61374d35abe9b85ca273ef8387",
+    "created_at": "2026-11-24T02:26:26Z",
+    "updated_at": "2026-11-24T02:26:26Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883397528,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MzM5NzUyOA==",
+    "name": "proof-51",
+    "size_in_bytes": 741186,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883397528",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883397528/zip",
+    "expired": false,
+    "digest": "sha256:ffbf5e3f2d35e4f01ec1a5bcfc94ba1e8060ebb39f2b65cbecc556243bbdf112",
+    "created_at": "2026-11-24T02:20:29Z",
+    "updated_at": "2026-11-24T02:20:29Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883267314,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MzI2NzMxNA==",
+    "name": "proof-46",
+    "size_in_bytes": 741043,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883267314",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883267314/zip",
+    "expired": false,
+    "digest": "sha256:77a0dcae618bf4e0e82a17942b8fb48346bdbdc747e0812f8fdfdc58dbadcc86",
+    "created_at": "2026-11-24T02:18:09Z",
+    "updated_at": "2026-11-24T02:18:09Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883152832,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MzE1MjgzMg==",
+    "name": "proof-55",
+    "size_in_bytes": 741075,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883152832",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883152832/zip",
+    "expired": false,
+    "digest": "sha256:54eccd6b23b29c0f45f7b45aa35913cf3b044142adc29ec3cc19f1484786a426",
+    "created_at": "2026-11-24T02:20:31Z",
+    "updated_at": "2026-11-24T02:20:31Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883122661,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MzEyMjY2MQ==",
+    "name": "proof-45",
+    "size_in_bytes": 741109,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883122661",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883122661/zip",
+    "expired": false,
+    "digest": "sha256:ed4b463e717a234f2436531ee4d6158c7adc39907c8d5823954a93fb93963e5b",
+    "created_at": "2026-11-24T02:19:25Z",
+    "updated_at": "2026-11-24T02:19:25Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883049447,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MzA0OTQ0Nw==",
+    "name": "proof-57",
+    "size_in_bytes": 741603,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883049447",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883049447/zip",
+    "expired": false,
+    "digest": "sha256:c5afb73583e993ecdf00beda61f88cc17d05cb1508341278119c651f3339a610",
+    "created_at": "2026-11-24T02:26:37Z",
+    "updated_at": "2026-11-24T02:26:37Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14883042625,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MzA0MjYyNQ==",
+    "name": "proof-43",
+    "size_in_bytes": 741077,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883042625",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14883042625/zip",
+    "expired": false,
+    "digest": "sha256:03ce357376437fe67d028a3a9a37b7dc2b70dbd9a5ded1f89db597ee5097b08b",
+    "created_at": "2026-11-24T02:17:17Z",
+    "updated_at": "2026-11-24T02:17:17Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14882774826,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4Mjc3NDgyNg==",
+    "name": "proof-53",
+    "size_in_bytes": 741228,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882774826",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882774826/zip",
+    "expired": false,
+    "digest": "sha256:8227e383abaae0e2eceea88527c9ba34f21a2b0c37cbde9a84e8c5ff5b55ebdc",
+    "created_at": "2026-11-24T02:21:46Z",
+    "updated_at": "2026-11-24T02:21:46Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14882743608,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4Mjc0MzYwOA==",
+    "name": "proof-52",
+    "size_in_bytes": 741367,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882743608",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882743608/zip",
+    "expired": false,
+    "digest": "sha256:8a5e922b9d29c261ad73c1d718dce8d02b241ea64b66248fbdd75d92d4208b85",
+    "created_at": "2026-11-24T02:20:13Z",
+    "updated_at": "2026-11-24T02:20:13Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14882464580,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MjQ2NDU4MA==",
+    "name": "proof-59",
+    "size_in_bytes": 741347,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882464580",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882464580/zip",
+    "expired": false,
+    "digest": "sha256:68c92641183e1650b92bab11a2758cd0dae4d4facf9f8a330c53978a6a95acc1",
+    "created_at": "2026-11-24T02:26:46Z",
+    "updated_at": "2026-11-24T02:26:46Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14882323988,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MjMyMzk4OA==",
+    "name": "proof-47",
+    "size_in_bytes": 741177,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882323988",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882323988/zip",
+    "expired": false,
+    "digest": "sha256:00b799166a45f49b26dd2134263d260484e1edb7414046778b42094fecae05d6",
+    "created_at": "2026-11-24T02:19:06Z",
+    "updated_at": "2026-11-24T02:19:06Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14882029499,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MjAyOTQ5OQ==",
+    "name": "proof-41",
+    "size_in_bytes": 741211,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882029499",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882029499/zip",
+    "expired": false,
+    "digest": "sha256:3726265f73f48b543b9a50ba67e4a2cb20e4a9c059c600e1446ad268bc308bc8",
+    "created_at": "2026-11-24T02:16:10Z",
+    "updated_at": "2026-11-24T02:16:10Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14882004974,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MjAwNDk3NA==",
+    "name": "proof-44",
+    "size_in_bytes": 740677,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882004974",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14882004974/zip",
+    "expired": false,
+    "digest": "sha256:aaae4c03a2770698c1a7aa191d91e1a569c3d3b83c9d18862295ae62823bf5fa",
+    "created_at": "2026-11-24T02:19:01Z",
+    "updated_at": "2026-11-24T02:19:01Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14881660177,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MTY2MDE3Nw==",
+    "name": "proof-26",
+    "size_in_bytes": 741357,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881660177",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881660177/zip",
+    "expired": false,
+    "digest": "sha256:66c7ddd9a26180219b9c52d869329db0b537119983bb5fb669391f2ffe6c8087",
+    "created_at": "2026-11-24T01:33:02Z",
+    "updated_at": "2026-11-24T01:33:02Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14881580027,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MTU4MDAyNw==",
+    "name": "proof-23",
+    "size_in_bytes": 741315,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881580027",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881580027/zip",
+    "expired": false,
+    "digest": "sha256:23ec052bb8df8986cb58368d95acc083b6e8f765ef214d386161138177db666c",
+    "created_at": "2026-11-24T01:32:38Z",
+    "updated_at": "2026-11-24T01:32:38Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14881465845,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MTQ2NTg0NQ==",
+    "name": "proof-33",
+    "size_in_bytes": 741042,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881465845",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881465845/zip",
+    "expired": false,
+    "digest": "sha256:74b0ed8942dd8d68ba3e41b498f4c7145be6e4a2a8c9f8c413ebcc2ede31a7a5",
+    "created_at": "2026-11-24T01:37:12Z",
+    "updated_at": "2026-11-24T01:37:12Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14881345567,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MTM0NTU2Nw==",
+    "name": "proof-31",
+    "size_in_bytes": 741260,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881345567",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881345567/zip",
+    "expired": false,
+    "digest": "sha256:09a76053d1f3c352464f9c0ed28552ce860ebd4f8617de33907d116d614fe73b",
+    "created_at": "2026-11-24T01:33:34Z",
+    "updated_at": "2026-11-24T01:33:34Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14881330577,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MTMzMDU3Nw==",
+    "name": "proof-27",
+    "size_in_bytes": 741394,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881330577",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881330577/zip",
+    "expired": false,
+    "digest": "sha256:72137cd5f9a55b32b38052146f5c6a4bd96990cdd6eb1d80eb086b964d3f412f",
+    "created_at": "2026-11-24T01:33:50Z",
+    "updated_at": "2026-11-24T01:33:50Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14881106107,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MTEwNjEwNw==",
+    "name": "proof-30",
+    "size_in_bytes": 741166,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881106107",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881106107/zip",
+    "expired": false,
+    "digest": "sha256:8169ad8ef62691ec28f654b7b6f0bb30f6d44f986a78f6effe3c7a8bf55e5974",
+    "created_at": "2026-11-24T01:34:19Z",
+    "updated_at": "2026-11-24T01:34:19Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14881047099,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MTA0NzA5OQ==",
+    "name": "proof-34",
+    "size_in_bytes": 741089,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881047099",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14881047099/zip",
+    "expired": false,
+    "digest": "sha256:00d332cbe9b66c99643d679f2aedbc66e81afaff3a8984b4a4004717b7777a5c",
+    "created_at": "2026-11-24T01:36:07Z",
+    "updated_at": "2026-11-24T01:36:07Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880986380,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDk4NjM4MA==",
+    "name": "proof-24",
+    "size_in_bytes": 741369,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880986380",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880986380/zip",
+    "expired": false,
+    "digest": "sha256:73628e544a4eb12e1d9a4a3b916e9bce2755d3e39f6f84180187327ec58a8221",
+    "created_at": "2026-11-24T01:31:28Z",
+    "updated_at": "2026-11-24T01:31:28Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880862345,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDg2MjM0NQ==",
+    "name": "proof-38",
+    "size_in_bytes": 741233,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880862345",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880862345/zip",
+    "expired": false,
+    "digest": "sha256:9fc049ba5c588b4bc3cd039721e5775180de75494bb00702d1a5f150783596c8",
+    "created_at": "2026-11-24T01:37:20Z",
+    "updated_at": "2026-11-24T01:37:20Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880852593,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDg1MjU5Mw==",
+    "name": "proof-36",
+    "size_in_bytes": 741334,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880852593",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880852593/zip",
+    "expired": false,
+    "digest": "sha256:a22f61766d68147ec89265ac6079304a8604f97ae11cfbc567895e9aaec50e6a",
+    "created_at": "2026-11-24T01:39:11Z",
+    "updated_at": "2026-11-24T01:39:11Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880832531,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDgzMjUzMQ==",
+    "name": "proof-28",
+    "size_in_bytes": 741210,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880832531",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880832531/zip",
+    "expired": false,
+    "digest": "sha256:428d1f80f1ca1b92d6e9f19e89f1926ac811a2ae7ce016b7f3cc32c8c8806888",
+    "created_at": "2026-11-24T01:37:35Z",
+    "updated_at": "2026-11-24T01:37:35Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880827405,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDgyNzQwNQ==",
+    "name": "proof-35",
+    "size_in_bytes": 740755,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880827405",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880827405/zip",
+    "expired": false,
+    "digest": "sha256:99eef7443a0c1f593c95d5695d2d1ec5f886b9c31c5c02a5db97c940041cc70c",
+    "created_at": "2026-11-24T01:36:22Z",
+    "updated_at": "2026-11-24T01:36:22Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880727071,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDcyNzA3MQ==",
+    "name": "proof-22",
+    "size_in_bytes": 741302,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880727071",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880727071/zip",
+    "expired": false,
+    "digest": "sha256:4abd4d9da8dde21fa4d0a0d0782ab201236c5895a61cba723b00233d9156a951",
+    "created_at": "2026-11-24T01:32:09Z",
+    "updated_at": "2026-11-24T01:32:09Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880439099,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDQzOTA5OQ==",
+    "name": "proof-39",
+    "size_in_bytes": 741056,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880439099",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880439099/zip",
+    "expired": false,
+    "digest": "sha256:830712125fd27cdbddd099232408f134b59c29d023c3d4113dfd2606ef0a6d90",
+    "created_at": "2026-11-24T01:40:25Z",
+    "updated_at": "2026-11-24T01:40:25Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880422997,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDQyMjk5Nw==",
+    "name": "proof-29",
+    "size_in_bytes": 741104,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880422997",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880422997/zip",
+    "expired": false,
+    "digest": "sha256:6b7b77f0a089961fac8d67106384919b9287cbe4e318a1cdf0683068ca73c4e4",
+    "created_at": "2026-11-24T01:34:05Z",
+    "updated_at": "2026-11-24T01:34:05Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880284794,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDI4NDc5NA==",
+    "name": "proof-37",
+    "size_in_bytes": 740973,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880284794",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880284794/zip",
+    "expired": false,
+    "digest": "sha256:a0a421894f360ecc8afdbdaa5e34cce4c7cf5d56805bea589a5a24f9a0d1dae0",
+    "created_at": "2026-11-24T01:38:56Z",
+    "updated_at": "2026-11-24T01:38:56Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880148328,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDE0ODMyOA==",
+    "name": "proof-25",
+    "size_in_bytes": 741113,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880148328",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880148328/zip",
+    "expired": false,
+    "digest": "sha256:c5400d7be5ba76e920875f98cc1d2923a785e7fc1f3de86804b256fcebd2eb9a",
+    "created_at": "2026-11-24T01:33:15Z",
+    "updated_at": "2026-11-24T01:33:15Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14880034651,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg4MDAzNDY1MQ==",
+    "name": "proof-32",
+    "size_in_bytes": 741461,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880034651",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14880034651/zip",
+    "expired": false,
+    "digest": "sha256:a90b7776ffe8af744b7de5c46c3c863a129928c7f189fc1af34bc6ce1e872664",
+    "created_at": "2026-11-24T01:34:47Z",
+    "updated_at": "2026-11-24T01:34:47Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14879978606,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3OTk3ODYwNg==",
+    "name": "proof-20",
+    "size_in_bytes": 741404,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14879978606",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14879978606/zip",
+    "expired": false,
+    "digest": "sha256:c83cbe3fc6b554289bdc0b8e51789e615930c3712e9cd8af23cc72f9dc75f13e",
+    "created_at": "2026-11-24T01:31:24Z",
+    "updated_at": "2026-11-24T01:31:24Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14879809838,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3OTgwOTgzOA==",
+    "name": "proof-21",
+    "size_in_bytes": 740906,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14879809838",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14879809838/zip",
+    "expired": false,
+    "digest": "sha256:f58a0e6614b3a141b34d790ada362e686fb23a4965de17bad95c44af01b8e167",
+    "created_at": "2026-11-24T01:31:47Z",
+    "updated_at": "2026-11-24T01:31:47Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14878920634,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3ODkyMDYzNA==",
+    "name": "proof-14",
+    "size_in_bytes": 741425,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878920634",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878920634/zip",
+    "expired": false,
+    "digest": "sha256:938490be39b897e7d004c3f6ce82d1c78ff34586a57805930df0f986e2e589a7",
+    "created_at": "2026-11-24T00:48:10Z",
+    "updated_at": "2026-11-24T00:48:10Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14878920546,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3ODkyMDU0Ng==",
+    "name": "proof-18",
+    "size_in_bytes": 740895,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878920546",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878920546/zip",
+    "expired": false,
+    "digest": "sha256:8a9b8c8224bd9c132640eccc9bbe818f15fb08c317985a7d0fbf7bfb3ac97acc",
+    "created_at": "2026-11-24T00:47:32Z",
+    "updated_at": "2026-11-24T00:47:32Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14878905614,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3ODkwNTYxNA==",
+    "name": "proof-19",
+    "size_in_bytes": 741379,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878905614",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878905614/zip",
+    "expired": false,
+    "digest": "sha256:42112f5a28d0934402cb76f664dcecd0a5acc7e4bc009c3d9ab2cc0bf8afd5df",
+    "created_at": "2026-11-24T00:47:49Z",
+    "updated_at": "2026-11-24T00:47:49Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14878800723,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3ODgwMDcyMw==",
+    "name": "proof-12",
+    "size_in_bytes": 741685,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878800723",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878800723/zip",
+    "expired": false,
+    "digest": "sha256:4145c9929efd7c8f0d0b59436e8368a66d2349de5f3772258b1d7822e155f104",
+    "created_at": "2026-11-24T00:45:21Z",
+    "updated_at": "2026-11-24T00:45:21Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14878755673,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3ODc1NTY3Mw==",
+    "name": "proof-3",
+    "size_in_bytes": 741164,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878755673",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878755673/zip",
+    "expired": false,
+    "digest": "sha256:885510606130e35e8d498c8b50ab5725cb06390fd0432b1a0a4603c7afb4520e",
+    "created_at": "2026-11-24T00:47:16Z",
+    "updated_at": "2026-11-24T00:47:16Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14878711552,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3ODcxMTU1Mg==",
+    "name": "proof-8",
+    "size_in_bytes": 741276,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878711552",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878711552/zip",
+    "expired": false,
+    "digest": "sha256:146dc69aa356a9fa132f0b04d70ff7d6ee547ceacaefd7adb5d9b3d5a5807bdc",
+    "created_at": "2026-11-24T00:49:28Z",
+    "updated_at": "2026-11-24T00:49:28Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14878650808,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3ODY1MDgwOA==",
+    "name": "proof-7",
+    "size_in_bytes": 741094,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878650808",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878650808/zip",
+    "expired": false,
+    "digest": "sha256:81baff74ef40a2af225ccf589ffc6f23ba7b9f1b08e3a0b2e002a5cbda3a2309",
+    "created_at": "2026-11-24T00:44:19Z",
+    "updated_at": "2026-11-24T00:44:19Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14878615979,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3ODYxNTk3OQ==",
+    "name": "proof-6",
+    "size_in_bytes": 741515,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878615979",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878615979/zip",
+    "expired": false,
+    "digest": "sha256:b8d15417c78ade46d7a579ec52e95c6c9fd98b12444593bdf9a931ec55967ad0",
+    "created_at": "2026-11-24T00:47:35Z",
+    "updated_at": "2026-11-24T00:47:35Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14878491396,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3ODQ5MTM5Ng==",
+    "name": "proof-11",
+    "size_in_bytes": 741395,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878491396",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878491396/zip",
+    "expired": false,
+    "digest": "sha256:415ddc0bf368463bb95620d02345692be4ca8752597659609e48c50906db3b12",
+    "created_at": "2026-11-24T00:46:19Z",
+    "updated_at": "2026-11-24T00:46:19Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14878027633,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3ODAyNzYzMw==",
+    "name": "proof-1",
+    "size_in_bytes": 740508,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878027633",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14878027633/zip",
+    "expired": false,
+    "digest": "sha256:549090421dc819b354c1b259bb0af73f99bda265e5c2611e08897115a5c085dc",
+    "created_at": "2026-11-24T00:51:11Z",
+    "updated_at": "2026-11-24T00:51:11Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14877973428,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3Nzk3MzQyOA==",
+    "name": "proof-0",
+    "size_in_bytes": 741538,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877973428",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877973428/zip",
+    "expired": false,
+    "digest": "sha256:8122c060a0c36fb569f041917a8bc566083582e79bf4b14369528dd1d5424dd8",
+    "created_at": "2026-11-24T00:50:59Z",
+    "updated_at": "2026-11-24T00:50:59Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14877942685,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3Nzk0MjY4NQ==",
+    "name": "proof-4",
+    "size_in_bytes": 741122,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877942685",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877942685/zip",
+    "expired": false,
+    "digest": "sha256:6342db22ca338b1f1af59268ab030604d2b4baed1f2a3259c08e367f4f6270f2",
+    "created_at": "2026-11-24T00:46:53Z",
+    "updated_at": "2026-11-24T00:46:53Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14877887961,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3Nzg4Nzk2MQ==",
+    "name": "proof-5",
+    "size_in_bytes": 741320,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877887961",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877887961/zip",
+    "expired": false,
+    "digest": "sha256:dd2b4751997f1ba22953661396830080cda109ed89be04f049730cb13dd3c1e9",
+    "created_at": "2026-11-24T00:47:55Z",
+    "updated_at": "2026-11-24T00:47:55Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14877713120,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3NzcxMzEyMA==",
+    "name": "proof-10",
+    "size_in_bytes": 741821,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877713120",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877713120/zip",
+    "expired": false,
+    "digest": "sha256:a749cf6bdadc9a8f00d2dd7a15a7c61340b8b38a701daf99f0d69dc08d031752",
+    "created_at": "2026-11-24T00:47:42Z",
+    "updated_at": "2026-11-24T00:47:42Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14877673181,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3NzY3MzE4MQ==",
+    "name": "proof-16",
+    "size_in_bytes": 740841,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877673181",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877673181/zip",
+    "expired": false,
+    "digest": "sha256:555c524f50a1d6fe6ef940d4ece58e10e2cb8a2c5905ed3801b44817c790ec38",
+    "created_at": "2026-11-24T00:45:32Z",
+    "updated_at": "2026-11-24T00:45:32Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14877619040,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3NzYxOTA0MA==",
+    "name": "proof-17",
+    "size_in_bytes": 740924,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877619040",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877619040/zip",
+    "expired": false,
+    "digest": "sha256:6d1d79a9d227b80f0ac2c7967809059ace8a53d10871a6972f52a4aa11388285",
+    "created_at": "2026-11-24T00:50:12Z",
+    "updated_at": "2026-11-24T00:50:12Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14877599590,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3NzU5OTU5MA==",
+    "name": "proof-15",
+    "size_in_bytes": 741056,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877599590",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877599590/zip",
+    "expired": false,
+    "digest": "sha256:7ffacf2acf353828649b4612e98e1f791a15d6d684e0274c9ace5c04dfad7731",
+    "created_at": "2026-11-24T00:54:16Z",
+    "updated_at": "2026-11-24T00:54:16Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14877569024,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3NzU2OTAyNA==",
+    "name": "proof-9",
+    "size_in_bytes": 740942,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877569024",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877569024/zip",
+    "expired": false,
+    "digest": "sha256:c88323ef8f1c2e97521edf28d8906a52fbe17b7280c613a08dcba1235e4c79c5",
+    "created_at": "2026-11-24T00:48:21Z",
+    "updated_at": "2026-11-24T00:48:21Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14877539189,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3NzUzOTE4OQ==",
+    "name": "proof-2",
+    "size_in_bytes": 741061,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877539189",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877539189/zip",
+    "expired": false,
+    "digest": "sha256:557ec4eb4f82f4075016c38fcb0d3e45421235edd286dff46b8336f920d00b04",
+    "created_at": "2026-11-24T00:48:43Z",
+    "updated_at": "2026-11-24T00:48:43Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14877534144,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3NzUzNDE0NA==",
+    "name": "proof-13",
+    "size_in_bytes": 741077,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877534144",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14877534144/zip",
+    "expired": false,
+    "digest": "sha256:988bfa2ad30ce70dc1179b9502ec7424075bb2edc77947a7108b4a4d890a350a",
+    "created_at": "2026-11-24T00:49:02Z",
+    "updated_at": "2026-11-24T00:49:02Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  },
+  {
+    "id": 14875795498,
+    "node_id": "MDg6QXJ0aWZhY3QxNDg3NTc5NTQ5OA==",
+    "name": "support",
+    "size_in_bytes": 117425293,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14875795498",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/14875795498/zip",
+    "expired": false,
+    "digest": "sha256:d1fb692b88eb3b19246415186a07a2c920cb363d040b360d97c38a51a2131a87",
+    "created_at": "2026-11-24T00:01:03Z",
+    "updated_at": "2026-11-24T00:01:03Z",
+    "expires_at": "2027-02-21T23:52:36Z",
+    "workflow_run": {
+      "id": 45292509800,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+    }
+  }
+]

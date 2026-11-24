@@ -1,0 +1,18 @@
+Running nanoda kernel on solution
+bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted
+nanoda kernel rejected the solution
+Running Lean default kernel on solution
+bwrap: loopback: Failed RTM_NEWADDR: Operation not permitted
+error: nanoda exited with 1
+Lean default kernel rejected the solution
+Traceback (most recent call last):
+  File "/home/runner/work/green14-explicit-coloring/green14-explicit-coloring/verification/full-sweep/verify.py", line 56, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/runner/work/green14-explicit-coloring/green14-explicit-coloring/verification/full-sweep/verify.py", line 52, in main
+    run([bins/'lake','comparator','--config',ROOT/'comparator.json','--challenge-from-export',out/'Challenge.ndjson','--solution-from-export',out/'Solution.ndjson'])
+  File "/home/runner/work/green14-explicit-coloring/green14-explicit-coloring/verification/full-sweep/verify.py", line 26, in run
+    subprocess.run(cmd,cwd=ROOT,env=env,check=True,stdout=stdout)
+  File "/usr/lib/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '[PosixPath('/home/runner/.elan/toolchains/leanprover--lean4---v4.35.0-rc3/bin/lake'), 'comparator', '--config', PosixPath('/home/runner/work/green14-explicit-coloring/green14-explicit-coloring/verification/full-sweep/comparator.json'), '--challenge-from-export', PosixPath('/home/runner/work/green14-explicit-coloring/green14-explicit-coloring/verification/full-sweep/out/Challenge.ndjson'), '--solution-from-export', PosixPath('/home/runner/work/green14-explicit-coloring/green14-explicit-coloring/verification/full-sweep/out/Solution.ndjson')]' returned non-zero exit status 1.
