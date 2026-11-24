@@ -43,6 +43,8 @@ There are initially fewer than $Nv<v^3$ progressions. After $T$ steps the remain
 
 This branch runs the full Lean proof for the fixed colouring. The workflow builds 173 consecutive ranges and checks the assembled declaration with Lean Comparator and nanoda. [Proof package](verification/full-sweep/) · [Full verification run](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800)
 
+A separate 16-difference test resumed a running, sandboxed Comparator on a second runner. Nanoda and Lean both accepted. [Logs and SHA-256](verification/logs/ci-45303191605-1/)
+
 ## Appendix: Timeline
 
 | Date | Result | Relevance to this question |

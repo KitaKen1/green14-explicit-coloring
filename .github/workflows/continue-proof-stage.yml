@@ -1,0 +1,102 @@
+name: One sandboxed fixed-colouring replay stage
+on:
+  workflow_call:
+    inputs:
+      stage:
+        required: true
+        type: number
+      prior:
+        required: true
+        type: number
+      last_stage:
+        required: true
+        type: number
+      proof_run:
+        required: true
+        type: number
+      sample:
+        required: false
+        type: boolean
+        default: false
+      budget:
+        required: false
+        type: number
+        default: 295
+    outputs:
+      finished:
+        value: ${{ jobs.check.outputs.finished }}
+permissions:
+  actions: read
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 360
+    outputs:
+      finished: ${{ steps.check.outputs.finished }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/cache/restore@v4
+        if: inputs.stage == 0
+        with:
+          key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
+          path: |
+            ~/.elan
+            verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
+          fail-on-cache-miss: true
+      - uses: actions/download-artifact@v4
+        if: inputs.stage == 0 && !inputs.sample
+        with:
+          name: unconditional-exports
+          run-id: ${{ inputs.proof_run }}
+          github-token: ${{ github.token }}
+      - uses: actions/cache/restore@v4
+        if: inputs.stage == 0 && inputs.sample
+        with:
+          key: green14-checkpoint-sample-${{ hashFiles('verification/full-sweep/checkpoint/proof-inputs.py','verification/full-sweep/full-plan.json') }}
+          path: |
+            verification/full-sweep/out/PilotChallenge.ndjson
+            verification/full-sweep/out/PilotSolution.ndjson
+            verification/full-sweep/out/pilot-comparator.json
+          fail-on-cache-miss: true
+      - uses: actions/cache/restore@v4
+        if: inputs.stage != 0
+        with:
+          path: checkpoint-proof-data
+          key: green14-fixed-checkpoint-${{ github.run_id }}-stage-${{ inputs.prior }}
+          fail-on-cache-miss: true
+      - name: Install the guest execution tools
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y --no-install-recommends qemu-system-x86 busybox-static cpio bubblewrap zstd
+          sudo chgrp "$(id -gn)" /dev/kvm
+          sudo chmod g+rw /dev/kvm
+      - id: check
+        name: Check the exact public declaration or save the running checker
+        env:
+          STAGE: ${{ inputs.stage }}
+          BUDGET: ${{ inputs.budget }}
+          SAMPLE: ${{ inputs.sample }}
+        run: |
+          export PATH="$HOME/.elan/bin:$PATH"
+          arguments=("$STAGE" --budget "$BUDGET")
+          if [[ "$SAMPLE" == true ]]; then arguments+=(--sample); fi
+          python3 verification/full-sweep/checkpoint/continue.py "${arguments[@]}"
+      - uses: actions/cache/save@v4
+        if: steps.check.outputs.finished == 'false'
+        with:
+          path: checkpoint-proof-data
+          key: green14-fixed-checkpoint-${{ github.run_id }}-stage-${{ inputs.stage }}
+      - name: Check that the total replay budget was sufficient
+        if: inputs.stage == inputs.last_stage && steps.check.outputs.finished == 'false'
+        run: |
+          echo 'All stages finished, but the verifier still needs more time.'
+          exit 1
+      - uses: actions/upload-artifact@v4
+        if: steps.check.outputs.finished == 'true'
+        with:
+          name: continued-comparator
+          path: continuation-result/
+          retention-days: 90

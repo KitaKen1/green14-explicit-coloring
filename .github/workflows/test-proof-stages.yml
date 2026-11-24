@@ -1,0 +1,30 @@
+name: Test the time-limited proof continuation
+on:
+  push:
+    branches: [green14-full-verification]
+    paths:
+      - .github/workflows/test-proof-stages.yml
+permissions:
+  actions: read
+  contents: read
+jobs:
+  pause:
+    uses: ./.github/workflows/continue-proof-stage.yml
+    with:
+      stage: 0
+      prior: 0
+      last_stage: 1
+      proof_run: 45292509800
+      budget: 1
+      sample: true
+  complete:
+    needs: pause
+    if: needs.pause.outputs.finished == 'false'
+    uses: ./.github/workflows/continue-proof-stage.yml
+    with:
+      stage: 1
+      prior: 0
+      last_stage: 1
+      proof_run: 45292509800
+      budget: 35
+      sample: true
