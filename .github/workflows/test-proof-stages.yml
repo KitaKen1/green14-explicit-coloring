@@ -15,7 +15,7 @@ jobs:
       prior: 0
       last_stage: 1
       proof_run: 45292509800
-      budget: 1
+      budget: 2
       sample: true
   complete:
     needs: pause

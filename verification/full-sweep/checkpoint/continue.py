@@ -5,6 +5,7 @@ import importlib.util
 import json
 import os
 from pathlib import Path
+import re
 import shlex
 import shutil
 import subprocess
@@ -53,9 +54,8 @@ def prepare(sample, workers):
     if config['permitted_axioms']!=['propext','Classical.choice','Quot.sound'] or config['theorem_names']!=targets:
         raise ValueError('Incorrect challenge configuration')
     kernel = '/opt/lean/bin/nanoda_bin'
-    config['external_kernels']['nanoda'] = (
-        ['/usr/local/bin/green14-nanoda-one', kernel] if workers == 1 else [kernel]
-    )
+    wrapper = '/usr/local/bin/green14-nanoda-one'
+    config['external_kernels']['nanoda'] = [wrapper, '2', kernel] if workers == 2 else [wrapper, kernel]
     json_file(guest.OUT/'pilot-comparator.json',config)
     guest.prepare_guest()
     json_file(DATA/'input-receipt.json', {
@@ -65,13 +65,15 @@ def prepare(sample, workers):
 
 def checkpoint(monitor, proc):
     path = DATA/'next.zst'
+    monitor.command('stop')
+    monitor.command('migrate-set-parameters', {'max-bandwidth':512*1024**2})
     monitor.command('migrate', {'uri':'exec:zstd -q -T2 -5 --long=27 -o '+shlex.quote(str(path))})
     def complete():
         status = monitor.command('query-migrate')['status']
         if status in {'failed','cancelled'}:
             raise RuntimeError(f'Guest transfer {status}')
         return status=='completed'
-    guest.wait_until(complete,300)
+    guest.wait_until(complete,1200)
     monitor.command('quit')
     proc.wait(timeout=25)
     path.replace(guest.CAPTURE)
@@ -94,12 +96,27 @@ def verify_start(stage, version):
         raise ValueError('The previous stage or its stored checkpoint does not match')
 
 
+def resume(endpoint):
+    guest.wait_until(endpoint.exists)
+    monitor = guest.Monitor(endpoint)
+    monitor.command('migrate-incoming', {
+        'uri': 'exec:zstd -dc -M256M ' + shlex.quote(str(guest.CAPTURE)),
+    })
+
+    def loaded():
+        status = monitor.command('query-status')['status']
+        return status if status in {'paused', 'running'} else None
+
+    if guest.wait_until(loaded, 1200) == 'paused':
+        monitor.command('cont')
+
+
 def run(stage, budget, sample):
     DATA.mkdir(exist_ok=True)
     request = {} if sample else json.loads((guest.HERE / 'continue-request.json').read_text())
     workers = request.get('nanoda_workers', 1)
-    if workers not in (1, 4):
-        raise ValueError('The stock replay supports either one or four nanoda workers')
+    if workers not in (1, 2):
+        raise ValueError('The checkpoint guest supports one or two nanoda workers')
     version = guest.run('qemu-system-x86_64','--version',capture_output=True,text=True).stdout
     if stage==0:
         prepare(sample, workers)
@@ -114,21 +131,25 @@ def run(stage, budget, sample):
     endpoint = Path(f'/tmp/green14-production-qmp-{os.getpid()}')
     command = [
         'qemu-system-x86_64','-machine','pc-q35-8.2,accel=kvm','-cpu','qemu64',
-        '-smp',str(max(2,workers)),'-m','12G' if sample else '20G','-nodefaults','-display','none','-no-reboot',
+        '-smp','2','-m','12G' if sample else '24G','-nodefaults','-display','none','-no-reboot',
         '-serial',f'file:{log}','-qmp',f'unix:{endpoint},server=on,wait=off',
         '-kernel',str(DATA/'kernel'),'-initrd',str(DATA/'root.cpio.gz'),
         '-append','console=ttyS0 loglevel=4 rdinit=/init panic=1',
     ]
     if stage:
-        command += ['-incoming', 'exec:zstd -dc -M256M '+shlex.quote(str(guest.CAPTURE))]
+        command += ['-incoming', 'defer']
     proc = subprocess.Popen(command)
-    deadline = time.monotonic()+budget*60
     def log_text():
         return log.read_text(errors='replace') if log.is_file() else ''
     try:
+        if stage:
+            resume(endpoint)
+        deadline = time.monotonic() + budget*60
         output = ''
         while time.monotonic()<deadline and proc.poll() is None:
             output = log_text()
+            if re.search(r'Out of memory: Killed process \d+ \((nanoda_bin|leanchecker|lake)\)', output):
+                raise RuntimeError('The guest killed a proof checker because it ran out of memory')
             if FINISHED in output or FAILED in output:
                 break
             time.sleep(5)

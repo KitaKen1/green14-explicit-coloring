@@ -106,11 +106,13 @@ else
 fi
 poweroff -f
 ''',
-        'usr/local/bin/green14-nanoda-one': '''#!/bin/sh
+        'usr/local/bin/green14-nanoda-one': r'''#!/bin/sh
 set -eu
 # Rewrite only the standard thread-count option before invoking stock nanoda.
-/bin/sed -E 's/"num_threads"[[:space:]]*:[[:space:]]*4/"num_threads":1/' "$2" > /tmp/nanoda-one.json
-/bin/grep -q '"num_threads":1' /tmp/nanoda-one.json
+workers=1
+if [ "$1" = '2' ]; then workers=2; shift; fi
+/bin/sed -E "s/\"num_threads\"[[:space:]]*:[[:space:]]*4/\"num_threads\":$workers/" "$2" > /tmp/nanoda-one.json
+/bin/grep -q "\"num_threads\":$workers" /tmp/nanoda-one.json
 exec "$1" /tmp/nanoda-one.json
 ''',
     }.items():
