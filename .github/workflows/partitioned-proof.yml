@@ -45,8 +45,9 @@ jobs:
               .digest == ("sha256:" + $request[0].original_zip_sha256)'
           echo "run_id=$(jq -r .run "$request")" >> "$GITHUB_OUTPUT"
           echo "full=$(jq -r .full partition-request.json)" >> "$GITHUB_OUTPUT"
-          echo "cases=$(jq -ce --slurpfile plan full-plan.json '
-            if .full then ["structure"] + [$plan[0].cases | keys[] | tostring]
+          count=$(PYTHONPATH=partitioned python3 -c 'from slices import PARTITION_COUNT; print(PARTITION_COUNT)')
+          echo "cases=$(jq -ce --argjson count "$count" '
+            if .full then ["structure"] + [range($count) | tostring]
             else ["structure", "0", "172"] end' partition-request.json)" >> "$GITHUB_OUTPUT"
       - uses: actions/download-artifact@v4
         with:

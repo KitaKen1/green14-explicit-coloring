@@ -5,12 +5,11 @@ from pathlib import Path
 import sys
 
 from check import checksum
-from slices import FULL_DIGEST, leaf_digest
+from slices import FULL_DIGEST, LAST_DIFFERENCE, LEAF_WIDTH, PARTITION_COUNT, leaf_digest, partition_interval
 
 
 def join(directory):
-    plan = json.loads(Path('full-plan.json').read_text())
-    expected = {str(i) for i in range(len(plan['cases']))} | {'structure'}
+    expected = {str(i) for i in range(PARTITION_COUNT)} | {'structure'}
     observed = {p.name.removeprefix('partition-') for p in directory.glob('partition-*')}
     if observed != expected:
         raise ValueError('The run is missing one or more proof receipts')
@@ -29,15 +28,15 @@ def join(directory):
         if key == 'structure':
             structure = data
         else:
-            case = plan['cases'][int(key)]
+            first, past = partition_interval(int(key))
             leaves = {int(d): name for d, name in data['leaves'].items()}
-            if (data['first'] != case['first'] or data['past'] != case['past']
-                    or set(leaves) != set(range(case['first'], case['past'], 16))
+            if (data['first'] != first or data['past'] != past
+                    or set(leaves) != set(range(first, past, LEAF_WIDTH))
                     or all_leaves.keys() & leaves.keys()):
                 raise ValueError(f'Partition {key} does not prove exactly its assigned leaves')
             all_leaves.update(leaves)
 
-    if (set(all_leaves) != set(range(1, 354297, 16))
+    if (set(all_leaves) != set(range(1, LAST_DIFFERENCE + 1, LEAF_WIDTH))
             or len(all_leaves) != len(set(all_leaves.values()))
             or len(all_leaves) != structure['leaves']
             or leaf_digest(all_leaves) != structure['cut_sha256']):

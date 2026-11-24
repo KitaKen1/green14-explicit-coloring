@@ -24,7 +24,7 @@ FULL_TARGETS = [
     NAMESPACE + 'complete_recorded_runs', NAMESPACE + 'maximal_run_bound',
 ]
 EXPORT_FILES = {'out/Challenge.ndjson', 'out/Solution.ndjson'}
-PARTITIONS = {'structure'} | {str(i) for i in range(173)}
+PARTITIONS = {'structure'} | {str(i) for i in range(255)}
 
 
 def github(path, *, output=None):

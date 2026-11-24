@@ -7,6 +7,7 @@ from pathlib import Path
 import subprocess
 import sys
 
+from slices import partition_interval
 
 ROOT = Path(__file__).resolve().parents[1]
 HERE = ROOT / 'partitioned'
@@ -28,10 +29,15 @@ def check(index):
     workers = 1 if index == 'structure' else request.get('nanoda_workers', 1)
     if not isinstance(workers, int) or not 1 <= workers <= 4:
         raise ValueError('The CI runner supports one to four nanoda workers')
-    args = ['--structural'] if index == 'structure' else [
-        '--first', str(plan['cases'][int(index)]['first']),
-        '--past', str(plan['cases'][int(index)]['past']),
-    ]
+    if index == 'structure':
+        args = ['--structural']
+    else:
+        if request['full']:
+            first, past = partition_interval(int(index))
+        else:
+            case = plan['cases'][int(index)]
+            first, past = case['first'], case['past']
+        args = ['--first', str(first), '--past', str(past)]
     OUT.mkdir(exist_ok=True)
     LOGDIR.mkdir(exist_ok=True)
     solution = OUT / 'Solution.ndjson'

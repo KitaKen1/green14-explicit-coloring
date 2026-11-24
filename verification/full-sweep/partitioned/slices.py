@@ -18,6 +18,10 @@ DECLARATIONS = (b'{"axiom":', b'{"def":', b'{"thm":', b'{"opaque":', b'{"inducti
 AXIOMS = {'propext','Classical.choice','Quot.sound'}
 QUOTIENT = {'Quot','Quot.mk','Quot.lift','Quot.ind'}
 FULL_DIGEST = '82d528d4c9eeccb31e04987967ecfb1a5a3231a00aaad5549302b89768fe60bf'
+LAST_DIFFERENCE = 354296
+LEAF_WIDTH = 16
+PARTITION_WIDTH = 87 * LEAF_WIDTH
+PARTITION_COUNT = (LAST_DIFFERENCE + PARTITION_WIDTH - 1) // PARTITION_WIDTH
 EXPRESSION_CHILDREN = {
     'app': ('fn', 'arg'),
     'lam': ('type', 'body'),
@@ -26,6 +30,13 @@ EXPRESSION_CHILDREN = {
     'proj': ('struct',),
 }
 EXPRESSION_ATOMS = {'bvar', 'const', 'sort', 'natVal', 'strVal'}
+
+
+def partition_interval(index):
+    if not 0 <= index < PARTITION_COUNT:
+        raise ValueError(f'Unknown partition {index}')
+    first = 1 + index * PARTITION_WIDTH
+    return first, min(first + PARTITION_WIDTH, LAST_DIFFERENCE + 1)
 
 
 def names_in(entry, names):
@@ -78,7 +89,7 @@ class Index:
                     self.leaves[first] = group[0]
         if fingerprint.hexdigest() != FULL_DIGEST or found_axioms != AXIOMS:
             raise ValueError('Incorrect original export or axiom set')
-        if set(self.leaves) != set(range(1,354297,16)):
+        if set(self.leaves) != set(range(1, LAST_DIFFERENCE + 1, LEAF_WIDTH)):
             raise ValueError('Incomplete set of 16-difference numerical declarations')
 
     def closure(self, roots):
@@ -227,10 +238,10 @@ def main():
         index.write_structural(options.output,names)
         print('Prepared structural replay with',len(names),'temporary assumptions')
     else:
-        expected = tuple(range(options.first, options.past, 16))
-        if (not 1 <= options.first < options.past <= 354297
-                or (options.first - 1) % 16
-                or (options.past - 1) % 16 and options.past != 354297
+        expected = tuple(range(options.first, options.past, LEAF_WIDTH))
+        if (not 1 <= options.first < options.past <= LAST_DIFFERENCE + 1
+                or (options.first - 1) % LEAF_WIDTH
+                or (options.past - 1) % LEAF_WIDTH and options.past != LAST_DIFFERENCE + 1
                 or set(expected) != {d for d, name in index.leaves.items() if name in selected}):
             raise ValueError('Numerical declarations do not cover the entire assigned range')
         # Preserve support exactly. It has no dependency on any of the cut premises.
