@@ -41,7 +41,7 @@ There are initially fewer than $Nv<v^3$ progressions. After $T$ steps the remain
 
 ## Fixed colouring at `r = 177147`
 
-This branch runs the full Lean proof for the fixed colouring. The workflow builds 173 consecutive ranges and checks the assembled declaration with Lean Comparator and nanoda. [Proof package](verification/full-sweep/) · [CI runs](https://github.com/KitaKen1/green14-explicit-coloring/actions/workflows/full-fixed-coloring.yml?query=branch%3Agreen14-full-verification)
+This branch runs the full Lean proof for the fixed colouring. The workflow builds 173 consecutive ranges and checks the assembled declaration with Lean Comparator and nanoda. [Proof package](verification/full-sweep/) · [Full verification run](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800)
 
 ## Appendix: Timeline
 
