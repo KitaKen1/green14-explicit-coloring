@@ -57,10 +57,10 @@ def copy_executable(source, target, root, prefix):
 def prepare_guest():
     guest = DATA.parent / 'green14-proof-guest'
     (guest/'proof').mkdir(parents=True)
-    for path in ['bin','dev','proc','sys','tmp','newroot','usr/local/bin']:
+    for path in ['bin','dev','proc','sys','tmp','newroot','usr/local/bin','home','root','run/user']:
         (guest/path).mkdir(parents=True,exist_ok=True)
     link(Path('/bin/busybox'),guest/'bin/busybox')
-    for applet in ['sh','cp','mount','mkdir','chmod','cat','sed','grep','poweroff','env','true']:
+    for applet in ['sh','cp','mount','mkdir','chmod','cat','sed','grep','poweroff','env','true','which']:
         (guest/'bin'/applet).symlink_to('busybox')
     prefix = Path(run('lean','--print-prefix',cwd=HERE,capture_output=True,text=True).stdout.strip())
     for name in ['lake','lean','leanchecker','leanexport','nanoda_bin']:
@@ -76,7 +76,7 @@ def prepare_guest():
         'init': '''#!/bin/sh
 set -eu
 mount -t tmpfs tmpfs /newroot
-cp -a /bin /dev /proc /sys /tmp /usr /opt /proof /guest-init /newroot
+cp -a /bin /dev /proc /sys /tmp /usr /opt /proof /guest-init /home /root /run /newroot
 for directory in /lib /lib64; do
     if [ -e "$directory" ]; then cp -a "$directory" /newroot; fi
 done
@@ -93,6 +93,7 @@ mount -t devtmpfs devtmpfs /dev
 mount -t tmpfs tmpfs /tmp
 chmod 1777 /tmp
 cd /proof
+/bin/which /usr/bin/bwrap /usr/local/bin/green14-nanoda-one git env
 bwrap --ro-bind / / --dev /dev --proc /proc --unshare-all -- /bin/true
 if lake comparator --config pilot-comparator.json \\
     --challenge-from-export PilotChallenge.ndjson --solution-from-export PilotSolution.ndjson
@@ -106,8 +107,8 @@ poweroff -f
         'usr/local/bin/green14-nanoda-one': '''#!/bin/sh
 set -eu
 # Rewrite only the standard thread-count option before invoking stock nanoda.
-sed -E 's/"num_threads"[[:space:]]*:[[:space:]]*4/"num_threads":1/' "$2" > /tmp/nanoda-one.json
-grep -q '"num_threads":1' /tmp/nanoda-one.json
+/bin/sed -E 's/"num_threads"[[:space:]]*:[[:space:]]*4/"num_threads":1/' "$2" > /tmp/nanoda-one.json
+/bin/grep -q '"num_threads":1' /tmp/nanoda-one.json
 exec "$1" /tmp/nanoda-one.json
 ''',
     }.items():
