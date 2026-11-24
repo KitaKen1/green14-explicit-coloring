@@ -26,7 +26,7 @@ def json_file(path, value):
     path.write_text(json.dumps(value,indent=2)+'\n')
 
 
-def prepare(sample):
+def prepare(sample, workers):
     """Use the exact exported files from the chosen assembly or fixed-board sample."""
     guest.OUT.mkdir(exist_ok=True)
     if sample:
@@ -52,10 +52,15 @@ def prepare(sample):
                    namespace+'complete_recorded_runs',namespace+'maximal_run_bound']
     if config['permitted_axioms']!=['propext','Classical.choice','Quot.sound'] or config['theorem_names']!=targets:
         raise ValueError('Incorrect challenge configuration')
-    config['external_kernels']['nanoda']=['/usr/local/bin/green14-nanoda-one','/opt/lean/bin/nanoda_bin']
+    kernel = '/opt/lean/bin/nanoda_bin'
+    config['external_kernels']['nanoda'] = (
+        ['/usr/local/bin/green14-nanoda-one', kernel] if workers == 1 else [kernel]
+    )
     json_file(guest.OUT/'pilot-comparator.json',config)
     guest.prepare_guest()
-    json_file(DATA/'input-receipt.json',{'sha256':expected,'comparison':config,'sample':sample})
+    json_file(DATA/'input-receipt.json', {
+        'sha256': expected, 'comparison': config, 'sample': sample, 'nanoda_workers': workers,
+    })
 
 
 def checkpoint(monitor, proc):
@@ -93,18 +98,25 @@ def verify_start(stage, version):
 
 def run(stage, budget, sample):
     DATA.mkdir(exist_ok=True)
+    request = {} if sample else json.loads(Path('continue-request.json').read_text())
+    workers = request.get('nanoda_workers', 1)
+    if workers not in (1, 4):
+        raise ValueError('The stock replay supports either one or four nanoda workers')
     version = guest.run('qemu-system-x86_64','--version',capture_output=True,text=True).stdout
     if stage==0:
-        prepare(sample)
+        prepare(sample, workers)
         (DATA/'qemu-version.txt').write_text(version)
     else:
         verify_start(stage,version)
+        stored = json.loads((DATA / 'input-receipt.json').read_text())
+        if stored.get('nanoda_workers', 1) != workers:
+            raise ValueError('Cannot change the number of workers while resuming a kernel')
 
     log = DATA/f'stage-{stage:03d}.log'
     endpoint = Path(f'/tmp/green14-production-qmp-{os.getpid()}')
     command = [
         'qemu-system-x86_64','-machine','pc-q35-8.2,accel=kvm','-cpu','qemu64',
-        '-smp','2','-m','12G' if sample else '20G','-nodefaults','-display','none','-no-reboot',
+        '-smp',str(max(2,workers)),'-m','12G' if sample else '20G','-nodefaults','-display','none','-no-reboot',
         '-serial',f'file:{log}','-qmp',f'unix:{endpoint},server=on,wait=off',
         '-kernel',str(DATA/'kernel'),'-initrd',str(DATA/'root.cpio.gz'),
         '-append','console=ttyS0 loglevel=4 rdinit=/init panic=1',

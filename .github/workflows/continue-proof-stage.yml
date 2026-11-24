@@ -38,6 +38,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           persist-credentials: false
+          sparse-checkout: verification/full-sweep
       - uses: actions/cache/restore@v4
         if: inputs.stage == 0
         with:

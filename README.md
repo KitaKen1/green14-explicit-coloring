@@ -41,7 +41,7 @@ There are initially fewer than $Nv<v^3$ progressions. After $T$ steps the remain
 
 ## Fixed colouring at `r = 177147`
 
-The fixed colouring on $[1, 2r^2-1]$ avoids red three-term and blue $r$-term arithmetic progressions. Lean built all 173 ranges, proved `Complete recordedRuns` and the bound of 4,723 maximal long blue runs, and accepted the unconditional `Green14.green_14_variant_2r2_red_set`. The final declarations use only `propext`, `Classical.choice`, and `Quot.sound`. [Proof package](verification/full-sweep/) · [Assembly job](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063)
+The fixed colouring on $[1, 2r^2-1]$ avoids red three-term and blue $r$-term arithmetic progressions. Lean built all 173 ranges, proved `Complete recordedRuns` and the bound of 4,723 maximal long blue runs, and accepted the unconditional `Green14.green_14_variant_2r2_red_set`. The final declarations use only `propext`, `Classical.choice`, and `Quot.sound`. [Proof package](verification/full-sweep/) · [Assembly job](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063) · [Original logs, artifacts, and SHA-256](verification/logs/ci-45292509800-1/)
 
 The first independent replay stopped during Linux sandbox setup. Two runs are checking the same assembled export after that failure. [Stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349777143) · [Resumable stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349503457)
 
