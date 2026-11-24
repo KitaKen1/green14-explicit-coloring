@@ -32,12 +32,12 @@ open_portion = (
 )
 inverses = ', '.join(str(pow(d,-1,354301)) for d in range(1,17))
 proof_portion = (
-    'import FusedGateBatch\n'
+    'import LiteralGateBatch\n'
     'set_option maxHeartbeats 0\nset_option maxRecDepth 100000\n'
     + header + 'open ' + GATE_NAMESPACE + '\n'
     + f'private def inverses : List Nat := [{inverses}]\n'
-    + 'private theorem covered : fusedFrom 1 inverses = true := by decide +kernel\n'
-    + statement + 'fused_range covered\n'
+    + 'private theorem covered : literalFrom 1 inverses = true := by decide +kernel\n'
+    + statement + 'literal_range covered\n'
     + f'#print axioms {TARGET}\n'
 )
 primitives = json.loads((ROOT / 'full-plan.json').read_text())['primitives']

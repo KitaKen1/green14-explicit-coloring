@@ -13,7 +13,7 @@ defaults:
 jobs:
   save:
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 80
     steps:
       - uses: actions/checkout@v4
         with:
@@ -37,12 +37,29 @@ jobs:
           sudo apt-get install -y --no-install-recommends qemu-system-x86 busybox-static cpio bubblewrap zstd
           sudo chgrp "$(id -gn)" /dev/kvm
           sudo chmod g+rw /dev/kvm
+      - id: sample
+        uses: actions/cache/restore@v4
+        with:
+          key: green14-checkpoint-sample-${{ hashFiles('verification/full-sweep/checkpoint/proof-inputs.py','verification/full-sweep/full-plan.json') }}
+          path: |
+            verification/full-sweep/out/PilotChallenge.ndjson
+            verification/full-sweep/out/PilotSolution.ndjson
+            verification/full-sweep/out/pilot-comparator.json
       - name: Build and export the exact fixed-board sample
+        if: steps.sample.outputs.cache-hit != 'true'
         run: |
           export PATH="$HOME/.elan/bin:$PATH"
           tar -xzf support.tar.gz
           python3 checkpoint/proof-inputs.py
         working-directory: verification/full-sweep
+      - uses: actions/cache/save@v4
+        if: steps.sample.outputs.cache-hit != 'true'
+        with:
+          key: green14-checkpoint-sample-${{ hashFiles('verification/full-sweep/checkpoint/proof-inputs.py','verification/full-sweep/full-plan.json') }}
+          path: |
+            verification/full-sweep/out/PilotChallenge.ndjson
+            verification/full-sweep/out/PilotSolution.ndjson
+            verification/full-sweep/out/pilot-comparator.json
       - name: Save Comparator while nanoda verifies the sample
         run: |
           export PATH="$HOME/.elan/bin:$PATH"

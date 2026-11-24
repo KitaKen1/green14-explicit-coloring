@@ -60,7 +60,7 @@ def prepare_guest():
     for path in ['bin','dev','proc','sys','tmp','newroot','usr/local/bin','home','root','run/user','var']:
         (guest/path).mkdir(parents=True,exist_ok=True)
     link(Path('/bin/busybox'),guest/'bin/busybox')
-    for applet in ['sh','cp','mount','mkdir','chmod','cat','sed','grep','poweroff','env','true','which']:
+    for applet in ['sh','cp','mount','mkdir','chmod','cat','sed','grep','poweroff','env','true','which','dmesg']:
         (guest/'bin'/applet).symlink_to('busybox')
     prefix = Path(run('lean','--print-prefix',cwd=HERE,capture_output=True,text=True).stdout.strip())
     for name in ['lake','lean','leanchecker','leanexport','nanoda_bin']:
@@ -101,6 +101,7 @@ if lake comparator --config pilot-comparator.json \\
 then
     echo GREEN14_CHECKPOINT_PROOF_PASSED
 else
+    dmesg | grep -i -E 'out of memory|oom.kill|killed process' || true
     echo GREEN14_CHECKPOINT_PROOF_FAILED
 fi
 poweroff -f
@@ -143,10 +144,10 @@ def main(save):
     endpoint = Path(f'/tmp/green14-proof-qmp-{os.getpid()}')
     command = [
         'qemu-system-x86_64','-machine','pc-q35-8.2,accel=kvm','-cpu','qemu64',
-        '-smp','2','-m','10G','-nodefaults','-display','none','-no-reboot',
+        '-smp','2','-m','12G','-nodefaults','-display','none','-no-reboot',
         '-serial',f'file:{log}','-qmp',f'unix:{endpoint},server=on,wait=off',
         '-kernel',str(DATA/'kernel'),'-initrd',str(DATA/'root.cpio.gz'),
-        '-append','console=ttyS0 quiet rdinit=/init panic=1',
+        '-append','console=ttyS0 loglevel=4 rdinit=/init panic=1',
     ]
     if not save:
         command += ['-incoming', 'exec:zstd -dc '+shlex.quote(str(CAPTURE))]

@@ -104,11 +104,32 @@ def save_json(path, value):
     path.write_text(json.dumps(value, indent=2) + '\n')
 
 
+def check_continuation_receipt(file, dest):
+    with ZipFile(file) as archive:
+        before = archive.read('before.log').decode()
+        after = archive.read('after.log').decode()
+        sums = archive.read('SHA256SUMS').decode()
+    if ('Running nanoda kernel on solution' not in before
+            or any(v in before or v not in after for v in VERDICTS)
+            or 'Sandbox disabled' in before + after
+            or 'GREEN14_CHECKPOINT_PROOF_PASSED' not in after):
+        raise ValueError('The resumed proof lacks the expected sandboxed verdicts')
+    recorded = dict(line.split('  ', 1)[::-1] for line in sums.splitlines())
+    if recorded.get('before.log') != sha256(before.encode()).hexdigest():
+        raise ValueError('The saved guest log differs from its checkpoint digest')
+    (dest / 'before.log').write_text(before)
+    (dest / 'after.log').write_text(after)
+    (dest / 'checkpoint.sha256').write_text(sums)
+    return ('A second runner resumed the same Comparator process. Both stock kernels '
+            'accepted every legal start for differences 1 through 16.')
+
+
 def main(request_path):
     request = json.loads(request_path.read_text())
     run = int(request['run'])
     attempt = int(request['attempt'])
     expected = request['commit']
+    pilot = request.get('kind') == 'continuation-pilot'
     run_api = f'actions/runs/{run}'
     attempt_api = f'{run_api}/attempts/{attempt}'
     receipt = json.loads(github(attempt_api))
@@ -137,6 +158,8 @@ def main(request_path):
         name = item['name']
         expected_name = name in {'support', 'unconditional-exports', 'comparator-log'} or (
             name.startswith('proof-') and name.removeprefix('proof-').isdecimal())
+        if pilot:
+            expected_name = name == 'green14-comparator-continuation-logs'
         if not expected_name or name in recorded or item['expired'] or not item.get('digest'):
             raise ValueError(f'Unexpected or unavailable artifact {name}')
         file = dest / f'{name}.zip'
@@ -155,9 +178,14 @@ def main(request_path):
                 (dest / 'comparator.log').write_text(log)
             if log and all(v in log for v in VERDICTS) and 'Sandbox disabled' not in log:
                 verdict = 'Both nanoda and Lean accepted the unconditional fixed-colouring targets.'
+        if pilot and receipt['conclusion'] == 'success':
+            verdict = check_continuation_receipt(file, dest)
         recorded[name] = {'original_sha256': digest, 'parts': split_large(file)}
 
-    if receipt['conclusion'] == 'success':
+    if receipt['conclusion'] == 'success' and pilot:
+        if set(recorded) != {'green14-comparator-continuation-logs'} or verdict.startswith('The full replay'):
+            raise ValueError('The successful continuation is missing its receipt')
+    if receipt['conclusion'] == 'success' and not pilot:
         required = {'support','unconditional-exports','comparator-log'} | {f'proof-{i}' for i in range(173)}
         if (set(recorded) != required or verdict.startswith('The full replay')
                 or compared is None or compared != replay_hashes):
@@ -167,8 +195,9 @@ def main(request_path):
     logs_digest = verified_zip(f'{attempt_api}/logs', logs)
     recorded['workflow-logs'] = {'original_sha256': logs_digest, 'parts': split_large(logs)}
     save_json(dest / 'original-zip-digests.json', recorded)
+    title = 'Fixed-colouring continuation test' if pilot else 'Full fixed-colouring CI'
     (dest / 'README.md').write_text(
-        '# Full fixed-colouring CI\n\n'
+        f'# {title}\n\n'
         f'Attempt {attempt} tested commit `{expected}` and concluded `{receipt["conclusion"]}`. '
         f'{verdict}\n\n'
         'GitHub supplied the original artifact ZIP digests. For a split ZIP, concatenate the parts '
