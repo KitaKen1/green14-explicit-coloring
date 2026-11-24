@@ -181,8 +181,7 @@ def check_replay_receipt(file, dest, original, original_sums):
     return 'Both stock kernels accepted the sealed unconditional fixed-colouring exports.'
 
 
-def main(request_path):
-    request = json.loads(request_path.read_text())
+def save_attempt(request):
     run = int(request['run'])
     attempt = int(request['attempt'])
     expected = request['commit']
@@ -206,10 +205,14 @@ def main(request_path):
         if receipt['conclusion'] != 'success':
             raise ValueError('Expected a successful final replay')
         original = request['original']
+        save_attempt({'run': original['run'], 'attempt': 1, 'commit': original['proof_commit']})
         producer = Path(f'verification/logs/ci-{original["run"]}-1')
         producer_receipt = json.loads((producer / 'attempt.json').read_text())
+        producer_artifacts = json.loads((producer / 'artifacts.json').read_text())
         producer_digests = json.loads((producer / 'original-zip-digests.json').read_text())
+        expected_input = [item['id'] for item in producer_artifacts if item['name'] == 'unconditional-exports']
         if (producer_receipt['head_sha'] != original['proof_commit']
+                or expected_input != [original['artifact']]
                 or producer_digests['unconditional-exports']['original_sha256'] != original['original_zip_sha256']):
             raise ValueError('The replay is not pinned to the archived assembled export')
         original_sums = parse_sha256((producer / 'compared.sha256').read_text())
@@ -229,7 +232,8 @@ def main(request_path):
     recorded = {}
     replay_hashes = None
     compared = None
-    verdict = 'The full replay did not complete successfully.'
+    pending_verdict = 'The full replay did not complete successfully.'
+    verdict = pending_verdict
     for item in artifacts:
         name = item['name']
         expected_name = name in {'support', 'unconditional-exports', 'comparator-log'} or (
@@ -267,18 +271,24 @@ def main(request_path):
         recorded[name] = {'original_sha256': digest, 'parts': split_large(file)}
 
     if receipt['conclusion'] == 'success' and pilot:
-        if set(recorded) != {'green14-comparator-continuation-logs'} or verdict.startswith('The full replay'):
+        if set(recorded) != {'green14-comparator-continuation-logs'} or verdict == pending_verdict:
             raise ValueError('The successful continuation is missing its receipt')
     if receipt['conclusion'] == 'success' and staged:
-        if set(recorded) != {'continued-comparator'} or verdict.startswith('The full replay'):
+        if set(recorded) != {'continued-comparator'} or verdict == pending_verdict:
             raise ValueError('The successful resumed run is missing its receipt')
-    if native and (set(recorded) != {'comparator-log'} or verdict.startswith('The full replay')):
+    if native and (set(recorded) != {'comparator-log'} or verdict == pending_verdict):
         raise ValueError('The successful replay is missing its receipt')
-    if receipt['conclusion'] == 'success' and not (pilot or staged or native):
-        required = {'support','unconditional-exports','comparator-log'} | {f'proof-{i}' for i in range(173)}
-        if (set(recorded) != required or verdict.startswith('The full replay')
-                or compared is None or compared != replay_hashes):
-            raise ValueError('The successful run is missing a proof artifact or a sandboxed verdict')
+    if kind == 'full-sweep':
+        builder_names = {'prepare', 'assemble'} | {f'shard ({i})' for i in range(173)}
+        accepted = {job['name'] for job in jobs if job['conclusion'] == 'success'}
+        required = {'support','unconditional-exports'} | {f'proof-{i}' for i in range(173)}
+        if not builder_names.issubset(accepted) or not required.issubset(recorded) or compared is None:
+            raise ValueError('The assembled proof or one of its 173 shards is missing')
+        if receipt['conclusion'] == 'success':
+            if verdict == pending_verdict or compared != replay_hashes:
+                raise ValueError('The successful run is missing a sandboxed verdict for the exact exports')
+        else:
+            verdict = 'Lean accepted all 173 shards and the unconditional assembly. ' + pending_verdict
 
     logs = dest / 'workflow-logs.zip'
     logs_digest = verified_zip(f'{attempt_api}/logs', logs)
@@ -303,4 +313,4 @@ def main(request_path):
 
 
 if __name__ == '__main__':
-    main(Path(sys.argv[1]))
+    save_attempt(json.loads(Path(sys.argv[1]).read_text()))
