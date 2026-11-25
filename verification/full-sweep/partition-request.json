@@ -1,8 +1,15 @@
 {
   "full": true,
   "nanoda_workers": 2,
-  "reuse": {
-    "run": 45366078095,
-    "commit": "d87c726538f808f58f37c4648ab7243734ac9d66"
-  }
+  "require_all_receipts": true,
+  "reuse": [
+    {
+      "run": 45366078095,
+      "commit": "d87c726538f808f58f37c4648ab7243734ac9d66"
+    },
+    {
+      "run": 45569469617,
+      "commit": "071c9fcc4ab816fe841ead240a1a35418fafcff6"
+    }
+  ]
 }
