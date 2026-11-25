@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import runpy
 import sys
+import tempfile
 from zipfile import ZipFile
 
 from slices import FULL_DIGEST, PARTITION_COUNT
@@ -62,7 +63,15 @@ def prepare(request, dest):
 
     manifest = {'run': run, 'commit': source['commit'], 'solution_sha256': FULL_DIGEST, 'artifacts': archived}
     (dest / 'reuse-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
-    print(json.dumps(sorted(CASES - archived.keys())))
+    missing = CASES - archived.keys()
+    print(json.dumps(sorted(missing, key=lambda key: -1 if key == 'structure' else -int(key) - 2)))
+
+
+def unpack(data, folder):
+    folder.mkdir(exist_ok=True)
+    with ZipFile(BytesIO(data)) as bundle:
+        for name in FILES:
+            (folder / name).write_bytes(bundle.read(name))
 
 
 def install(source, dest):
@@ -76,16 +85,49 @@ def install(source, dest):
         ARCHIVE['check_partition_receipt'](BytesIO(data), key, FULL_DIGEST)
         folder = dest / f'partition-{key}'
         folder.mkdir()
-        with ZipFile(BytesIO(data)) as bundle:
-            for name in FILES:
-                (folder / name).write_bytes(bundle.read(name))
+        unpack(data, folder)
+
+
+def latest(request, key, dest):
+    source = request.get('reuse')
+    if source is None:
+        return False
+    if key not in CASES:
+        raise ValueError(f'Unexpected proof partition {key}')
+    run = int(source['run'])
+    records = json.loads(ARCHIVE['github'](
+        f'actions/runs/{run}/artifacts?name=partition-{key}'))['artifacts']
+    items = [item for item in records if item['name'] == f'partition-{key}' and not item['expired']]
+    if not items:
+        return False
+    if len(items) != 1:
+        raise ValueError(f'Unexpected duplicate artifact for partition {key}')
+    item = items[0]
+    if (item['workflow_run']['head_sha'] != source['commit']
+            or item['workflow_run']['id'] != run or not item.get('digest')):
+        raise ValueError(f'Unpinned artifact for prior partition {key}')
+    with tempfile.TemporaryDirectory() as directory:
+        archived = Path(directory) / 'previous.zip'
+        digest = ARCHIVE['verified_zip'](f'actions/artifacts/{item["id"]}/zip', archived, item['digest'])
+        with ZipFile(archived) as bundle:
+            if 'partition.json' not in bundle.namelist():
+                return False
+        ARCHIVE['check_partition_receipt'](archived, key, FULL_DIGEST)
+        data = archived.read_bytes()
+    unpack(data, dest)
+    (dest / 'previous.zip').write_bytes(data)
+    metadata = {'run': run, 'commit': source['commit'], 'id': item['id'], 'sha256': digest}
+    (dest / 'reuse-source.json').write_text(json.dumps(metadata, indent=2) + '\n')
+    return True
 
 
 if __name__ == '__main__':
-    mode, source, target = sys.argv[1:]
+    mode, source, target, *extra = sys.argv[1:]
     if mode == 'snapshot':
         prepare(json.loads(Path(source).read_text()), Path(target))
     elif mode == 'install':
         install(Path(source), Path(target))
+    elif mode == 'latest':
+        print(str(latest(json.loads(Path(source).read_text()), extra[0], Path(target))).lower())
     else:
         raise ValueError(f'Unknown receipt operation {mode}')

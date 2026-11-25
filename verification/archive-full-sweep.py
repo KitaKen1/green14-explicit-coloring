@@ -198,6 +198,15 @@ def check_partition_receipt(file, key, solution_digest):
             log = archive.read(f'{name}.log')
             if marker not in log or sha256(log).hexdigest() != receipt[f'{name}_log_sha256']:
                 raise ValueError(f'Missing or changed {name} verdict in partition {key}')
+        if 'previous.zip' in archive.namelist():
+            previous = archive.read('previous.zip')
+            metadata = json.loads(archive.read('reuse-source.json'))
+            if sha256(previous).hexdigest() != metadata['sha256']:
+                raise ValueError(f'Changed original ZIP for reused partition {key}')
+            with ZipFile(BytesIO(previous)) as old:
+                for entry in ('partition.json', *(f'{name}.log' for name in markers)):
+                    if old.read(entry) != archive.read(entry):
+                        raise ValueError(f'Changed original verification output for partition {key}')
     return receipt['slice_sha256']
 
 

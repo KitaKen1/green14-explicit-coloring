@@ -117,8 +117,14 @@ jobs:
       - name: Check the original proof terms in this partition
         env:
           PARTITION: ${{ matrix.case }}
+          GH_TOKEN: ${{ github.token }}
         run: |
           export PATH="$HOME/.elan/bin:$PATH"
+          reused=$(python3 partitioned/reuse.py latest partition-request.json partition-receipt "$PARTITION")
+          if [[ "$reused" == true ]]; then
+            echo "Reused an accepted check of the same partition from the earlier run."
+            exit 0
+          fi
           sha256sum -c partition-inputs.sha256
           tar -xzf partition-inputs.tar.gz
           bash replay-memory.sh
