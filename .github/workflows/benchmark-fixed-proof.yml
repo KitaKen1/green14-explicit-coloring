@@ -1,0 +1,67 @@
+name: Benchmark stock nanoda on the fixed-colouring proof
+on:
+  push:
+    branches: [green14-full-verification]
+    paths:
+      - .github/workflows/benchmark-fixed-proof.yml
+permissions:
+  actions: read
+  contents: read
+defaults:
+  run:
+    shell: bash
+    working-directory: verification/full-sweep
+jobs:
+  benchmark:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        workers: [1, 2]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+          sparse-checkout: verification/full-sweep/partitioned
+      - uses: actions/cache/restore@v4
+        with:
+          key: green14-full-v1-${{ hashFiles('verification/full-sweep/lean-toolchain','verification/full-sweep/lake-manifest.json','verification/full-sweep/full-plan.json') }}
+          path: |
+            ~/.elan
+            verification/full-sweep/.lake/packages/*/.lake/build/lib/lean
+          fail-on-cache-miss: true
+      - name: Confirm the original proof artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/$GITHUB_REPOSITORY/actions/artifacts/14908000591" |
+            jq -e '.name == "sealed-export-index" and
+                   .workflow_run.id == 45366078095 and
+                   .workflow_run.head_sha == "d87c726538f808f58f37c4648ab7243734ac9d66" and
+                   .digest == "sha256:d241a84c3c1b4ff69f569c9d1371dda7b32e601ceb518a49c31ea46524e3bcb9"'
+      - uses: actions/download-artifact@v4
+        with:
+          name: sealed-export-index
+          run-id: 45366078095
+          github-token: ${{ github.token }}
+          path: verification/full-sweep
+      - name: Set up the Linux isolation
+        run: bash sandbox.sh
+      - name: Time the same 128 differences
+        env:
+          WORKERS: ${{ matrix.workers }}
+        run: |
+          export PATH="$HOME/.elan/bin:$PATH"
+          lscpu | tee cpu.log
+          sha256sum -c partition-inputs.sha256
+          tar -xzf partition-inputs.tar.gz
+          bash replay-memory.sh
+          python3 partitioned/check.py benchmark --benchmark-workers "$WORKERS"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: nanoda-benchmark-${{ matrix.workers }}
+          path: |
+            verification/full-sweep/cpu.log
+            verification/full-sweep/partition-receipt/

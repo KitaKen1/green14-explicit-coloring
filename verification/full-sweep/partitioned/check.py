@@ -1,5 +1,6 @@
 """Check a projection of the sealed export with stock Lean and nanoda."""
 
+from argparse import ArgumentParser
 from hashlib import sha256
 import json
 import os
@@ -23,16 +24,20 @@ def checksum(path):
     return digest.hexdigest()
 
 
-def check(index):
+def check(index, benchmark_workers):
     plan = json.loads((ROOT / 'full-plan.json').read_text())
     request = json.loads((ROOT / 'partition-request.json').read_text())
     workers = 1 if index == 'structure' else request.get('nanoda_workers', 1)
+    if benchmark_workers is not None:
+        workers = benchmark_workers
     if not isinstance(workers, int) or not 1 <= workers <= 4:
         raise ValueError('The CI runner supports one to four nanoda workers')
     if index == 'structure':
         args = ['--structural']
     else:
-        if request['full']:
+        if benchmark_workers is not None:
+            first, past = 339969, 340097
+        elif request['full']:
             first, past = partition_interval(int(index))
         else:
             case = plan['cases'][int(index)]
@@ -74,15 +79,14 @@ def check(index):
         '--tmpfs', '/tmp', '--proc', '/proc', '--dev', '/dev',
         '--clearenv', '--setenv', 'LEAN_ABORT_ON_PANIC', '1', '--chdir', '/proof',
     ]
-    commands = [
-        ('nanoda', ['/lean/bin/nanoda_bin', '/proof/nanoda.json']),
-        ('lean', ['/lean/bin/leanchecker', '--from-export', '/proof/Solution.ndjson']),
-    ]
+    commands = [('nanoda', ['/lean/bin/nanoda_bin', '/proof/nanoda.json'])]
+    if benchmark_workers is None:
+        commands.append(('lean', ['/lean/bin/leanchecker', '--from-export', '/proof/Solution.ndjson']))
     for name, command in commands:
         path = LOGDIR / (name + '.log')
         print(f'Running stock {name} on partition {index}', flush=True)
         with path.open('w') as log:
-            result = subprocess.run(['/usr/bin/time', '-v', *sandbox, '--', *command],
+            result = subprocess.run([*sandbox, '--', '/usr/bin/time', '-v', *command],
                                     stdout=log, stderr=subprocess.STDOUT)
         print(path.read_text(), end='')
         result.check_returncode()
@@ -93,11 +97,17 @@ def check(index):
         'nanoda_workers': workers,
         'slice_sha256': checksum(solution),
         'projection_log_sha256': checksum(LOGDIR / 'projection.log'),
-        'nanoda_log_sha256': checksum(LOGDIR / 'nanoda.log'),
-        'lean_log_sha256': checksum(LOGDIR / 'lean.log'),
     })
+    for name, _ in commands:
+        receipt[f'{name}_log_sha256'] = checksum(LOGDIR / f'{name}.log')
     (LOGDIR / 'partition.json').write_text(json.dumps(receipt, indent=2) + '\n')
 
 
 if __name__ == '__main__':
-    check(sys.argv[1])
+    parser = ArgumentParser(description=__doc__)
+    parser.add_argument('partition')
+    parser.add_argument('--benchmark-workers', type=int, choices=(1, 2))
+    args = parser.parse_args()
+    if (args.partition == 'benchmark') != (args.benchmark_workers is not None):
+        parser.error('Use --benchmark-workers with the benchmark partition')
+    check(args.partition, args.benchmark_workers)
