@@ -82,7 +82,9 @@ There are initially fewer than $Nv<v^3$ progressions. After $T$ steps the remain
 
 Lean accepted all 173 ranges and the unconditional assembly. The final declarations use only `propext`, `Classical.choice`, and `Quot.sound`. The archive contains the original workflow logs and all 176 artifacts, including the exact challenge and solution exports. [Assembly job](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063) · [Archive and SHA-256](verification/logs/ci-45292509800-1/)
 
-The single-job replay hit its time limit while nanoda was running. The same assembled export is being checked by a resumable stock Comparator run and parallel cross-checks. The two-worker run carries over SHA-256-verified receipts for completed partitions. [Single-job log](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45349777143/job/138293028110) · [Resumable stock Comparator replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45365370611) · [Parallel cross-check](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45366078095) · [Two-worker cross-check](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45569469617)
+Comparator matched the original theorem statements and checked the axiom policy. The stock nanoda and Lean kernels accepted all 255 numerical partitions and the structural proof. The final join accounted for every one of the 22,144 arithmetic lemmas used by the assembly. [Independent verification](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45704259682) · [Archive and SHA-256](verification/logs/ci-45704259682-1/)
+
+The standalone end-to-end Comparator replay is running with checkpoints. [Workflow log](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45365370611)
 
 ### Earlier construction
 
