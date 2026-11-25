@@ -1,0 +1,62 @@
+[
+  {
+    "id": 15064976724,
+    "node_id": "MDg6QXJ0aWZhY3QxNTA2NDk3NjcyNA==",
+    "name": "sealed-partitioned-proof",
+    "size_in_bytes": 10334,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/15064976724",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/15064976724/zip",
+    "expired": false,
+    "digest": "sha256:f56690b1822b987ceebc31aeb46f5bf6b2adf96dfd313662de6379ca87721886",
+    "created_at": "2026-11-25T21:37:27Z",
+    "updated_at": "2026-11-25T21:37:27Z",
+    "expires_at": "2027-02-23T21:25:46Z",
+    "workflow_run": {
+      "id": 45704259682,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "a2ab1ce2681fba09b8b684526867efc7bddd6447"
+    }
+  },
+  {
+    "id": 15064578394,
+    "node_id": "MDg6QXJ0aWZhY3QxNTA2NDU3ODM5NA==",
+    "name": "sealed-export-index",
+    "size_in_bytes": 99845191,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/15064578394",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/15064578394/zip",
+    "expired": false,
+    "digest": "sha256:8e68a45e8b10a632cc0ba06aa2f2f7fa2ed3ccd9169d8d8d70d5689186cc3187",
+    "created_at": "2026-11-25T21:37:15Z",
+    "updated_at": "2026-11-25T21:37:15Z",
+    "expires_at": "2027-02-23T21:25:46Z",
+    "workflow_run": {
+      "id": 45704259682,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "a2ab1ce2681fba09b8b684526867efc7bddd6447"
+    }
+  },
+  {
+    "id": 15064179990,
+    "node_id": "MDg6QXJ0aWZhY3QxNTA2NDE3OTk5MA==",
+    "name": "reused-proof-receipts",
+    "size_in_bytes": 712808,
+    "url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/15064179990",
+    "archive_download_url": "https://api.github.com/repos/KitaKen1/green14-explicit-coloring/actions/artifacts/15064179990/zip",
+    "expired": false,
+    "digest": "sha256:856d67b8698100f5b8af6787f97b7fb9a2a7ec1747dffdddd74f99e56776fcba",
+    "created_at": "2026-11-25T21:29:56Z",
+    "updated_at": "2026-11-25T21:29:56Z",
+    "expires_at": "2027-02-23T21:25:46Z",
+    "workflow_run": {
+      "id": 45704259682,
+      "repository_id": 1462386921,
+      "head_repository_id": 1462386921,
+      "head_branch": "green14-full-verification",
+      "head_sha": "a2ab1ce2681fba09b8b684526867efc7bddd6447"
+    }
+  }
+]

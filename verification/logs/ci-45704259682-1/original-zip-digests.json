@@ -1,0 +1,21 @@
+{
+  "sealed-partitioned-proof": {
+    "original_sha256": "f56690b1822b987ceebc31aeb46f5bf6b2adf96dfd313662de6379ca87721886",
+    "parts": []
+  },
+  "sealed-export-index": {
+    "original_sha256": "8e68a45e8b10a632cc0ba06aa2f2f7fa2ed3ccd9169d8d8d70d5689186cc3187",
+    "parts": [
+      "sealed-export-index.zip.part-000",
+      "sealed-export-index.zip.part-001"
+    ]
+  },
+  "reused-proof-receipts": {
+    "original_sha256": "856d67b8698100f5b8af6787f97b7fb9a2a7ec1747dffdddd74f99e56776fcba",
+    "parts": []
+  },
+  "workflow-logs": {
+    "original_sha256": "c65d3e6bf072da74f7252aa61499d142f7d7daf703d5328ea8e6bba979aaaaa9",
+    "parts": []
+  }
+}
