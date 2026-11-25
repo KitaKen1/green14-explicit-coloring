@@ -30,8 +30,14 @@ def pages(path, field):
         page += 1
 
 
-def prepare(request, dest):
-    source = request['reuse']
+def sources(request):
+    reuse = request.get('reuse')
+    if reuse is None:
+        return []
+    return reuse if isinstance(reuse, list) else [reuse]
+
+
+def verified_artifacts(source):
     run = int(source['run'])
     endpoint = f'actions/runs/{run}'
     receipt = json.loads(ARCHIVE['github'](endpoint))
@@ -45,25 +51,36 @@ def prepare(request, dest):
         if name and job['conclusion'] == 'success':
             successes.add(name[1])
 
-    dest.mkdir(exist_ok=True, parents=True)
-    archived = {}
     for item in pages(f'{endpoint}/artifacts', 'artifacts'):
         key = item['name'].removeprefix('partition-')
         if (not item['name'].startswith('partition-') or key not in successes
-                or key not in CASES or key in archived):
+                or key not in CASES):
             continue
         if (item['expired'] or not item.get('digest')
                 or item['workflow_run']['id'] != run
                 or item['workflow_run']['head_sha'] != source['commit']):
             raise ValueError(f'Unpinned artifact for prior partition {key}')
-        path = dest / f'partition-{key}.zip'
-        digest = ARCHIVE['verified_zip'](f'actions/artifacts/{item["id"]}/zip', path, item['digest'])
-        ARCHIVE['check_partition_receipt'](path, key, FULL_DIGEST)
-        archived[key] = {'id': item['id'], 'sha256': digest}
+        yield key, item
 
-    manifest = {'run': run, 'commit': source['commit'], 'solution_sha256': FULL_DIGEST, 'artifacts': archived}
+
+def prepare(request, dest):
+    dest.mkdir(exist_ok=True, parents=True)
+    archived = {}
+    for source in sources(request):
+        for key, item in verified_artifacts(source):
+            if key in archived:
+                continue
+            path = dest / f'partition-{key}.zip'
+            digest = ARCHIVE['verified_zip'](f'actions/artifacts/{item["id"]}/zip', path, item['digest'])
+            ARCHIVE['check_partition_receipt'](path, key, FULL_DIGEST)
+            archived[key] = {'run': source['run'], 'commit': source['commit'],
+                             'id': item['id'], 'sha256': digest}
+
+    manifest = {'solution_sha256': FULL_DIGEST, 'artifacts': archived}
     (dest / 'reuse-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n')
     missing = CASES - archived.keys()
+    if missing and request.get('require_all_receipts', False):
+        raise ValueError(f'No accepted receipt for {len(missing)} partitions')
     print(json.dumps(sorted(missing, key=lambda key: -1 if key == 'structure' else -int(key) - 2)))
 
 
@@ -88,12 +105,7 @@ def install(source, dest):
         unpack(data, folder)
 
 
-def latest(request, key, dest):
-    source = request.get('reuse')
-    if source is None:
-        return False
-    if key not in CASES:
-        raise ValueError(f'Unexpected proof partition {key}')
+def latest_from(source, key, dest):
     run = int(source['run'])
     records = json.loads(ARCHIVE['github'](
         f'actions/runs/{run}/artifacts?name=partition-{key}'))['artifacts']
@@ -119,6 +131,12 @@ def latest(request, key, dest):
     metadata = {'run': run, 'commit': source['commit'], 'id': item['id'], 'sha256': digest}
     (dest / 'reuse-source.json').write_text(json.dumps(metadata, indent=2) + '\n')
     return True
+
+
+def latest(request, key, dest):
+    if key not in CASES:
+        raise ValueError(f'Unexpected proof partition {key}')
+    return any(latest_from(source, key, dest) for source in sources(request))
 
 
 if __name__ == '__main__':
