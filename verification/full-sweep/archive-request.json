@@ -1,5 +1,12 @@
 {
-  "run": 45292509800,
+  "run": 45704259682,
   "attempt": 1,
-  "commit": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb"
+  "commit": "a2ab1ce2681fba09b8b684526867efc7bddd6447",
+  "kind": "partitioned-full",
+  "original": {
+    "run": 45292509800,
+    "artifact": 14899071978,
+    "proof_commit": "7a3a9e1fe878b5451ee700a851fb3109ef976bbb",
+    "original_zip_sha256": "04aedf93f2216941f7ce11816549a56c3d093f6564228156a0895e3d2804b159"
+  }
 }
