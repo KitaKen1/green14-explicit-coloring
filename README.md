@@ -11,7 +11,7 @@ This repository gives a fixed colouring for **$r=177147$** and proves in Lean th
 
 - Answers the existing FC question with an explicit witness.
 - Proposes an FC statement that asks for the actual finite set of red positions. [Proposed Lean statement](verification/full-sweep/src/Comparator/RedSet/Open.lean)
-- Proves the proposed statement in `Green14.green_14_variant_2r2_red_set`. [Lean proof](verification/full-sweep/src/CyclicRedSetFinal.lean)
+- Proves the proposed statement in `Green14.green_14_variant_2r2_red_set`. [Lean proof](verification/full-sweep/src/CyclicRedSetFinal.lean) · [Axiom report](#axioms-of-the-final-theorem)
 
 ### Proof sketch (AI generated)
 
@@ -80,11 +80,21 @@ There are initially fewer than $Nv<v^3$ progressions. After $T$ steps the remain
 
 ### Fixed colouring
 
-Lean accepted all 173 ranges and the unconditional assembly. The final declarations use only `propext`, `Classical.choice`, and `Quot.sound`. The archive contains the original workflow logs and all 176 artifacts, including the exact challenge and solution exports. [Assembly job](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063) · [Archive and SHA-256](verification/logs/ci-45292509800-1/)
+Lean accepted all 173 ranges and the unconditional assembly. The archive contains the original workflow logs and all 176 artifacts, including the exact challenge and solution exports. [Assembly job](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063) · [Archive and SHA-256](verification/logs/ci-45292509800-1/)
 
 Comparator matched the original theorem statements and checked the axiom policy. The stock nanoda and Lean kernels accepted all 255 numerical partitions and the structural proof. The final join accounted for every one of the 22,144 arithmetic lemmas used by the assembly. [Independent verification](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45704259682) · [Archive and SHA-256](verification/logs/ci-45704259682-1/)
 
 The workflow on `main` reruns Comparator's statement and axiom checks on the exact exports and reassembles the SHA-256-verified kernel receipts from the archive. The standalone end-to-end Comparator replay is running with checkpoints. [Verification on main](.github/workflows/verify-fixed-coloring.yml) · [Standalone replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45365370611)
+
+#### Axioms of the final theorem
+
+Lean's `#print axioms` command reported these dependencies for the fixed-colouring theorem in the assembly job. [Lean command](verification/full-sweep/src/CyclicRedSetFinal.lean#L55) · [Assembly log](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45292509800/job/138278366063)
+
+```text
+'Green14.green_14_variant_2r2_red_set' depends on axioms: [propext, Classical.choice, Quot.sound]
+```
+
+The Comparator configuration names this theorem as a target and permits exactly those three axioms. The archived comparison records the successful check on the original exports. [Comparator configuration](verification/full-sweep/comparator.json#L4-L25) · [Archived comparison log](verification/logs/ci-45704259682-1/compare.log)
 
 ### Earlier construction
 
