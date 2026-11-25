@@ -18,6 +18,7 @@ jobs:
     outputs:
       cases: ${{ steps.plan.outputs.cases }}
       full: ${{ steps.plan.outputs.full }}
+      reused: ${{ steps.plan.outputs.reused }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -45,10 +46,22 @@ jobs:
               .digest == ("sha256:" + $request[0].original_zip_sha256)'
           echo "run_id=$(jq -r .run "$request")" >> "$GITHUB_OUTPUT"
           echo "full=$(jq -r .full partition-request.json)" >> "$GITHUB_OUTPUT"
-          count=$(PYTHONPATH=partitioned python3 -c 'from slices import PARTITION_COUNT; print(PARTITION_COUNT)')
-          echo "cases=$(jq -ce --argjson count "$count" '
-            if .full then ["structure"] + [range($count) | tostring]
-            else ["structure", "0", "172"] end' partition-request.json)" >> "$GITHUB_OUTPUT"
+          if jq -e '.reuse != null' partition-request.json >/dev/null; then
+            cases=$(python3 partitioned/reuse.py snapshot partition-request.json proof-reuse)
+            echo "reused=true" >> "$GITHUB_OUTPUT"
+          else
+            count=$(PYTHONPATH=partitioned python3 -c 'from slices import PARTITION_COUNT; print(PARTITION_COUNT)')
+            cases=$(jq -ce --argjson count "$count" '
+              if .full then ["structure"] + [range($count) | tostring]
+              else ["structure", "0", "172"] end' partition-request.json)
+            echo "reused=false" >> "$GITHUB_OUTPUT"
+          fi
+          echo "cases=$cases" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        if: steps.plan.outputs.reused == 'true'
+        with:
+          name: reused-proof-receipts
+          path: verification/full-sweep/proof-reuse/
       - uses: actions/download-artifact@v4
         with:
           name: unconditional-exports
@@ -75,6 +88,7 @@ jobs:
           compression-level: 0
   verify:
     needs: index
+    if: needs.index.outputs.cases != '[]'
     runs-on: ubuntu-24.04
     timeout-minutes: 360
     strategy:
@@ -116,7 +130,9 @@ jobs:
           path: verification/full-sweep/partition-receipt/
   join:
     needs: [index, verify]
-    if: needs.index.outputs.full == 'true'
+    if: >-
+      ${{ !cancelled() && needs.index.result == 'success' && needs.index.outputs.full == 'true' &&
+          (needs.verify.result == 'success' || needs.index.outputs.cases == '[]') }}
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     steps:
@@ -125,12 +141,22 @@ jobs:
           persist-credentials: false
           sparse-checkout: verification/full-sweep/partitioned
       - uses: actions/download-artifact@v4
+        if: needs.index.outputs.cases != '[]'
         with:
           pattern: partition-*
           path: verification/full-sweep/partitions/
+      - uses: actions/download-artifact@v4
+        if: needs.index.outputs.reused == 'true'
+        with:
+          name: reused-proof-receipts
+          path: verification/full-sweep/proof-reuse/
       - name: Check that every structural assumption has a proof
+        env:
+          REUSED: ${{ needs.index.outputs.reused }}
         run: |
           set -o pipefail
+          mkdir -p partitions
+          if [[ "$REUSED" == true ]]; then python3 partitioned/reuse.py install proof-reuse partitions; fi
           python3 partitioned/join.py partitions | tee partitioned-proof.json
       - uses: actions/upload-artifact@v4
         with:

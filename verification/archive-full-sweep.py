@@ -1,6 +1,7 @@
 """Preserve a completed full-sweep attempt using its pinned commit and GitHub's digests."""
 
 from hashlib import sha256
+from io import BytesIO
 import json
 import os
 from pathlib import Path
@@ -200,6 +201,20 @@ def check_partition_receipt(file, key, solution_digest):
     return receipt['slice_sha256']
 
 
+def check_reused_receipts(file, solution_digest):
+    reused = {}
+    with ZipFile(file) as bundle:
+        manifest = json.loads(bundle.read('reuse-manifest.json'))
+        if manifest['solution_sha256'] != solution_digest or not set(manifest['artifacts']) <= PARTITIONS:
+            raise ValueError('The reused coverage is for a different sealed proof')
+        for key, receipt in manifest['artifacts'].items():
+            raw = bundle.read(f'partition-{key}.zip')
+            if sha256(raw).hexdigest() != receipt['sha256']:
+                raise ValueError(f'Changed raw artifact for prior proof partition {key}')
+            reused[key] = check_partition_receipt(BytesIO(raw), key, solution_digest)
+    return reused
+
+
 def save_attempt(request):
     run = int(request['run'])
     attempt = int(request['attempt'])
@@ -267,7 +282,7 @@ def save_attempt(request):
         if native:
             expected_name = name == 'comparator-log'
         if partitions:
-            expected_name = (name in {'sealed-export-index', 'sealed-partitioned-proof'}
+            expected_name = (name in {'sealed-export-index', 'sealed-partitioned-proof', 'reused-proof-receipts'}
                              or name in {f'partition-{key}' for key in PARTITIONS})
         if not expected_name or name in recorded or item['expired'] or not item.get('digest'):
             raise ValueError(f'Unexpected or unavailable artifact {name}')
@@ -306,8 +321,15 @@ def save_attempt(request):
             elif name == 'sealed-partitioned-proof':
                 with ZipFile(file) as archive:
                     joined = json.loads(archive.read('partitioned-proof.json'))
+            elif name == 'reused-proof-receipts':
+                previous = check_reused_receipts(file, original_sums['out/Solution.ndjson'])
+                if previous.keys() & slices.keys():
+                    raise ValueError('A partition was counted more than once')
+                slices.update(previous)
             else:
                 key = name.removeprefix('partition-')
+                if key in slices:
+                    raise ValueError(f'Partition {key} was counted more than once')
                 slices[key] = check_partition_receipt(file, key, original_sums['out/Solution.ndjson'])
         recorded[name] = {'original_sha256': digest, 'parts': split_large(file)}
 
