@@ -7,7 +7,7 @@ In the 2021 update to Problem 14, Ben Green asked for the following explicit col
 >
 > Give an explicit colouring witnessing $W(3,r)\ge 2r^2$ for some integer $r\ge3$. Colour $\{1,\ldots,2r^2-1\}$ red and blue so that every three-term arithmetic progression has a blue point and every $r$-term arithmetic progression has a red point.
 
-This repository gives a fixed colouring for **$r=177147$** and proves in Lean that it avoids every red three-term and blue $r$-term arithmetic progression on $[1, 2r^2-1]$. [Colouring data (69,180 bytes)](verification/full-sweep/colouring.g14) · [SHA-256](verification/full-sweep/SHA256SUMS)
+This repository gives a fixed colouring for **$r=177147$** and proves in Lean that it avoids every red three-term and blue $r$-term arithmetic progression on $[1, 2r^2-1]$. [Check the colouring in your browser](https://kitaken1.github.io/green14-explicit-coloring/) · [Colouring data (69,180 bytes)](verification/full-sweep/colouring.g14) · [SHA-256](verification/full-sweep/SHA256SUMS)
 
 - Answers the existing FC question with an explicit witness.
 - Proposes an FC statement that asks for the actual finite set of red positions. [Proposed Lean statement](verification/full-sweep/src/Comparator/RedSet/Open.lean)
