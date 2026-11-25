@@ -1,0 +1,59 @@
+name: Verify the archived fixed colouring
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/verify-fixed-coloring.yml
+      - verification/full-sweep/partitioned/**
+      - verification/full-sweep/comparator.json
+      - verification/full-sweep/replay-request.json
+      - verification/logs/ci-45292509800-1/**
+      - verification/logs/ci-45704259682-1/**
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: verification/full-sweep
+    env:
+      BUILD_ARCHIVE: ../logs/ci-45292509800-1
+      REPLAY_ARCHIVE: ../logs/ci-45704259682-1
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check the archived inputs and every kernel receipt
+        run: |
+          set -euo pipefail
+          work="$RUNNER_TEMP/fixed-colouring"
+          mkdir -p "$work/partitions"
+          sha256sum -c SHA256SUMS > "$work/source-checksums.log"
+          (cd "$BUILD_ARCHIVE" && sha256sum -c SHA256SUMS)
+          (cd "$REPLAY_ARCHIVE" && sha256sum -c SHA256SUMS)
+          cat "$BUILD_ARCHIVE"/unconditional-exports.zip.part-* > "$work/exports.zip"
+          digest=$(jq -er '.original_zip_sha256' replay-request.json)
+          printf '%s  %s\n' "$digest" "$work/exports.zip" | sha256sum -c -
+          unzip -p "$work/exports.zip" inputs.tar.gz | tar -xzf - -C "$work"
+          cmp "$work/compared.sha256" "$REPLAY_ARCHIVE/compared.sha256"
+          (cd "$work" && sha256sum -c compared.sha256)
+          python3 -m zipfile -e "$REPLAY_ARCHIVE/reused-proof-receipts.zip" "$work/receipts"
+          python3 partitioned/reuse.py install "$work/receipts" "$work/partitions"
+          python3 partitioned/join.py "$work/partitions" > "$work/partitioned-proof.json"
+          cmp "$work/partitioned-proof.json" "$REPLAY_ARCHIVE/partitioned-proof.json"
+          jq '{all_partitions_accepted, leaf_proofs, original_sha256}' "$work/partitioned-proof.json"
+      - name: Compare the exact challenge and solution exports
+        run: |
+          set -euo pipefail
+          work="$RUNNER_TEMP/fixed-colouring"
+          curl --proto '=https' --tlsv1.2 -fsSL --retry 3 https://elan.lean-lang.org/elan-init.sh -o "$work/elan-init.sh"
+          sh "$work/elan-init.sh" -y --default-toolchain none --no-modify-path
+          "$HOME/.elan/bin/lean" --run partitioned/ReplayIndex.lean \
+            "$work/out/Challenge.ndjson" "$work/out/Solution.ndjson" \
+            comparator.json full-plan.json "$work/dependencies.ndjson"

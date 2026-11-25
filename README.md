@@ -84,7 +84,7 @@ Lean accepted all 173 ranges and the unconditional assembly. The final declarati
 
 Comparator matched the original theorem statements and checked the axiom policy. The stock nanoda and Lean kernels accepted all 255 numerical partitions and the structural proof. The final join accounted for every one of the 22,144 arithmetic lemmas used by the assembly. [Independent verification](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45704259682) · [Archive and SHA-256](verification/logs/ci-45704259682-1/)
 
-The standalone end-to-end Comparator replay is running with checkpoints. [Workflow log](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45365370611)
+The workflow on `main` reruns Comparator's statement and axiom checks on the exact exports and reassembles the SHA-256-verified kernel receipts from the archive. The standalone end-to-end Comparator replay is running with checkpoints. [Verification on main](.github/workflows/verify-fixed-coloring.yml) · [Standalone replay](https://github.com/KitaKen1/green14-explicit-coloring/actions/runs/45365370611)
 
 ### Earlier construction
 
