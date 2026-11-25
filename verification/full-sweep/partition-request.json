@@ -1,1 +1,8 @@
-{"full": true, "nanoda_workers": 1}
+{
+  "full": true,
+  "nanoda_workers": 2,
+  "reuse": {
+    "run": 45366078095,
+    "commit": "d87c726538f808f58f37c4648ab7243734ac9d66"
+  }
+}
