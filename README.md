@@ -1,19 +1,20 @@
 # Green 14 — An explicit colouring in Lean
 
-In the 2021 update to Problem 14, Ben Green asked for the following explicit colouring. Formal Conjectures (FC) lists the question as `green_14_variant_2r2`. [Green's problem list](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf#page=10) · [FC statement](https://github.com/google-deepmind/formal-conjectures/blob/2de491f90132d3f3fac934edf5bd72acb3dfd15c/FormalConjectures/GreensOpenProblems/14.lean#L138-L155)
+In the 2021 update to Problem 14, Ben Green asked whether one could “actually write down a colouring.” [Green's problem list](https://people.maths.ox.ac.uk/greenbj/papers/open-problems.pdf#page=10)
 
 > [!NOTE]
 > **Problem**
 >
 > Give an explicit colouring witnessing $W(3,r)\ge 2r^2$ for some integer $r\ge3$. Colour $\{1,\ldots,2r^2-1\}$ red and blue so that every three-term arithmetic progression has a blue point and every $r$-term arithmetic progression has a red point.
 
-This repository gives a fixed colouring for **$r=177147$** and proves in Lean that it avoids every red three-term and blue $r$-term arithmetic progression on $[1, 2r^2-1]$. [Check the colouring in your browser](https://kitaken1.github.io/green14-explicit-coloring/) · [Colouring data (69,180 bytes)](verification/full-sweep/colouring.g14) · [SHA-256](verification/full-sweep/SHA256SUMS)
+This repository gives Lean proofs for two readings of “write down a colouring”.
 
-- Answers the existing FC question with an explicit witness.
-- Proposes an FC statement that asks for the actual finite set of red positions. [Proposed Lean statement](verification/full-sweep/src/Comparator/RedSet/Open.lean)
-- Proves the proposed statement in `Green14.green_14_variant_2r2_red_set`. [Lean proof](verification/full-sweep/src/CyclicRedSetFinal.lean) · [Axiom report](#axioms-of-the-final-theorem)
+1. **Give a colouring function and prove it works.** Formal Conjectures (FC) already registers this formulation as `green_14_variant_2r2`. Its answer is an integer $r$ paired with a colouring function. We supply a deterministic greedy rule for $r=520822699705116213452472320$ and prove both avoidance conditions. [FC statement](https://github.com/google-deepmind/formal-conjectures/blob/2de491f90132d3f3fac934edf5bd72acb3dfd15c/FormalConjectures/GreensOpenProblems/14.lean#L138-L155) · [Lean proof](lean/Comparator/Candidate.lean#L18)
+2. **Supply a fixed colouring that readers can inspect.** Our proposed formulation, `green_14_variant_2r2_red_set`, asks for the red positions directly or as fixed data with an executable decoder. We publish the encoded red set for **$r=177147$** and prove both avoidance conditions for that set. [Proposed Lean statement](verification/full-sweep/src/Comparator/RedSet/Open.lean) · [Lean proof](verification/full-sweep/src/CyclicRedSetFinal.lean#L25) · [Axiom report](#axioms-of-the-final-theorem)
 
-### Proof sketch (AI generated)
+The browser page uses the same 69,180-byte data file. [Check the colouring in your browser](https://kitaken1.github.io/green14-explicit-coloring/) · [Colouring data](verification/full-sweep/colouring.g14) · [SHA-256](verification/full-sweep/SHA256SUMS)
+
+### Proof sketch for the fixed colouring (AI generated)
 
 1. Write a position as $354301b+c$ with $0\le c<354301$. The recorded column residues avoid nontrivial red three-term progressions modulo $354301$, so any red triple has a single column. The row certificates in each column exclude such a triple there, including in the columns used for repairs. [Red-triple proof](verification/full-sweep/src/Green14/FixedBoard.lean)
 2. A legal $r$-term progression has $1\le d\le 2r+2=354296$. For each $d$, the proof uses its inverse modulo $354301$ to put positions in progression order. It divides the possible starts into 32 bins and uses row masks to show that each start either reaches a red point of the base colouring or belongs to a recorded blue run. Lean joins 173 ranges to prove `Complete recordedRuns`, which covers all legal starts and differences. [Range proof](verification/full-sweep/src/FullPeriodicSweep.lean) · [Row masks](verification/full-sweep/src/PreparedWindows.lean)
